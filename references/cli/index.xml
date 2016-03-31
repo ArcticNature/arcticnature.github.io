@@ -364,7 +364,8 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
       <description>
 
 &lt;p&gt;The SnowFox manager binary.
-Logic unit of SnowFox, deals with user requests and system events.&lt;/p&gt;
+Logic unit of SnowFox, deals with user requests and system events.&lt;br /&gt;
+&lt;strong&gt;&lt;code&gt;snow-fox-manager&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;repository-options:655f1015670be3d6adf536b23ac66a92&#34;&gt;Repository options&lt;/h2&gt;
 
@@ -498,7 +499,8 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
       <description>
 
 &lt;p&gt;The SnowFox manager binary.
-Priviledged unit of SnowFox, deals with operations that require root.&lt;/p&gt;
+Priviledged unit of SnowFox, deals with operations that require root.&lt;br /&gt;
+&lt;strong&gt;&lt;code&gt;snow-fox-spawner&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;inter-process-communication:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;Inter-Process communication&lt;/h2&gt;
 
