@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/cli\/spanwer\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>snow-fox-spawner | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                snow-fox-spawner
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>The SnowFox manager binary.
+Priviledged unit of SnowFox, deals with operations that require root.</p>
+
+<h2 id="inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</h2>
+
+<p>Configure how <code>daemon</code>, <code>manager</code>, and <code>spawner</code> talk to each other.</p>
+
+<h3 id="spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</h3>
+
+<table class="hugo-attributes-table">
+  <p><tr>
+  <td class="hat-name">Type</td>
+  <td class="hat-value"><code>String</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+<p><tr>
+  <td class="hat-name">Default</td>
+  <td class="hat-value"><code>/var/run/snow-fox-manager-spawner.socket</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+</table>
+
+
+<p>Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
+The path to the UNIX socket can be specified with this option.</p>
+
+<h3 id="spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</h3>
+
+<table class="hugo-attributes-table">
+  <p><tr>
+  <td class="hat-name">Type</td>
+  <td class="hat-value"><code>String</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+<p><tr>
+  <td class="hat-name">Default</td>
+  <td class="hat-value"><code>/var/run/snow-fox-spawner.socket</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+</table>
+
+
+<p>Daemon and Spawner use UNIX sockets to exchange protocol buffer messages.
+The path to the UNIX socket can be specified with this option.</p>
+
+<h2 id="other:fcac0069159e29dbe7d5e4ee62041494">Other</h2>
+
+<p>Miscellaneous options.</p>
+
+<h3 id="help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</h3>
+
+<p>Print the list of available options and parameters and exits.</p>
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</a>
+<ul>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
+</ul></li>
+<li><a href="#other:fcac0069159e29dbe7d5e4ee62041494">Other</a>
+<ul>
+<li><a href="#help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/cli\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Command Line Reference | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+
+          <div class="page-header">
+            <h1>
+              
+                Command Line Reference
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>SnowFox is built out of many binareis and tools.
+These all have their own command line parameters and options.</p>
+
+<h2 id="choosing-a-parser:b659b046131d4024ab5e2d3675716bf0">Choosing a parser</h2>
+
+<p>SnowFox allows the user to select which parser will be used to
+process command line arguments.
+This is done to allow flexibility for the needs of the future
+focusing on the needs of the now and supporting backward compatibility.</p>
+
+<p>To accomplish this a special <code>--paerser</code> option is available.
+Because this is processed before a parser for the command line is
+selected there are a few restrictions on this options:</p>
+
+<ul>
+<li>It must be the first option given.</li>
+<li>It must be in the format <code>--parser=PARSER</code>.</li>
+<li>The <code>PARSER</code> must be one of the available parsers.</li>
+</ul>
+
+<p>Some examples:</p>
+
+<ul>
+<li><code>snow-fox --parser gflags</code> is <strong>not valid</strong> (there is no <code>=</code>).</li>
+<li><code>snow-fox --user snow-fox --parser=gflags</code> is <strong>not valid</strong> (not the first argument).</li>
+<li><code>snow-fox --parser=gflags --user snow-fox</code> is <strong>valid</strong>!</li>
+</ul>
+
+<h3 id="supported-parsers:b659b046131d4024ab5e2d3675716bf0">Supported parsers</h3>
+
+<p>At the time, only one parser is supported: the <code>gflags</code> parser.</p>
+
+<h3 id="default-parser:b659b046131d4024ab5e2d3675716bf0">Default parser</h3>
+
+<p>If the <code>--parser=PARSER</code> option is not specified the default parser is <code>gflags</code>.</p>
+
+<p>This documentation presents the arguments for the default parser.
+When an option has a different format for other parsers, this will
+be indicated in the detailed description of the option.
+If an option is not available in all parsers, this will be noted
+in the detailed description too.</p>
+
+<h2 id="binaries:b659b046131d4024ab5e2d3675716bf0">Binaries</h2>
+
+<p>This section lists all the command line tools available to use
+and the available options:</p>
+
+
+              
+              <div class="cli-binaries">
+                <h2 id="ee90f49520f49f91517c72cf11ab0ded">
+                  <a href="../../references/cli/daemon/">
+                    <code>snow-fox</code>
+                  </a>
+                </h2>
+
+                <p><p>The SnowFox daemon binary.
+Responsible for orchestrating the execution of the manager and the spawner.</p>
+</p>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#daemon-options:ee90f49520f49f91517c72cf11ab0ded">Daemon options</a>
+<ul>
+<li><a href="#daemonise-run-snowfox-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--daemonise</code>: run SnowFox in daemon mode</a></li>
+<li><a href="#drop-privileges-drop-privileges-when-not-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--drop_privileges</code>: drop privileges when not in daemon mode</a></li>
+<li><a href="#group-group-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--group</code>: group to drop privileges to</a></li>
+<li><a href="#user-user-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--user</code>: user to drop privileges to</a></li>
+</ul></li>
+<li><a href="#i-o-options:ee90f49520f49f91517c72cf11ab0ded">I/O options</a>
+<ul>
+<li><a href="#stderr-redirect-standard-error-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stderr</code>: redirect standard error to file</a></li>
+<li><a href="#stdin-redirect-standard-input-from-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdin</code>: redirect standard input from file</a></li>
+<li><a href="#stdout-redirect-standard-output-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdout</code>: redirect standard output to file</a></li>
+<li><a href="#work-dir-set-the-working-directory:ee90f49520f49f91517c72cf11ab0ded"><code>--work_dir</code>: set the working directory.</a></li>
+</ul></li>
+<li><a href="#repository-options:ee90f49520f49f91517c72cf11ab0ded">Repository options</a>
+<ul>
+<li><a href="#repo-path-path-to-the-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_path</code>: path to the configuration repository</a></li>
+<li><a href="#repo-type-type-of-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_type</code>: type of configuration repository</a></li>
+<li><a href="#repo-ver-version-of-the-configuration-to-use:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_ver</code>: version of the configuration to use</a></li>
+</ul></li>
+<li><a href="#inter-process-communication:ee90f49520f49f91517c72cf11ab0ded">Inter-Process communication</a>
+<ul>
+<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager:ee90f49520f49f91517c72cf11ab0ded"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
+</ul></li>
+<li><a href="#other:ee90f49520f49f91517c72cf11ab0ded">Other</a>
+<ul>
+<li><a href="#help-show-available-options:ee90f49520f49f91517c72cf11ab0ded"><code>--help</code>: show available options</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+              </div>
+              
+              <div class="cli-binaries">
+                <h2 id="655f1015670be3d6adf536b23ac66a92">
+                  <a href="../../references/cli/manager/">
+                    <code>snow-fox-manager</code>
+                  </a>
+                </h2>
+
+                <p><p>The SnowFox manager binary.
+Logic unit of SnowFox, deals with user requests and system events.</p>
+</p>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#repository-options:655f1015670be3d6adf536b23ac66a92">Repository options</a>
+<ul>
+<li><a href="#repo-path-path-to-the-configuration-repository:655f1015670be3d6adf536b23ac66a92"><code>--repo_path</code>: path to the configuration repository</a></li>
+<li><a href="#repo-type-type-of-configuration-repository:655f1015670be3d6adf536b23ac66a92"><code>--repo_type</code>: type of configuration repository</a></li>
+<li><a href="#repo-ver-version-of-the-configuration-to-use:655f1015670be3d6adf536b23ac66a92"><code>--repo_ver</code>: version of the configuration to use</a></li>
+</ul></li>
+<li><a href="#inter-process-communication:655f1015670be3d6adf536b23ac66a92">Inter-Process communication</a>
+<ul>
+<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager:655f1015670be3d6adf536b23ac66a92"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:655f1015670be3d6adf536b23ac66a92"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+</ul></li>
+<li><a href="#other:655f1015670be3d6adf536b23ac66a92">Other</a>
+<ul>
+<li><a href="#help-show-available-options:655f1015670be3d6adf536b23ac66a92"><code>--help</code>: show available options</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+              </div>
+              
+              <div class="cli-binaries">
+                <h2 id="fcac0069159e29dbe7d5e4ee62041494">
+                  <a href="../../references/cli/spanwer/">
+                    <code>snow-fox-spawner</code>
+                  </a>
+                </h2>
+
+                <p><p>The SnowFox manager binary.
+Priviledged unit of SnowFox, deals with operations that require root.</p>
+</p>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</a>
+<ul>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
+</ul></li>
+<li><a href="#other:fcac0069159e29dbe7d5e4ee62041494">Other</a>
+<ul>
+<li><a href="#help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+              </div>
+              
+
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#choosing-a-parser:b659b046131d4024ab5e2d3675716bf0">Choosing a parser</a>
+<ul>
+<li><a href="#supported-parsers:b659b046131d4024ab5e2d3675716bf0">Supported parsers</a></li>
+<li><a href="#default-parser:b659b046131d4024ab5e2d3675716bf0">Default parser</a></li>
+</ul></li>
+<li><a href="#binaries:b659b046131d4024ab5e2d3675716bf0">Binaries</a></li>
+</ul></li>
+</ul>
+</nav>
+
+              <ul class="cli-toc">
+                
+                <li>
+                  <a href="#ee90f49520f49f91517c72cf11ab0ded">
+                    <code>snow-fox</code>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#655f1015670be3d6adf536b23ac66a92">
+                    <code>snow-fox-manager</code>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#fcac0069159e29dbe7d5e4ee62041494">
+                    <code>snow-fox-spawner</code>
+                  </a>
+                </li>
+                
+              </ul>
+            </div> 
+          </div> 
+
+        </div> 
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+
+    
+    <script type="text/javascript" src="../../js/index/cli.js">
+    </script>
+  </body>
+</html>

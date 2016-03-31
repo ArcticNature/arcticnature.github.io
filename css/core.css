@@ -8863,3 +8863,30 @@ nav#TableOfContents ul {
   list-style: none;
   padding-left: 1em;
 }
+table.hugo-attributes-table {
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+}
+table.hugo-attributes-table td.hat-name {
+  font-weight: bold;
+  padding-right: 2em;
+}
+table.hugo-attributes-table td.hat-value {
+  padding-right: 2em;
+}
+ul.cli-toc {
+  list-style: none;
+  margin-top: -10px;
+  padding-left: 3em;
+}
+h1[id]:before,
+h2[id]:before,
+h3[id]:before,
+h4[id]:before,
+h5[id]:before,
+h6[id]:before {
+  display: block;
+  content: "";
+  height: 55px;
+  margin: -55px 0 0;
+}

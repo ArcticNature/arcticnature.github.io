@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/page\/install\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Install | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                Install
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<div class="alert alert-warning" role="alert">
+  <p><strong>Early development warning!!!</strong>
+  Be aware that SnowFox is in its early development stages.</p>
+
+<p><strong>Do not use in production environments</strong>.</p>
+
+</div>
+
+
+<!--
+<div class="alert alert-info" role="alert">
+  <p>Looking to get up and running fast so you can try things out?
+<strong>Checkout the <a href="{#{&lt; relref &quot;quick-start.md&quot; &gt;}}">Quick Start</a> guide!</strong></p>
+
+</div>
+
+-->
+
+<h2 id="install-from-source:ee40007639ba1d9861b5cc3e7ade0aef">Install from source</h2>
+
+<p>At this time, the only install method is through direct
+source code compilation.</p>
+
+<p>SnowFox uses several tools and languages which means there are
+a few pre-requisites to compiling the sources.</p>
+
+<p>But fear not!
+The custom-built build tool for SnowFox makes it
+easy to compile the entire project with little effort.</p>
+
+<p>This guide will go through the installation and compilation
+steps on Fedora 23.
+Be aware that this is for gidance only and that your mileage may vary.</p>
+
+<h3 id="installing-compile-time-dependencies:ee40007639ba1d9861b5cc3e7ade0aef">Installing compile-time dependencies</h3>
+
+<p>Install the compilers and build tools used by SnowFox&rsquo;s build system:
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo dnf install cmake gcc-c++ git make openssl-devel protobuf-compiler protobuf-devel
+</code></pre></div>
+</p>
+
+<p>Install the latest version of Node.js, NPM, and Grunt:
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>curl --silent --location https://rpm.nodesource.com/setup_5.x <span class="p">|</span> sudo bash -
+sudo dnf install nodejs
+sudo npm install grunt-cli
+</code></pre></div>
+</p>
+
+<h3 id="compiling-the-code:ee40007639ba1d9861b5cc3e7ade0aef">Compiling the code</h3>
+
+<p>Pull SnowFox&rsquo;s source code and compile it:
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>mkdir -p /tmp/snow-fox-source
+<span class="nb">cd</span> /tmp/snow-fox-source
+
+git clone https://github.com/ArcticNature/snow-fox.git --recursive
+<span class="nb">cd</span> snow-fox
+
+npm install
+grunt distribute
+</code></pre></div>
+</p>
+
+<h3 id="installing-the-result:ee40007639ba1d9861b5cc3e7ade0aef">Installing the result</h3>
+
+<p>The output of a distribution build is stored in <code>out/packages</code>.
+For convenience, let us put the compiled distribution in <code>/opt</code>:
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo mkdir -p /opt
+sudo cp --recursive --preserve<span class="o">=</span>all out/packages/snow-fox /opt/
+sudo useradd --home-dir /opt/snow-fox --shell /bin/false --system --user-group snow-fox
+sudo chown -R snow-fox:snow-fox /opt/snow-fox
+</code></pre></div>
+</p>
+
+<p><div class="alert alert-success" role="alert">
+  <p><strong>Congratulations!</strong>
+  SnowFox is now installed in <code>/opt/snow-fox/bin/snow-fox</code>.</p>
+
+<p>Check out the <code>Quick Start</code>,
+  <code>Guides and Tutorials</code>, and
+  <a href="../../page/references/">References</a> sections!</p>
+
+</div>
+</p>
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#install-from-source:ee40007639ba1d9861b5cc3e7ade0aef">Install from source</a>
+<ul>
+<li><a href="#installing-compile-time-dependencies:ee40007639ba1d9861b5cc3e7ade0aef">Installing compile-time dependencies</a></li>
+<li><a href="#compiling-the-code:ee40007639ba1d9861b5cc3e7ade0aef">Compiling the code</a></li>
+<li><a href="#installing-the-result:ee40007639ba1d9861b5cc3e7ade0aef">Installing the result</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>
