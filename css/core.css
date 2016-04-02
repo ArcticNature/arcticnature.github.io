@@ -8818,6 +8818,106 @@ nav.navbar-fixed-top + div {
 #footer {
   height: 5em;
 }
+table.hugo-attributes-table {
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+}
+table.hugo-attributes-table td.hat-name {
+  font-weight: bold;
+  padding-right: 2em;
+}
+table.hugo-attributes-table td.hat-value {
+  padding-right: 2em;
+}
+div.draft {
+  border: 1px solid #d9534f;
+}
+div.draft::before {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background-color: #d9534f;
+  content: "Draft";
+  display: block;
+  margin: 1em;
+}
+adiv.draft::before:hover,
+adiv.draft::before:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+div.draft::before:empty {
+  display: none;
+}
+.btn div.draft::before {
+  position: relative;
+  top: -1px;
+}
+div.draft::before[href]:hover,
+div.draft::before[href]:focus {
+  background-color: #c9302c;
+}
+h1[id]:before,
+h2[id]:before,
+h3[id]:before,
+h4[id]:before,
+h5[id]:before,
+h6[id]:before {
+  display: block;
+  content: "";
+  height: 55px;
+  margin: -55px 0 0;
+}
+div.mdtable.table-striped > table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+div.mdtable.table-striped > table > thead > tr > th,
+div.mdtable.table-striped > table > tbody > tr > th,
+div.mdtable.table-striped > table > tfoot > tr > th,
+div.mdtable.table-striped > table > thead > tr > td,
+div.mdtable.table-striped > table > tbody > tr > td,
+div.mdtable.table-striped > table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+div.mdtable.table-striped > table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+div.mdtable.table-striped > table > caption + thead > tr:first-child > th,
+div.mdtable.table-striped > table > colgroup + thead > tr:first-child > th,
+div.mdtable.table-striped > table > thead:first-child > tr:first-child > th,
+div.mdtable.table-striped > table > caption + thead > tr:first-child > td,
+div.mdtable.table-striped > table > colgroup + thead > tr:first-child > td,
+div.mdtable.table-striped > table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+div.mdtable.table-striped > table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+div.mdtable.table-striped > table .table {
+  background-color: #fff;
+}
+div.mdtable.table-striped > table > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+ul.cli-toc {
+  list-style: none;
+  margin-top: -10px;
+  padding-left: 3em;
+}
 #homepage-banner {
   background-image: url("../img/banner.jpg");
   background-size: cover;
@@ -8862,31 +8962,4 @@ div.hugo-single-content {
 nav#TableOfContents ul {
   list-style: none;
   padding-left: 1em;
-}
-table.hugo-attributes-table {
-  margin-bottom: 1em;
-  margin-left: 0.5em;
-}
-table.hugo-attributes-table td.hat-name {
-  font-weight: bold;
-  padding-right: 2em;
-}
-table.hugo-attributes-table td.hat-value {
-  padding-right: 2em;
-}
-ul.cli-toc {
-  list-style: none;
-  margin-top: -10px;
-  padding-left: 3em;
-}
-h1[id]:before,
-h2[id]:before,
-h3[id]:before,
-h4[id]:before,
-h5[id]:before,
-h6[id]:before {
-  display: block;
-  content: "";
-  height: 55px;
-  margin: -55px 0 0;
 }

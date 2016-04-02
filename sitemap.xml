@@ -3,8 +3,28 @@
   
   <url>
     <loc>https://arcticnature.github.io/</loc>
-    <lastmod>2016-03-28T23:47:42+01:00</lastmod>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/daemon-manager/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/daemon-spawner/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/manager-spawner/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/</loc>
+    <lastmod>2016-04-01T23:17:42+01:00</lastmod>
   </url>
   
   <url>

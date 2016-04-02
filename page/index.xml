@@ -26,6 +26,19 @@ SnowFox has a few different interfaces, each with its own section here.&lt;/p&gt
 &lt;p&gt;The &lt;a href=&#34;../references/cli/&#34;&gt;Command Line Reference&lt;/a&gt; section
 is dedicated to the command line interfaces for the various binaries
 that form SnowFox.&lt;/p&gt;
+
+&lt;h2 id=&#34;protocol-buffers:95fc2e7abab391a8a595860a64f5b737&#34;&gt;Protocol Buffers&lt;/h2&gt;
+
+&lt;p&gt;Protocol Buffers &lt;a href=&#34;../references/protobuf/&#34;&gt;message&lt;/a&gt;
+are used in four contexts in SnowFox:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../references/protobuf/daemon-manager/&#34;&gt;Daemon/Manager&lt;/a&gt; protocol.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../references/protobuf/daemon-spawner/&#34;&gt;Daemon/Spawner&lt;/a&gt; protocol.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../references/protobuf/manager-spawner/&#34;&gt;Manager/Spawner&lt;/a&gt; protocol.
+
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -46,26 +59,125 @@ that form SnowFox.&lt;/p&gt;
 &lt;/div&gt;
 
 
-&lt;h2 id=&#34;road-map:d13b20e77898b314e01203e8c542ab16&#34;&gt;Road map&lt;/h2&gt;
+&lt;h2 id=&#34;version-number:d13b20e77898b314e01203e8c542ab16&#34;&gt;Version number&lt;/h2&gt;
+
+&lt;p&gt;The version number follows the rules of &lt;a href=&#34;http://semver.org/&#34;&gt;Semantic Versioning&lt;/a&gt;
+with one difference: for versions below &lt;code&gt;1.0.0&lt;/code&gt; the meaning is shifted by one and
+there is no &lt;code&gt;PATCH&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is to clarify the, very useful, loose constraints on versions below &lt;code&gt;1.0.0&lt;/code&gt;.
+For these versions, when new features are added quickly and compatibility
+breaks often, the &lt;code&gt;MAJOR.MINOR.PATCH&lt;/code&gt; are as follows:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Event ids and correlation.&lt;/li&gt;
-&lt;li&gt;System state information.&lt;/li&gt;
-&lt;li&gt;Command Line Client to control &lt;code&gt;snow-fox&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;System configuration.&lt;/li&gt;
-&lt;li&gt;Service registry.&lt;/li&gt;
-&lt;li&gt;Service configuration.&lt;/li&gt;
-&lt;li&gt;Basic service commands (start, stop, list, status).&lt;/li&gt;
-&lt;li&gt;TCP event source.&lt;/li&gt;
-&lt;li&gt;Client connects over tcp.&lt;/li&gt;
-&lt;li&gt;Cluster support.&lt;/li&gt;
-&lt;li&gt;Metadata storage.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;snow-fox-bootstrap&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Authentication and authorisation system.&lt;/li&gt;
-&lt;li&gt;JSON API.&lt;/li&gt;
-&lt;li&gt;Web site.&lt;/li&gt;
-&lt;li&gt;Process monitoring.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MAJOR&lt;/code&gt;: it is always &lt;code&gt;0&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MINOR&lt;/code&gt;: represents a backward incompatible change.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PATCH&lt;/code&gt;: represents a backward compatible change (feature or bug fix).&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&#34;the-public-api:d13b20e77898b314e01203e8c542ab16&#34;&gt;The public API&lt;/h3&gt;
+
+&lt;p&gt;At the basis of semantic versioning there is a public API.
+The version number changes based on changes to that.
+For the purpose of versioning, the public API of SnowFox is composed of:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;../references/cli/&#34;&gt;command line&lt;/a&gt; options.&lt;/li&gt;
+&lt;li&gt;The configuration format.&lt;/li&gt;
+&lt;li&gt;The public protocol buffer API.&lt;/li&gt;
+&lt;li&gt;The plugin API.&lt;/li&gt;
+&lt;li&gt;The lifecycles steps.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;road-map:d13b20e77898b314e01203e8c542ab16&#34;&gt;Road map&lt;/h2&gt;
+
+&lt;div class=&#34;mdtable table-striped&#34;&gt;
+  &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Milestone estimate&lt;/th&gt;
+&lt;th&gt;Feature&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0.0.1&lt;/td&gt;
+&lt;td&gt;Event ids and correlation&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.2&lt;/td&gt;
+&lt;td&gt;System state information&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.3&lt;/td&gt;
+&lt;td&gt;Command Line Client&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.4&lt;/td&gt;
+&lt;td&gt;System configuration&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.5&lt;/td&gt;
+&lt;td&gt;Service registry&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.6&lt;/td&gt;
+&lt;td&gt;Service load/list&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.7&lt;/td&gt;
+&lt;td&gt;Service start/stop/status&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.8&lt;/td&gt;
+&lt;td&gt;TCP connection support&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.9&lt;/td&gt;
+&lt;td&gt;Client connects over tcp&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.10&lt;/td&gt;
+&lt;td&gt;Cluster support&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.11&lt;/td&gt;
+&lt;td&gt;Metadata storage&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.12&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;snow-fox-bootstrap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;pending&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
 
 &lt;h2 id=&#34;next-release:d13b20e77898b314e01203e8c542ab16&#34;&gt;Next release&lt;/h2&gt;
 
@@ -73,6 +185,8 @@ that form SnowFox.&lt;/p&gt;
 
 &lt;p&gt;This release cycle will be complete when service start, list,
 stop, and status are implemented.&lt;/p&gt;
+
+&lt;p&gt;This will approximately be version &lt;code&gt;0.0.7&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -87,9 +201,10 @@ stop, and status are implemented.&lt;/p&gt;
 &lt;h2 id=&#34;metadata:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Metadata&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Author: Stefano Pogliani (&lt;a href=&#34;mailto:stefano@spogliani.net&#34;&gt;stefano@spogliani.net&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;License: &lt;a href=&#34;https://opensource.org/licenses/BSD-3-Clause&#34;&gt;BSD 3 Clause&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Latest updates and roadmap: &lt;a href=&#34;../page/project-status/&#34;&gt;See this page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Author: Stefano Pogliani (&lt;a href=&#34;mailto:stefano@spogliani.net&#34;&gt;stefano@spogliani.net&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;License: &lt;a href=&#34;https://opensource.org/licenses/BSD-3-Clause&#34;&gt;BSD 3 Clause&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Latest updates and roadmap: &lt;a href=&#34;../page/project-status/&#34;&gt;See this page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Meaning of the version number: &lt;a href=&#34;../page/project-status/#version-number:d13b20e77898b314e01203e8c542ab16&#34;&gt;Almost SemVer&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;acknowledgements:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Acknowledgements&lt;/h2&gt;
@@ -162,14 +277,8 @@ Is you have any ideas or issues you can also open an &lt;a href=&#34;https://git
 &lt;/div&gt;
 
 
-&lt;!--
-&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;Looking to get up and running fast so you can try things out?
-&lt;strong&gt;Checkout the &lt;a href=&#34;{#{&amp;lt; relref &amp;quot;quick-start.md&amp;quot; &amp;gt;}}&#34;&gt;Quick Start&lt;/a&gt; guide!&lt;/strong&gt;&lt;/p&gt;
 
-&lt;/div&gt;
 
---&gt;
 
 &lt;h2 id=&#34;install-from-source:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Install from source&lt;/h2&gt;
 

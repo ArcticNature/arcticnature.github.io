@@ -148,26 +148,125 @@
 </div>
 
 
-<h2 id="road-map:d13b20e77898b314e01203e8c542ab16">Road map</h2>
+<h2 id="version-number:d13b20e77898b314e01203e8c542ab16">Version number</h2>
+
+<p>The version number follows the rules of <a href="http://semver.org/">Semantic Versioning</a>
+with one difference: for versions below <code>1.0.0</code> the meaning is shifted by one and
+there is no <code>PATCH</code>.</p>
+
+<p>This is to clarify the, very useful, loose constraints on versions below <code>1.0.0</code>.
+For these versions, when new features are added quickly and compatibility
+breaks often, the <code>MAJOR.MINOR.PATCH</code> are as follows:</p>
 
 <ul>
-<li>Event ids and correlation.</li>
-<li>System state information.</li>
-<li>Command Line Client to control <code>snow-fox</code>.</li>
-<li>System configuration.</li>
-<li>Service registry.</li>
-<li>Service configuration.</li>
-<li>Basic service commands (start, stop, list, status).</li>
-<li>TCP event source.</li>
-<li>Client connects over tcp.</li>
-<li>Cluster support.</li>
-<li>Metadata storage.</li>
-<li><code>snow-fox-bootstrap</code>.</li>
-<li>Authentication and authorisation system.</li>
-<li>JSON API.</li>
-<li>Web site.</li>
-<li>Process monitoring.</li>
+<li><code>MAJOR</code>: it is always <code>0</code>.</li>
+<li><code>MINOR</code>: represents a backward incompatible change.</li>
+<li><code>PATCH</code>: represents a backward compatible change (feature or bug fix).</li>
 </ul>
+
+<h3 id="the-public-api:d13b20e77898b314e01203e8c542ab16">The public API</h3>
+
+<p>At the basis of semantic versioning there is a public API.
+The version number changes based on changes to that.
+For the purpose of versioning, the public API of SnowFox is composed of:</p>
+
+<ul>
+<li>The <a href="../../references/cli/">command line</a> options.</li>
+<li>The configuration format.</li>
+<li>The public protocol buffer API.</li>
+<li>The plugin API.</li>
+<li>The lifecycles steps.</li>
+</ul>
+
+<h2 id="road-map:d13b20e77898b314e01203e8c542ab16">Road map</h2>
+
+<div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Milestone estimate</th>
+<th>Feature</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0.0.1</td>
+<td>Event ids and correlation</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.2</td>
+<td>System state information</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.3</td>
+<td>Command Line Client</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.4</td>
+<td>System configuration</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.5</td>
+<td>Service registry</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.6</td>
+<td>Service load/list</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.7</td>
+<td>Service start/stop/status</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.8</td>
+<td>TCP connection support</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.9</td>
+<td>Client connects over tcp</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.10</td>
+<td>Cluster support</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.11</td>
+<td>Metadata storage</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.12</td>
+<td><code>snow-fox-bootstrap</code></td>
+<td>pending</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
 
 <h2 id="next-release:d13b20e77898b314e01203e8c542ab16">Next release</h2>
 
@@ -175,6 +274,8 @@
 
 <p>This release cycle will be complete when service start, list,
 stop, and status are implemented.</p>
+
+<p>This will approximately be version <code>0.0.7</code>.</p>
 
             </div> 
 

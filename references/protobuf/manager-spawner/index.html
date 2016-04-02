@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,7 +7,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/page\/references\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/manager-spawner\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,15 +27,15 @@
   </script>
 
   
-  <title>Full References | SnowFox</title>
+  <title>Manager/Spawner ProtoBuf Reference | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.15" />
-  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +54,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../">
+      <a class="navbar-brand" href="../../../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +71,7 @@
 
         
         <li class="">
-        <a href="../../page/install/"> Install </a>
+        <a href="../../../page/install/"> Install </a>
         </li>
         
         
@@ -78,7 +80,7 @@
 
         
         <li class="">
-        <a href="../../page/project-status/"> Project Status </a>
+        <a href="../../../page/project-status/"> Project Status </a>
         </li>
         
         
@@ -92,7 +94,7 @@
 
         
         <li class="active">
-        <a href="../../page/references/"> Full References </a>
+        <a href="../../../page/references/"> Full References </a>
         </li>
         
         
@@ -101,7 +103,7 @@
 
         
         <li class="">
-        <a href="../../page/about/"> About </a>
+        <a href="../../../page/about/"> About </a>
         </li>
         
         
@@ -124,43 +126,57 @@
     <div class="container-fluid hugo-single-content">
       <div class="row">
         <div class="col-xs-12 col-md-offset-2 col-md-8">
+
           <div class="page-header">
             <h1>
               
-                Full References
+                Manager/Spawner ProtoBuf Reference
               
               
             </h1>
           </div> 
 
           <div class="row">
-
-            
             <div class="col-xs-12 col-md-9">
               
 
-<p>The full reference pages are for those who want to know all the details.
-SnowFox has a few different interfaces, each with its own section here.</p>
+<p>Full details of the Daemon to Spawner (and vice versa)
+communion protocol.</p>
 
-<h2 id="command-line-references:95fc2e7abab391a8a595860a64f5b737">Command line references</h2>
+<h2 id="message-code:0f7def552a6ba43807bf3ded08926270"><code>Message::Code</code></h2>
 
-<p>The <a href="../../references/cli/">Command Line Reference</a> section
-is dedicated to the command line interfaces for the various binaries
-that form SnowFox.</p>
+<div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.manager_spawner</span><span class="p">;</span>
 
-<h2 id="protocol-buffers:95fc2e7abab391a8a595860a64f5b737">Protocol Buffers</h2>
+<span class="kd">enum</span> <span class="n">Code</span> <span class="p">{</span>
+  <span class="na">Ack</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
-<p>Protocol Buffers <a href="../../references/protobuf/">message</a>
-are used in four contexts in SnowFox:</p>
 
-<ul>
-<li><a href="../../references/protobuf/daemon-manager/">Daemon/Manager</a> protocol.</li>
-<li><a href="../../references/protobuf/daemon-spawner/">Daemon/Spawner</a> protocol.</li>
-<li><a href="../../references/protobuf/manager-spawner/">Manager/Spawner</a> protocol.
+<p><div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
 
-</li>
-</ul>
+<tbody>
+<tr>
+<td>Ack</td>
+<td>1</td>
+<td>This message is an acknowledgement of a request</td>
+</tr>
+</tbody>
+</table>
 
+</div>
+</p>
+
+
+              
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
@@ -168,22 +184,27 @@ are used in four contexts in SnowFox:</p>
 <ul>
 <li>
 <ul>
-<li><a href="#command-line-references:95fc2e7abab391a8a595860a64f5b737">Command line references</a></li>
-<li><a href="#protocol-buffers:95fc2e7abab391a8a595860a64f5b737">Protocol Buffers</a></li>
+<li><a href="#message-code:0f7def552a6ba43807bf3ded08926270"><code>Message::Code</code></a></li>
 </ul></li>
 </ul>
 </nav>
+
+              <ul class="cli-toc">
+                
+              </ul>
             </div> 
-            
-
           </div> 
-        </div> 
 
+        </div> 
       </div> 
     </div> 
 
     <div id="footer">
 </div>
 
+
+    
+    <script type="text/javascript" src="../../../js/index/cli.js">
+    </script>
   </body>
 </html>

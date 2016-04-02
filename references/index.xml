@@ -7,8 +7,248 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
-    <lastBuildDate>Mon, 28 Mar 2016 23:47:42 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 01 Apr 2016 23:28:11 +0100</lastBuildDate>
     <atom:link href="https://arcticnature.github.io/references/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Daemon/Manager ProtoBuf Reference</title>
+      <link>https://arcticnature.github.io/references/protobuf/daemon-manager/</link>
+      <pubDate>Fri, 01 Apr 2016 23:28:11 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/protobuf/daemon-manager/</guid>
+      <description>
+
+&lt;p&gt;Full details of the Daemon to Manager (and vice versa)
+communion protocol.&lt;/p&gt;
+
+&lt;h2 id=&#34;message-code:c5d9d48ea237ef54af79175e9440382e&#34;&gt;&lt;code&gt;Message::Code&lt;/code&gt;&lt;/h2&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core.protocol.daemon_manager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Code&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;Ack&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;Shutdown&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;div class=&#34;mdtable table-striped&#34;&gt;
+  &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ack&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;This message is an acknowledgement of a request&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Shutdown&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Request the manager process to shutdown&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Daemon/Spawner ProtoBuf Reference</title>
+      <link>https://arcticnature.github.io/references/protobuf/daemon-spawner/</link>
+      <pubDate>Fri, 01 Apr 2016 23:28:11 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/protobuf/daemon-spawner/</guid>
+      <description>
+
+&lt;p&gt;Full details of the Daemon to Spawner (and vice versa)
+communion protocol.&lt;/p&gt;
+
+&lt;h2 id=&#34;message-code:4570401b44c922e163c9df9d7a3dde93&#34;&gt;&lt;code&gt;Message::Code&lt;/code&gt;&lt;/h2&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core.protocol.daemon_spanwer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Code&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;Ack&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;Shutdown&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;div class=&#34;mdtable table-striped&#34;&gt;
+  &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ack&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;This message is an acknowledgement of a request&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Shutdown&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Request the spawner process to shutdown&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Manager/Spawner ProtoBuf Reference</title>
+      <link>https://arcticnature.github.io/references/protobuf/manager-spawner/</link>
+      <pubDate>Fri, 01 Apr 2016 23:28:11 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/protobuf/manager-spawner/</guid>
+      <description>
+
+&lt;p&gt;Full details of the Daemon to Spawner (and vice versa)
+communion protocol.&lt;/p&gt;
+
+&lt;h2 id=&#34;message-code:0f7def552a6ba43807bf3ded08926270&#34;&gt;&lt;code&gt;Message::Code&lt;/code&gt;&lt;/h2&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core.protocol.manager_spawner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Code&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;Ack&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;div class=&#34;mdtable table-striped&#34;&gt;
+  &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ack&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;This message is an acknowledgement of a request&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Protocol Buffer Messages</title>
+      <link>https://arcticnature.github.io/references/protobuf/</link>
+      <pubDate>Fri, 01 Apr 2016 23:17:42 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/protobuf/</guid>
+      <description>
+
+&lt;h2 id=&#34;common-elements:4314c429f5a86d899570cb09b13470a2&#34;&gt;Common elements&lt;/h2&gt;
+
+&lt;p&gt;All ProtoBuf interfaces share a pattern which is used to build the
+APIs upon: all messages are extensions of a base &lt;code&gt;Message&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Each message has a &lt;code&gt;code&lt;/code&gt; attribute, whose value comes from an
+interface-specific &lt;code&gt;Message::Code&lt;/code&gt; enum.
+The value of &lt;code&gt;code&lt;/code&gt; uniquely identifies the message being sent or
+received.&lt;/p&gt;
+
+&lt;p&gt;If a &lt;code&gt;Message&lt;/code&gt; needs to pass additional parameters or data along
+with the &lt;code&gt;code&lt;/code&gt;, extensions are used to achieve this.&lt;/p&gt;
+
+&lt;h3 id=&#34;message:4314c429f5a86d899570cb09b13470a2&#34;&gt;&lt;code&gt;Message&lt;/code&gt;&lt;/h3&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core.protocol.PROTOCOL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Message&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Code&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;k&#34;&gt;required&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Code&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;extensions&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;50&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id=&#34;message-attributes:4314c429f5a86d899570cb09b13470a2&#34;&gt;Message attributes&lt;/h4&gt;
+
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+  &lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;sf.core.protocol.PROTOCOL&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;package&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;The namespace for messages and extentions in the protocol&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;code&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;Message::Code&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;Identifier of the message being sent&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;/table&gt;
+
+
+&lt;h4 id=&#34;description:4314c429f5a86d899570cb09b13470a2&#34;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;The container for exchanged messages.
+Set &lt;code&gt;code&lt;/code&gt; and extensions as needed.&lt;/p&gt;
+
+&lt;h2 id=&#34;daemon-manager:4314c429f5a86d899570cb09b13470a2&#34;&gt;Daemon/Manager&lt;/h2&gt;
+
+&lt;p&gt;The daemon uses protocol buffers to inform the manager of changes
+to the core SnowFox processes (the &lt;code&gt;spawner&lt;/code&gt; and the &lt;code&gt;daemon&lt;/code&gt; itself).&lt;/p&gt;
+
+&lt;p&gt;The full reference of exchanged messages can be found
+&lt;a href=&#34;../references/protobuf/daemon-manager/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;daemon-spawner:4314c429f5a86d899570cb09b13470a2&#34;&gt;Daemon/Spawner&lt;/h2&gt;
+
+&lt;p&gt;The daemon uses protocol buffers to inform the spawner of changes
+to the core SnowFox processes (the &lt;code&gt;manager&lt;/code&gt; and the &lt;code&gt;daemon&lt;/code&gt; itself).&lt;/p&gt;
+
+&lt;p&gt;The full reference of exchanged messages can be found
+&lt;a href=&#34;../references/protobuf/daemon-spawner/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;manager-spawner:4314c429f5a86d899570cb09b13470a2&#34;&gt;Manager/Spawner&lt;/h2&gt;
+
+&lt;p&gt;The manager decides how to react to events from the user and the system.
+For security reasons, the manager should not run as a privileged process due to
+its complexity and the number of systems it interacts with.&lt;/p&gt;
+
+&lt;p&gt;To allow the manager to run as a non privileged process while keeping the
+ability to execute privileged actions when needed, the manager sends commands
+to the spawner requesting it to act on its behalf.&lt;/p&gt;
+
+&lt;p&gt;The full reference of exchanged messages can be found
+&lt;a href=&#34;../references/protobuf/daemon-spawner/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>snow-fox-spawner</title>
