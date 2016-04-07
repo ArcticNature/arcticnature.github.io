@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/lifecycles\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Lifecycles Reference | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+
+          <div class="page-header">
+            <h1>
+              
+                Lifecycles Reference
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>Part of the flexibility and extensibility of SnowFox comes from Lifecycles.
+Lifecycles are a way to react to internal system events and decouple
+handing of actions.
+The component system also relies on Lifecycles to dynamically inject features
+and alternative implementations.</p>
+
+<p>Lifecycles revolve around the <code>sf::core::interface::Lifecycle</code> class,
+which behaves in a similar manner to Node.js event emitter.</p>
+
+<p>All events are registered and triggered on the same <code>Lifecycle</code>
+singleton instance throughout the system.
+Name spaces in the event name are used to avoid conflicts with context.</p>
+
+<h2 id="lifecycle-api:ea9a84cb720f148d146016790d2d2fdd">Lifecycle API</h2>
+
+<p>Interactions with the Lifecycles system can be divided into two:</p>
+
+<ul>
+<li>Event handling: the side that reacts to changes in the system.</li>
+<li>Event triggering: the side that informs lifecycles of a change.</li>
+</ul>
+
+<p>Checkout the Lifecycle interface in the source code at
+<a href="https://github.com/ArcticNature/core/blob/master/interface/lifecycle/include/core/interface/lifecycle.h">https://github.com/ArcticNature/core/blob/master/interface/lifecycle/include/core/interface/lifecycle.h</a></p>
+
+<h3 id="example-acting-at-process-initialisation:ea9a84cb720f148d146016790d2d2fdd">Example: acting at process initialisation</h3>
+
+<div class="highlight"><pre><code class="language-c++" data-lang="c++"><span></span><span class="c1">//! Example of Lifecycle event handler.</span>
+<span class="k">class</span> <span class="nc">ExampeInitHandler</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BaseLifecycleHandler</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">handle</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">event</span><span class="p">,</span> <span class="n">BaseLifecycleArg</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Some code that needs to run when the process starts.</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Register the handler.</span>
+  <span class="n">LifecycleHandlerRef</span> <span class="n">handler</span><span class="p">(</span><span class="k">new</span> <span class="n">ExampeInitHandler</span><span class="p">());</span>
+  <span class="n">Lifecycle</span><span class="o">::</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;process::init&quot;</span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
+
+  <span class="c1">// Some init logic ...</span>
+
+  <span class="c1">// Trigger the `process::init` event.</span>
+  <span class="n">Lifecycle</span><span class="o">::</span><span class="n">trigger</span><span class="p">(</span><span class="s">&quot;process::init&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="list-of-official-lifecycles:ea9a84cb720f148d146016790d2d2fdd">List of official Lifecycles</h2>
+
+<p>Events are nothing more then strings that identify a list of handlers.
+Lifecycles are a sequence of these events triggered by the system.
+There is no formal checking or definition of lifecycles.</p>
+
+<p>While the system (and components in it) can create their own lifecycles,
+this section of the reference pages describes the lifecycles
+part of the core components of SnowFox.</p>
+
+
+              
+              <div class="cli-binaries">
+                <h2 id="a0551a02a524ed27c27781d2fca7bf97">
+                  <a href="../../references/lifecycles/process/">
+                    <code>Process Lifecycle</code>
+                  </a>
+                </h2>
+
+                <p><p>React to the running process evolution and events.</p>
+</p>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#process-init:a0551a02a524ed27c27781d2fca7bf97"><code>process::init</code></a>
+<ul>
+<li><a href="#registering-an-handler:a0551a02a524ed27c27781d2fca7bf97">Registering an handler</a></li>
+</ul></li>
+<li><a href="#process-exit:a0551a02a524ed27c27781d2fca7bf97"><code>process::exit</code></a></li>
+</ul></li>
+</ul>
+</nav>
+              </div>
+              
+              <div class="cli-binaries">
+                <h2 id="8f53f2c628bc43b6db30a5e661b5da6b">
+                  <a href="../../references/lifecycles/event/">
+                    <code>Event Lifecycle</code>
+                  </a>
+                </h2>
+
+                <p><p>Extend and customise events as they move across SnowFox.</p>
+</p>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#eventlifecyclearg:8f53f2c628bc43b6db30a5e661b5da6b"><code>EventLifecycleArg</code></a></li>
+<li><a href="#event-identify:8f53f2c628bc43b6db30a5e661b5da6b"><code>event::_identify</code></a></li>
+<li><a href="#event-initialise:8f53f2c628bc43b6db30a5e661b5da6b"><code>event::initialise</code></a></li>
+</ul></li>
+</ul>
+</nav>
+              </div>
+              
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#lifecycle-api:ea9a84cb720f148d146016790d2d2fdd">Lifecycle API</a>
+<ul>
+<li><a href="#example-acting-at-process-initialisation:ea9a84cb720f148d146016790d2d2fdd">Example: acting at process initialisation</a></li>
+</ul></li>
+<li><a href="#list-of-official-lifecycles:ea9a84cb720f148d146016790d2d2fdd">List of official Lifecycles</a></li>
+</ul></li>
+</ul>
+</nav>
+
+              <ul class="cli-toc">
+                
+                <li>
+                  <a href="#a0551a02a524ed27c27781d2fca7bf97">
+                    <code>Process Lifecycle</code>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#8f53f2c628bc43b6db30a5e661b5da6b">
+                    <code>Event Lifecycle</code>
+                  </a>
+                </li>
+                
+              </ul>
+            </div> 
+          </div> 
+
+        </div> 
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+
+    
+    <script type="text/javascript" src="../../js/index/cli.js">
+    </script>
+  </body>
+</html>

@@ -7,8 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
-    <lastBuildDate>Fri, 25 Mar 2016 16:51:15 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Apr 2016 22:18:41 +0100</lastBuildDate>
     <atom:link href="https://arcticnature.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Change log</title>
+      <link>https://arcticnature.github.io/page/changelog/</link>
+      <pubDate>Thu, 07 Apr 2016 22:18:41 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/page/changelog/</guid>
+      <description>
+
+&lt;h2 id=&#34;0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;0.0.1&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Event ids and correlation ids.&lt;/li&gt;
+&lt;li&gt;Improved event handler registration at static initialisation time.&lt;/li&gt;
+&lt;li&gt;Version header file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;0.0.0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Core framework.&lt;/li&gt;
+&lt;li&gt;Process orchestration and daemonisation.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Full References</title>
@@ -39,6 +64,19 @@ are used in four contexts in SnowFox:&lt;/p&gt;
 
 &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;lifecycles:95fc2e7abab391a8a595860a64f5b737&#34;&gt;Lifecycles&lt;/h2&gt;
+
+&lt;p&gt;Lifecycles are used to provide flexibility to SnowFox.
+A lifecycle is a well defined sequence of events, with optional parameters,
+which are triggered by parts of the system as it evolves.&lt;/p&gt;
+
+&lt;p&gt;An example is the &lt;code&gt;process&lt;/code&gt; lifecycle, which is a sequence of events
+that follows the lifetime of the SnowFox process.&lt;/p&gt;
+
+&lt;p&gt;Checkout the
+&lt;a href=&#34;../references/lifecycles/&#34;&gt;details and full list&lt;/a&gt;
+of lifecycles to learn more about them.&lt;/p&gt;
 </description>
     </item>
     
@@ -103,15 +141,9 @@ For the purpose of versioning, the public API of SnowFox is composed of:&lt;/p&g
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;0.0.1&lt;/td&gt;
-&lt;td&gt;Event ids and correlation&lt;/td&gt;
-&lt;td&gt;pending&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;0.0.2&lt;/td&gt;
 &lt;td&gt;System state information&lt;/td&gt;
-&lt;td&gt;pending&lt;/td&gt;
+&lt;td&gt;in progress&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -187,6 +219,24 @@ For the purpose of versioning, the public API of SnowFox is composed of:&lt;/p&g
 stop, and status are implemented.&lt;/p&gt;
 
 &lt;p&gt;This will approximately be version &lt;code&gt;0.0.7&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;change-log:d13b20e77898b314e01203e8c542ab16&#34;&gt;Change log&lt;/h2&gt;
+
+&lt;p&gt;Change logs &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Boring for both authors and readers.
+Except for that one time you need it!&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;../page/changelog/&#34;&gt;change log&lt;/a&gt; for SnowFox is an
+itemised list of things that changed and the version it changed in.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;While the change log is as accurate as possible, it is
+&lt;strong&gt;not guaranteed to be complete&lt;/strong&gt;.&lt;br /&gt;
+If you need such guarantee you may have to scavange the git logs.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     

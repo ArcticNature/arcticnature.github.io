@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/lifecycles\/process\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Process Lifecycle | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                Process Lifecycle
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>React to the running process evolution and events.</p>
+
+<h2 id="process-init:a0551a02a524ed27c27781d2fca7bf97"><code>process::init</code></h2>
+
+<p>Triggered when the process is started.
+Used primarily by modules to initialise or register features with the system.</p>
+
+<h3 id="registering-an-handler:a0551a02a524ed27c27781d2fca7bf97">Registering an handler</h3>
+
+<p>Registering a <code>process::init</code> handler is a special task because the
+registration must occur during static initialisation, a phase where
+the initialisation order is &hellip; fuzzy.</p>
+
+<p>To help with that the <code>sf::core::lifecycle::Process::Initialiser</code>
+template can be used to register the <code>process::init</code> handler.
+In one of the component&rsquo;s source files, add the following code:</p>
+
+<div class="highlight"><pre><code class="language-c++" data-lang="c++"><span></span><span class="k">using</span> <span class="n">sf</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">interface</span><span class="o">::</span><span class="n">BaseLifecycleHandler</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">sf</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">interface</span><span class="o">::</span><span class="n">BaseLifecycleArg</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">sf</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">lifecycle</span><span class="o">::</span><span class="n">Process</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModuleInitialiser</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BaseLifecycleHandler</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">handle</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">event</span><span class="p">,</span> <span class="n">BaseLifecycleArg</span><span class="o">*</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Initialisation code here ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Process</span><span class="o">::</span><span class="n">Initialiser</span><span class="o">&lt;</span><span class="n">MyModuleInitialiser</span><span class="o">&gt;</span> <span class="n">my_module_initialiser</span><span class="p">;</span>
+</code></pre></div>
+
+
+<p><div class="alert alert-danger" role="alert">
+  <p>Keep in mind that static order initialisation is non-deterministic.
+As such,
+<strong>it is not possible to know in which order <code>process::init</code> handlers run</strong>!</p>
+
+</div>
+</p>
+
+<h2 id="process-exit:a0551a02a524ed27c27781d2fca7bf97"><code>process::exit</code></h2>
+
+<p>Triggered when the SnowFox process is terminated.</p>
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#process-init:a0551a02a524ed27c27781d2fca7bf97"><code>process::init</code></a>
+<ul>
+<li><a href="#registering-an-handler:a0551a02a524ed27c27781d2fca7bf97">Registering an handler</a></li>
+</ul></li>
+<li><a href="#process-exit:a0551a02a524ed27c27781d2fca7bf97"><code>process::exit</code></a></li>
+</ul></li>
+</ul>
+</nav>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>

@@ -7,8 +7,206 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
-    <lastBuildDate>Fri, 01 Apr 2016 23:28:11 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 07 Apr 2016 22:18:41 +0100</lastBuildDate>
     <atom:link href="https://arcticnature.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Change log</title>
+      <link>https://arcticnature.github.io/page/changelog/</link>
+      <pubDate>Thu, 07 Apr 2016 22:18:41 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/page/changelog/</guid>
+      <description>
+
+&lt;h2 id=&#34;0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;0.0.1&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Event ids and correlation ids.&lt;/li&gt;
+&lt;li&gt;Improved event handler registration at static initialisation time.&lt;/li&gt;
+&lt;li&gt;Version header file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;0.0.0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Core framework.&lt;/li&gt;
+&lt;li&gt;Process orchestration and daemonisation.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Event Lifecycle</title>
+      <link>https://arcticnature.github.io/references/lifecycles/event/</link>
+      <pubDate>Sun, 03 Apr 2016 10:36:08 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/lifecycles/event/</guid>
+      <description>
+
+&lt;p&gt;Extend and customise events as they move across SnowFox.&lt;/p&gt;
+
+
+
+
+&lt;h2 id=&#34;eventlifecyclearg:8f53f2c628bc43b6db30a5e661b5da6b&#34;&gt;&lt;code&gt;EventLifecycleArg&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;EventLifecycleArg&lt;/code&gt; is a &lt;code&gt;BaseLifecycleArg&lt;/code&gt; that stores
+a reference to an &lt;code&gt;Event&lt;/code&gt; instance.
+It is passed to &lt;code&gt;event::*&lt;/code&gt; lifecycle events that require an
+&lt;code&gt;Event&lt;/code&gt; instance to operate on.&lt;/p&gt;
+
+&lt;h2 id=&#34;event-identify:8f53f2c628bc43b6db30a5e661b5da6b&#34;&gt;&lt;code&gt;event::_identify&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;A special step in the lifecycle of an event that is triggered
+just after an event is created but before the &lt;code&gt;event::initialise&lt;/code&gt;
+step.&lt;/p&gt;
+
+&lt;p&gt;This step generates the id (and possibly the correlation id) of an
+&lt;code&gt;Event&lt;/code&gt; instance.
+The &lt;code&gt;Event&lt;/code&gt; reference to operate on is passed to the handler in an
+&lt;code&gt;EventLifecycleArg&lt;/code&gt; instance.&lt;/p&gt;
+
+&lt;p&gt;Every component that instantiates an object should use the
+&lt;code&gt;sf::core::lifecycle::EventLifecycle::Init&lt;/code&gt; method to ensure the
+event is initialised correctly.&lt;/p&gt;
+
+&lt;h2 id=&#34;event-initialise:8f53f2c628bc43b6db30a5e661b5da6b&#34;&gt;&lt;code&gt;event::initialise&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;This step is triggered when an &lt;code&gt;Event&lt;/code&gt; is initialised and identified.
+The &lt;code&gt;Event&lt;/code&gt; reference to operate on is passed to the handler in an
+&lt;code&gt;EventLifecycleArg&lt;/code&gt; instance.&lt;/p&gt;
+
+&lt;p&gt;Every component that instantiates an object should use the
+&lt;code&gt;sf::core::lifecycle::Event::Initialise&lt;/code&gt; method to ensure the
+event is initialised correctly.&lt;/p&gt;
+
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Process Lifecycle</title>
+      <link>https://arcticnature.github.io/references/lifecycles/process/</link>
+      <pubDate>Sun, 03 Apr 2016 10:34:39 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/lifecycles/process/</guid>
+      <description>
+
+&lt;p&gt;React to the running process evolution and events.&lt;/p&gt;
+
+&lt;h2 id=&#34;process-init:a0551a02a524ed27c27781d2fca7bf97&#34;&gt;&lt;code&gt;process::init&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Triggered when the process is started.
+Used primarily by modules to initialise or register features with the system.&lt;/p&gt;
+
+&lt;h3 id=&#34;registering-an-handler:a0551a02a524ed27c27781d2fca7bf97&#34;&gt;Registering an handler&lt;/h3&gt;
+
+&lt;p&gt;Registering a &lt;code&gt;process::init&lt;/code&gt; handler is a special task because the
+registration must occur during static initialisation, a phase where
+the initialisation order is &amp;hellip; fuzzy.&lt;/p&gt;
+
+&lt;p&gt;To help with that the &lt;code&gt;sf::core::lifecycle::Process::Initialiser&lt;/code&gt;
+template can be used to register the &lt;code&gt;process::init&lt;/code&gt; handler.
+In one of the component&amp;rsquo;s source files, add the following code:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interface&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interface&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseLifecycleArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lifecycle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyModuleInitialiser&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+ &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleArg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Initialisation code here ...&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Initialiser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyModuleInitialiser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_module_initialiser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;div class=&#34;alert alert-danger&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;Keep in mind that static order initialisation is non-deterministic.
+As such,
+&lt;strong&gt;it is not possible to know in which order &lt;code&gt;process::init&lt;/code&gt; handlers run&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;process-exit:a0551a02a524ed27c27781d2fca7bf97&#34;&gt;&lt;code&gt;process::exit&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Triggered when the SnowFox process is terminated.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lifecycles Reference</title>
+      <link>https://arcticnature.github.io/references/lifecycles/</link>
+      <pubDate>Sun, 03 Apr 2016 10:24:12 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/lifecycles/</guid>
+      <description>
+
+&lt;p&gt;Part of the flexibility and extensibility of SnowFox comes from Lifecycles.
+Lifecycles are a way to react to internal system events and decouple
+handing of actions.
+The component system also relies on Lifecycles to dynamically inject features
+and alternative implementations.&lt;/p&gt;
+
+&lt;p&gt;Lifecycles revolve around the &lt;code&gt;sf::core::interface::Lifecycle&lt;/code&gt; class,
+which behaves in a similar manner to Node.js event emitter.&lt;/p&gt;
+
+&lt;p&gt;All events are registered and triggered on the same &lt;code&gt;Lifecycle&lt;/code&gt;
+singleton instance throughout the system.
+Name spaces in the event name are used to avoid conflicts with context.&lt;/p&gt;
+
+&lt;h2 id=&#34;lifecycle-api:ea9a84cb720f148d146016790d2d2fdd&#34;&gt;Lifecycle API&lt;/h2&gt;
+
+&lt;p&gt;Interactions with the Lifecycles system can be divided into two:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Event handling: the side that reacts to changes in the system.&lt;/li&gt;
+&lt;li&gt;Event triggering: the side that informs lifecycles of a change.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Checkout the Lifecycle interface in the source code at
+&lt;a href=&#34;https://github.com/ArcticNature/core/blob/master/interface/lifecycle/include/core/interface/lifecycle.h&#34;&gt;https://github.com/ArcticNature/core/blob/master/interface/lifecycle/include/core/interface/lifecycle.h&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;example-acting-at-process-initialisation:ea9a84cb720f148d146016790d2d2fdd&#34;&gt;Example: acting at process initialisation&lt;/h3&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//! Example of Lifecycle event handler.&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ExampeInitHandler&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+ &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleArg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Some code that needs to run when the process starts.&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+
+
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// Register the handler.&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;LifecycleHandlerRef&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExampeInitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;Lifecycle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;process::init&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+  &lt;span class=&#34;c1&#34;&gt;// Some init logic ...&lt;/span&gt;
+
+  &lt;span class=&#34;c1&#34;&gt;// Trigger the `process::init` event.&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;Lifecycle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trigger&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;process::init&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;list-of-official-lifecycles:ea9a84cb720f148d146016790d2d2fdd&#34;&gt;List of official Lifecycles&lt;/h2&gt;
+
+&lt;p&gt;Events are nothing more then strings that identify a list of handlers.
+Lifecycles are a sequence of these events triggered by the system.
+There is no formal checking or definition of lifecycles.&lt;/p&gt;
+
+&lt;p&gt;While the system (and components in it) can create their own lifecycles,
+this section of the reference pages describes the lifecycles
+part of the core components of SnowFox.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Daemon/Manager ProtoBuf Reference</title>
@@ -884,6 +1082,19 @@ are used in four contexts in SnowFox:&lt;/p&gt;
 
 &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;lifecycles:95fc2e7abab391a8a595860a64f5b737&#34;&gt;Lifecycles&lt;/h2&gt;
+
+&lt;p&gt;Lifecycles are used to provide flexibility to SnowFox.
+A lifecycle is a well defined sequence of events, with optional parameters,
+which are triggered by parts of the system as it evolves.&lt;/p&gt;
+
+&lt;p&gt;An example is the &lt;code&gt;process&lt;/code&gt; lifecycle, which is a sequence of events
+that follows the lifetime of the SnowFox process.&lt;/p&gt;
+
+&lt;p&gt;Checkout the
+&lt;a href=&#34;./references/lifecycles/&#34;&gt;details and full list&lt;/a&gt;
+of lifecycles to learn more about them.&lt;/p&gt;
 </description>
     </item>
     
@@ -948,15 +1159,9 @@ For the purpose of versioning, the public API of SnowFox is composed of:&lt;/p&g
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;0.0.1&lt;/td&gt;
-&lt;td&gt;Event ids and correlation&lt;/td&gt;
-&lt;td&gt;pending&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;0.0.2&lt;/td&gt;
 &lt;td&gt;System state information&lt;/td&gt;
-&lt;td&gt;pending&lt;/td&gt;
+&lt;td&gt;in progress&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1032,6 +1237,24 @@ For the purpose of versioning, the public API of SnowFox is composed of:&lt;/p&g
 stop, and status are implemented.&lt;/p&gt;
 
 &lt;p&gt;This will approximately be version &lt;code&gt;0.0.7&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;change-log:d13b20e77898b314e01203e8c542ab16&#34;&gt;Change log&lt;/h2&gt;
+
+&lt;p&gt;Change logs &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Boring for both authors and readers.
+Except for that one time you need it!&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;./page/changelog/&#34;&gt;change log&lt;/a&gt; for SnowFox is an
+itemised list of things that changed and the version it changed in.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;While the change log is as accurate as possible, it is
+&lt;strong&gt;not guaranteed to be complete&lt;/strong&gt;.&lt;br /&gt;
+If you need such guarantee you may have to scavange the git logs.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     
@@ -1102,105 +1325,6 @@ contains the instructions on how to set up a development environment.&lt;/p&gt;
 
 &lt;p&gt;Feel free to check out the repositories, make any changes, and open pull requests.
 Is you have any ideas or issues you can also open an &lt;a href=&#34;https://github.com/ArcticNature/snow-fox/issues&#34;&gt;issue&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Install</title>
-      <link>https://arcticnature.github.io/page/install/</link>
-      <pubDate>Sun, 20 Mar 2016 20:46:01 +0000</pubDate>
-      
-      <guid>https://arcticnature.github.io/page/install/</guid>
-      <description>
-
-&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;&lt;strong&gt;Early development warning!!!&lt;/strong&gt;
-  Be aware that SnowFox is in its early development stages.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Do not use in production environments&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;/div&gt;
-
-
-
-
-
-&lt;h2 id=&#34;install-from-source:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Install from source&lt;/h2&gt;
-
-&lt;p&gt;At this time, the only install method is through direct
-source code compilation.&lt;/p&gt;
-
-&lt;p&gt;SnowFox uses several tools and languages which means there are
-a few pre-requisites to compiling the sources.&lt;/p&gt;
-
-&lt;p&gt;But fear not!
-The custom-built build tool for SnowFox makes it
-easy to compile the entire project with little effort.&lt;/p&gt;
-
-&lt;p&gt;This guide will go through the installation and compilation
-steps on Fedora 23.
-Be aware that this is for gidance only and that your mileage may vary.&lt;/p&gt;
-
-&lt;h3 id=&#34;installing-compile-time-dependencies:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Installing compile-time dependencies&lt;/h3&gt;
-
-&lt;p&gt;Install the compilers and build tools used by SnowFox&amp;rsquo;s build system:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo dnf install cmake gcc-c++ git make openssl-devel protobuf-compiler protobuf-devel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Install the latest version of Node.js, NPM, and Grunt:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;curl --silent --location https://rpm.nodesource.com/setup_5.x &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo bash -
-sudo dnf install nodejs
-sudo npm install grunt-cli
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;h3 id=&#34;compiling-the-code:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Compiling the code&lt;/h3&gt;
-
-&lt;p&gt;Pull SnowFox&amp;rsquo;s source code and compile it:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;mkdir -p /tmp/snow-fox-source
-&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /tmp/snow-fox-source
-
-git clone https://github.com/ArcticNature/snow-fox.git --recursive
-&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; snow-fox
-
-npm install
-grunt distribute
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;h3 id=&#34;installing-the-result:ee40007639ba1d9861b5cc3e7ade0aef&#34;&gt;Installing the result&lt;/h3&gt;
-
-&lt;p&gt;The output of a distribution build is stored in &lt;code&gt;out/packages&lt;/code&gt;.
-For convenience, let us put the compiled distribution in &lt;code&gt;/opt&lt;/code&gt;:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo mkdir -p /opt
-sudo cp --recursive --preserve&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;all out/packages/snow-fox /opt/
-sudo useradd --home-dir /opt/snow-fox --shell /bin/false --system --user-group snow-fox
-sudo chown -R snow-fox:snow-fox /opt/snow-fox
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;&lt;strong&gt;Congratulations!&lt;/strong&gt;
-  SnowFox is now installed in &lt;code&gt;/opt/snow-fox/bin/snow-fox&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Check out the &lt;code&gt;Quick Start&lt;/code&gt;,
-  &lt;code&gt;Guides and Tutorials&lt;/code&gt;, and
-  &lt;a href=&#34;./page/references/&#34;&gt;References&lt;/a&gt; sections!&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Welcome to the Tundra</title>
-      <link>https://arcticnature.github.io/</link>
-      <pubDate>Sun, 20 Mar 2016 17:18:35 +0000</pubDate>
-      
-      <guid>https://arcticnature.github.io/</guid>
-      <description>&lt;p&gt;Homepage placeholder.
-This content is not accessible in the Hugo template for the index.&lt;/p&gt;
 </description>
     </item>
     
