@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/references\/cli\/spanwer\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/lifecycles\/cli\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,7 +25,7 @@
   </script>
 
   
-  <title>snow-fox-spawner | SnowFox</title>
+  <title>Client Lifecycle | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.15" />
@@ -127,7 +127,7 @@
           <div class="page-header">
             <h1>
               
-                snow-fox-spawner
+                Client Lifecycle
               
               
             </h1>
@@ -139,67 +139,13 @@
             <div class="col-xs-12 col-md-9">
               
 
-<p>The SnowFox manager binary.
-Priviledged unit of SnowFox, deals with operations that require root.<br />
-<strong><code>snow-fox-spawner</code> should not be called directly, let the daemon do it!</strong></p>
+<p>SnowFox client lifecycle events.</p>
 
-<h2 id="inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</h2>
+<h2 id="client-lua-init:b659b046131d4024ab5e2d3675716bf0"><code>client::lua::init</code></h2>
 
-<p>Configure how <code>daemon</code>, <code>manager</code>, and <code>spawner</code> talk to each other.</p>
-
-<h3 id="spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</h3>
-
-<table class="hugo-attributes-table">
-  <p><tr>
-  <td class="hat-name">Type</td>
-  <td class="hat-value"><code>String</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
-
-<p><tr>
-  <td class="hat-name">Default</td>
-  <td class="hat-value"><code>/var/run/snow-fox-manager-spawner.socket</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
-
-</table>
-
-
-<p>Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
-The path to the UNIX socket can be specified with this option.</p>
-
-<h3 id="spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</h3>
-
-<table class="hugo-attributes-table">
-  <p><tr>
-  <td class="hat-name">Type</td>
-  <td class="hat-value"><code>String</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
-
-<p><tr>
-  <td class="hat-name">Default</td>
-  <td class="hat-value"><code>/var/run/snow-fox-spawner.socket</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
-
-</table>
-
-
-<p>Daemon and Spawner use UNIX sockets to exchange protocol buffer messages.
-The path to the UNIX socket can be specified with this option.</p>
-
-<h2 id="other:fcac0069159e29dbe7d5e4ee62041494">Other</h2>
-
-<p>Miscellaneous options.</p>
-
-<h3 id="help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</h3>
-
-<p>Print the list of available options and parameters and exits.</p>
-
-<h3 id="version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494"><code>--Version</code>: show version and exit</h3>
-
-<p>Print the version of the binary and exits.</p>
+<p>Called when the LUA environment for the client is initialised.
+The environment is available in <code>sf::core::context::Client::lua()</code>
+for handlers to manipulate.</p>
 
             </div> 
 
@@ -208,16 +154,7 @@ The path to the UNIX socket can be specified with this option.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</a>
-<ul>
-<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
-<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
-</ul></li>
-<li><a href="#other:fcac0069159e29dbe7d5e4ee62041494">Other</a>
-<ul>
-<li><a href="#help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</a></li>
-<li><a href="#version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494"><code>--Version</code>: show version and exit</a></li>
-</ul></li>
+<li><a href="#client-lua-init:b659b046131d4024ab5e2d3675716bf0"><code>client::lua::init</code></a></li>
 </ul></li>
 </ul>
 </nav>

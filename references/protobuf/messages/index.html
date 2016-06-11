@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/messages\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,15 +25,15 @@
   </script>
 
   
-  <title>Protocol Buffer Messages | SnowFox</title>
+  <title>ProtoBuf Messages | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.15" />
-  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../">
+      <a class="navbar-brand" href="../../../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../page/install/"> Install </a>
+        <a href="../../../page/install/"> Install </a>
         </li>
         
         
@@ -78,7 +78,7 @@
 
         
         <li class="">
-        <a href="../../page/project-status/"> Project Status </a>
+        <a href="../../../page/project-status/"> Project Status </a>
         </li>
         
         
@@ -92,7 +92,7 @@
 
         
         <li class="active">
-        <a href="../../page/references/"> Full References </a>
+        <a href="../../../page/references/"> Full References </a>
         </li>
         
         
@@ -101,7 +101,7 @@
 
         
         <li class="">
-        <a href="../../page/about/"> About </a>
+        <a href="../../../page/about/"> About </a>
         </li>
         
         
@@ -127,7 +127,7 @@
           <div class="page-header">
             <h1>
               
-                Protocol Buffer Messages
+                ProtoBuf Messages
               
               
             </h1>
@@ -139,7 +139,7 @@
             <div class="col-xs-12 col-md-9">
               
 
-<h2 id="common-elements:4314c429f5a86d899570cb09b13470a2">Common elements</h2>
+<h2 id="common-elements:db98506c886bce6a1312f949ef4ed854">Common elements</h2>
 
 <p>All ProtoBuf interfaces share a pattern which is used to build the
 APIs upon: all messages are extensions of a base <code>Message</code>.</p>
@@ -152,20 +152,21 @@ received.</p>
 <p>If a <code>Message</code> needs to pass additional parameters or data along
 with the <code>code</code>, extensions are used to achieve this.</p>
 
-<h3 id="message:4314c429f5a86d899570cb09b13470a2"><code>Message</code></h3>
+<h3 id="message:db98506c886bce6a1312f949ef4ed854"><code>Message</code></h3>
 
 <div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.PROTOCOL</span><span class="p">;</span>
 
 <span class="kd">message</span> <span class="nc">Message</span> <span class="p">{</span>
   <span class="kd">enum</span> <span class="n">Code</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 
-  <span class="k">required</span> <span class="n">Code</span> <span class="na">code</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">required</span> <span class="n">Code</span>   <span class="na">code</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">optional</span> <span class="kt">string</span> <span class="na">correlation_id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
   <span class="k">extensions</span> <span class="mi">50</span> <span class="k">to</span> <span class="k">max</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
 
-<h4 id="message-attributes:4314c429f5a86d899570cb09b13470a2">Message attributes</h4>
+<h4 id="message-attributes:db98506c886bce6a1312f949ef4ed854">Message attributes</h4>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -180,31 +181,37 @@ with the <code>code</code>, extensions are used to achieve this.</p>
   <td class="hat-comment">Identifier of the message being sent</td>
 </tr></p>
 
+<p><tr>
+  <td class="hat-name">correlation_id</td>
+  <td class="hat-value"><code>string</code></td>
+  <td class="hat-comment">Identifier of the context this message is part of</td>
+</tr></p>
+
 </table>
 
 
-<h4 id="description:4314c429f5a86d899570cb09b13470a2">Description</h4>
+<h4 id="description:db98506c886bce6a1312f949ef4ed854">Description</h4>
 
 <p>The container for exchanged messages.
 Set <code>code</code> and extensions as needed.</p>
 
-<h2 id="daemon-manager:4314c429f5a86d899570cb09b13470a2">Daemon/Manager</h2>
+<h2 id="daemon-and-manager:db98506c886bce6a1312f949ef4ed854">Daemon and Manager</h2>
 
 <p>The daemon uses protocol buffers to inform the manager of changes
 to the core SnowFox processes (the <code>spawner</code> and the <code>daemon</code> itself).</p>
 
-<p>The full reference of exchanged messages can be found
-<a href="../../references/protobuf/daemon-manager/">here</a>.</p>
+<p>See the full
+<a href="../../../references/protobuf/dm/messages/">messages reference</a>.</p>
 
-<h2 id="daemon-spawner:4314c429f5a86d899570cb09b13470a2">Daemon/Spawner</h2>
+<h2 id="daemon-and-spawner:db98506c886bce6a1312f949ef4ed854">Daemon and Spawner</h2>
 
 <p>The daemon uses protocol buffers to inform the spawner of changes
 to the core SnowFox processes (the <code>manager</code> and the <code>daemon</code> itself).</p>
 
-<p>The full reference of exchanged messages can be found
-<a href="../../references/protobuf/daemon-spawner/">here</a>.</p>
+<p>See the full
+<a href="../../../references/protobuf/ds/messages/">messages reference</a>.</p>
 
-<h2 id="manager-spawner:4314c429f5a86d899570cb09b13470a2">Manager/Spawner</h2>
+<h2 id="manager-and-spawner:db98506c886bce6a1312f949ef4ed854">Manager and Spawner</h2>
 
 <p>The manager decides how to react to events from the user and the system.
 For security reasons, the manager should not run as a privileged process due to
@@ -214,11 +221,16 @@ its complexity and the number of systems it interacts with.</p>
 ability to execute privileged actions when needed, the manager sends commands
 to the spawner requesting it to act on its behalf.</p>
 
-<p>The full reference of exchanged messages can be found
-<a href="../../references/protobuf/daemon-spawner/">here</a>.</p>
+<p>See the full
+<a href="../../../references/protobuf/ms/messages/">messages reference</a>.</p>
 
-<p>
-</p>
+<h2 id="public-api:db98506c886bce6a1312f949ef4ed854">Public API</h2>
+
+<p>In order to allow the user, as well as other systems, to interact
+with SnowFox, the public API was built.</p>
+
+<p>See the full
+<a href="../../../references/protobuf/public/messages/">messages reference</a>.</p>
 
             </div> 
 
@@ -227,17 +239,18 @@ to the spawner requesting it to act on its behalf.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#common-elements:4314c429f5a86d899570cb09b13470a2">Common elements</a>
+<li><a href="#common-elements:db98506c886bce6a1312f949ef4ed854">Common elements</a>
 <ul>
-<li><a href="#message:4314c429f5a86d899570cb09b13470a2"><code>Message</code></a>
+<li><a href="#message:db98506c886bce6a1312f949ef4ed854"><code>Message</code></a>
 <ul>
-<li><a href="#message-attributes:4314c429f5a86d899570cb09b13470a2">Message attributes</a></li>
-<li><a href="#description:4314c429f5a86d899570cb09b13470a2">Description</a></li>
+<li><a href="#message-attributes:db98506c886bce6a1312f949ef4ed854">Message attributes</a></li>
+<li><a href="#description:db98506c886bce6a1312f949ef4ed854">Description</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#daemon-manager:4314c429f5a86d899570cb09b13470a2">Daemon/Manager</a></li>
-<li><a href="#daemon-spawner:4314c429f5a86d899570cb09b13470a2">Daemon/Spawner</a></li>
-<li><a href="#manager-spawner:4314c429f5a86d899570cb09b13470a2">Manager/Spawner</a></li>
+<li><a href="#daemon-and-manager:db98506c886bce6a1312f949ef4ed854">Daemon and Manager</a></li>
+<li><a href="#daemon-and-spawner:db98506c886bce6a1312f949ef4ed854">Daemon and Spawner</a></li>
+<li><a href="#manager-and-spawner:db98506c886bce6a1312f949ef4ed854">Manager and Spawner</a></li>
+<li><a href="#public-api:db98506c886bce6a1312f949ef4ed854">Public API</a></li>
 </ul></li>
 </ul>
 </nav>

@@ -116,6 +116,29 @@ the effective group is set to this option.&lt;/p&gt;
 &lt;p&gt;When run in daemon mode, or when &lt;code&gt;--drop_privileges&lt;/code&gt; is specified,
 the effective user is set to this option.&lt;/p&gt;
 
+&lt;h2 id=&#34;cluster-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;Cluster options&lt;/h2&gt;
+
+&lt;h3 id=&#34;node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--node_name&lt;/code&gt;: unique name of the node&lt;/h3&gt;
+
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+  &lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;Default&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;node&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;/table&gt;
+
+
+&lt;p&gt;Used to set the name for the node.
+Names must be unique within the cluster.&lt;/p&gt;
+
 &lt;h2 id=&#34;i-o-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;I/O options&lt;/h2&gt;
 
 &lt;p&gt;Customise the processes Input/Output.&lt;/p&gt;
@@ -352,6 +375,10 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 &lt;h3 id=&#34;help-show-available-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
 
 &lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
+
+&lt;h3 id=&#34;version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
 </description>
     </item>
     
@@ -366,6 +393,29 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 &lt;p&gt;The SnowFox manager binary.
 Logic unit of SnowFox, deals with user requests and system events.&lt;br /&gt;
 &lt;strong&gt;&lt;code&gt;snow-fox-manager&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;cluster-options:655f1015670be3d6adf536b23ac66a92&#34;&gt;Cluster options&lt;/h2&gt;
+
+&lt;h3 id=&#34;node-name-unique-name-of-the-node:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--node_name&lt;/code&gt;: unique name of the node&lt;/h3&gt;
+
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+  &lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;Default&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;node&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;/table&gt;
+
+
+&lt;p&gt;Used to set the name for the node.
+Names must be unique within the cluster.&lt;/p&gt;
 
 &lt;h2 id=&#34;repository-options:655f1015670be3d6adf536b23ac66a92&#34;&gt;Repository options&lt;/h2&gt;
 
@@ -487,6 +537,10 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 &lt;h3 id=&#34;help-show-available-options:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
 
 &lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
+
+&lt;h3 id=&#34;version-show-version-and-exit:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
 </description>
     </item>
     
@@ -555,6 +609,38 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 &lt;h3 id=&#34;help-show-available-options:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
 
 &lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
+
+&lt;h3 id=&#34;version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>snow-fox-client</title>
+      <link>https://arcticnature.github.io/references/cli/client/</link>
+      <pubDate>Mon, 11 Apr 2016 22:39:59 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/cli/client/</guid>
+      <description>
+
+&lt;p&gt;The official command line client.
+Used to interact with the SnowFox server.&lt;/p&gt;
+
+
+
+
+&lt;h2 id=&#34;other:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;Other&lt;/h2&gt;
+
+&lt;p&gt;Miscellaneous options.&lt;/p&gt;
+
+&lt;h3 id=&#34;help-show-available-options:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
+
+&lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
+
+&lt;h3 id=&#34;version-show-version-and-exit:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
 </description>
     </item>
     

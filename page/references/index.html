@@ -148,17 +148,42 @@ SnowFox has a few different interfaces, each with its own section here.</p>
 is dedicated to the command line interfaces for the various binaries
 that form SnowFox.</p>
 
-<h2 id="protocol-buffers:95fc2e7abab391a8a595860a64f5b737">Protocol Buffers</h2>
+<h2 id="lua-interfaces:95fc2e7abab391a8a595860a64f5b737">LUA interfaces</h2>
 
-<p>Protocol Buffers <a href="../../references/protobuf/">message</a>
-are used in four contexts in SnowFox:</p>
+<p>LUA is used different contexts across SnowFox:</p>
 
 <ul>
-<li><a href="../../references/protobuf/daemon-manager/">Daemon/Manager</a> protocol.</li>
-<li><a href="../../references/protobuf/daemon-spawner/">Daemon/Spawner</a> protocol.</li>
-<li><a href="../../references/protobuf/manager-spawner/">Manager/Spawner</a> protocol.
+<li>The <a href="../../references/lua/client/">LUA client API</a> is
+what the user calls to run commands in the <code>snow-fox-client</code>.</li>
+</ul>
 
-</li>
+<h2 id="protocol-buffers:95fc2e7abab391a8a595860a64f5b737">Protocol Buffers</h2>
+
+<p>Protocol Buffers <a href="../../references/protobuf/messages/">messages</a>
+are used in SnowFox to communicate among components,
+with clients, and with other nodes.<br />
+These messages are exhanged among systems to form an asynchronous client-server
+<a href="../../references/protobuf/protocols/">communication protocols</a>.</p>
+
+<p>These components have protocol buffer based APIs:</p>
+
+<ul>
+<li>Daemon and Manager
+<a href="../../references/protobuf/dm/messages/">messages</a>
+are exchanged according to the
+<a href="../../references/protobuf/dm/protocol/">dm protocol</a>.</li>
+<li>Daemon and Spawner
+<a href="../../references/protobuf/ds/messages/">messages</a>
+are exchanged according to the
+<a href="../../references/protobuf/ds/protocol/">ds protocol</a>.</li>
+<li>Manager and Spawner
+<a href="../../references/protobuf/ms/messages/">messages</a>
+are exchanged according to the
+<a href="../../references/protobuf/ms/protocol/">ms protocol</a>.</li>
+<li>SnowFox public API
+<a href="../../references/protobuf/public/messages/">messages</a>
+are exchanged according to the
+<a href="../../references/protobuf/public/protocol/">public protocol</a>.</li>
 </ul>
 
 <h2 id="lifecycles:95fc2e7abab391a8a595860a64f5b737">Lifecycles</h2>
@@ -174,6 +199,15 @@ that follows the lifetime of the SnowFox process.</p>
 <a href="../../references/lifecycles/">details and full list</a>
 of lifecycles to learn more about them.</p>
 
+<h2 id="advanced-topics:95fc2e7abab391a8a595860a64f5b737">Advanced topics</h2>
+
+<ul>
+<li><a href="../../references/advanced/status/">Representing status</a> of system and units alike.</li>
+<li><a href="../../references/advanced/events/">Event based system</a>: event interface and the run loop.</li>
+<li>
+</li>
+</ul>
+
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
@@ -182,8 +216,10 @@ of lifecycles to learn more about them.</p>
 <li>
 <ul>
 <li><a href="#command-line-references:95fc2e7abab391a8a595860a64f5b737">Command line references</a></li>
+<li><a href="#lua-interfaces:95fc2e7abab391a8a595860a64f5b737">LUA interfaces</a></li>
 <li><a href="#protocol-buffers:95fc2e7abab391a8a595860a64f5b737">Protocol Buffers</a></li>
 <li><a href="#lifecycles:95fc2e7abab391a8a595860a64f5b737">Lifecycles</a></li>
+<li><a href="#advanced-topics:95fc2e7abab391a8a595860a64f5b737">Advanced topics</a></li>
 </ul></li>
 </ul>
 </nav>

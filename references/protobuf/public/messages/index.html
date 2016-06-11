@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/public\/messages\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Public Messages Refenrece | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                Public Messages Refenrece
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>Below is the list of messages exchanged between SnowFox and external software:</p>
+
+<h2 id="message-code:db98506c886bce6a1312f949ef4ed854"><code>Message::Code</code></h2>
+
+<div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.public_api</span><span class="p">;</span>
+
+<span class="kd">enum</span> <span class="n">Code</span> <span class="p">{</span>
+  <span class="na">Ack</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="na">NodeInfoRequest</span>  <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="na">NodeInfoResponse</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="na">Introduce</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Ack</td>
+<td>1</td>
+<td>Acknowledgement of a request</td>
+</tr>
+
+<tr>
+<td>NodeInfoRequest</td>
+<td>2</td>
+<td>Request information about the node</td>
+</tr>
+
+<tr>
+<td>NodeInfoResponse</td>
+<td>3</td>
+<td>Response to a NodeInfoRequest</td>
+</tr>
+
+<tr>
+<td>Introduce</td>
+<td>4</td>
+<td>A client is now connected</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</p>
+
+<h2 id="clientintroduce:db98506c886bce6a1312f949ef4ed854"><code>ClientIntroduce</code></h2>
+
+<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">ClientIntroduce</span> <span class="p">{</span>
+  <span class="k">required</span> <span class="kt">string</span> <span class="na">client_id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="kd">extend</span> <span class="nc">Message</span> <span class="p">{</span>
+    <span class="k">optional</span> <span class="n">ClientIntroduce</span> <span class="na">msg</span> <span class="o">=</span> <span class="mi">52</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+
+<p><div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>client_id</code></td>
+<td>string</td>
+<td>Id for the client to use in future requests</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</p>
+
+<h2 id="nodeinforequest:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoRequest</code></h2>
+
+<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">NodeInfoRequest</span> <span class="p">{</span>
+  <span class="k">optional</span> <span class="kt">bool</span> <span class="na">details</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
+
+  <span class="kd">extend</span> <span class="nc">Message</span> <span class="p">{</span>
+    <span class="k">optional</span> <span class="n">NodeInfoRequest</span> <span class="na">msg</span> <span class="o">=</span> <span class="mi">51</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+
+<p><div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>details</code></td>
+<td>bool</td>
+<td>Include status details in the response</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</p>
+
+<h2 id="nodeinforesponse:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoResponse</code></h2>
+
+<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">NodeInfoResponse</span> <span class="p">{</span>
+  <span class="kd">message</span> <span class="nc">NodeVersion</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">commit</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">taint</span>   <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="kt">string</span> <span class="na">version</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">message</span> <span class="nc">NodeInfo</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">NodeVersion</span> <span class="na">version</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">message</span> <span class="nc">SystemStatus</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="n">StatusColour</span> <span class="na">colour</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">int64</span>  <span class="na">code</span>   <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">reason</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">message</span> <span class="nc">SubSystem</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">SystemStatus</span> <span class="na">status</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">optional</span> <span class="n">NodeInfo</span> <span class="na">node</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">optional</span> <span class="n">SystemStatus</span> <span class="na">overall</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">repeated</span> <span class="n">SubSystem</span> <span class="na">details</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+  <span class="kd">extend</span> <span class="nc">Message</span> <span class="p">{</span>
+    <span class="k">optional</span> <span class="n">NodeInfoResponse</span> <span class="na">msg</span> <span class="o">=</span> <span class="mi">51</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+
+<p><div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>node.name</code></td>
+<td>string</td>
+<td>Name of the node.</td>
+</tr>
+
+<tr>
+<td><code>node.version.commit</code></td>
+<td>string</td>
+<td>Git commit the daemon was built from.</td>
+</tr>
+
+<tr>
+<td><code>node.version.taint</code></td>
+<td>string</td>
+<td>Flag indicating the state of the git repo at build time.</td>
+</tr>
+
+<tr>
+<td><code>node.version.version</code></td>
+<td>string</td>
+<td>SemVer of the daemon.</td>
+</tr>
+
+<tr>
+<td><code>overall</code></td>
+<td>SubSystem</td>
+<td>Overall status information for the node.</td>
+</tr>
+
+<tr>
+<td><code>details</code></td>
+<td>[SubSystem]</td>
+<td>List of status information for subsystems.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</p>
+
+<p>Details on how
+<a href="../../../../references/advanced/status/">status is represented</a>
+are described in an advanced referece section.</p>
+
+<h2 id="statuscolour:db98506c886bce6a1312f949ef4ed854"><code>StatusColour</code></h2>
+
+<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.public_api</span><span class="p">;</span>
+
+<span class="kd">enum</span> <span class="n">StatusColour</span> <span class="p">{</span>
+  <span class="na">Unkown</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="na">Green</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="na">Yellow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="na">Red</span>    <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+
+<p><div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Unkown</td>
+<td>-1</td>
+<td>The status of the system could not be determined</td>
+</tr>
+
+<tr>
+<td>Green</td>
+<td>0</td>
+<td>The system is in the desired status</td>
+</tr>
+
+<tr>
+<td>Yellow</td>
+<td>1</td>
+<td>The system is not in the desired status but it may not be an issue</td>
+</tr>
+
+<tr>
+<td>Red</td>
+<td>2</td>
+<td>The system is in an undesired status</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</p>
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#message-code:db98506c886bce6a1312f949ef4ed854"><code>Message::Code</code></a></li>
+<li><a href="#clientintroduce:db98506c886bce6a1312f949ef4ed854"><code>ClientIntroduce</code></a></li>
+<li><a href="#nodeinforequest:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoRequest</code></a></li>
+<li><a href="#nodeinforesponse:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoResponse</code></a></li>
+<li><a href="#statuscolour:db98506c886bce6a1312f949ef4ed854"><code>StatusColour</code></a></li>
+</ul></li>
+</ul>
+</nav>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>

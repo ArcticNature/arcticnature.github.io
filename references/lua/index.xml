@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lua on SnowFox</title>
+    <link>https://arcticnature.github.io/references/lua/</link>
+    <description>Recent content in Lua on SnowFox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
+    <lastBuildDate>Mon, 23 May 2016 22:06:59 +0100</lastBuildDate>
+    <atom:link href="https://arcticnature.github.io/references/lua/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LUA client API</title>
+      <link>https://arcticnature.github.io/references/lua/client/</link>
+      <pubDate>Mon, 23 May 2016 22:06:59 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/lua/client/</guid>
+      <description>
+
+&lt;p&gt;LUA interfaces available in the &lt;code&gt;snow-fox-client&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;global-names:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;Global names&lt;/h2&gt;
+
+&lt;p&gt;The following names are available in the global scope.&lt;/p&gt;
+
+&lt;h3 id=&#34;clear:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;clear()&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Clears the terminal window and show the promp on the top line.&lt;/p&gt;
+
+&lt;h3 id=&#34;pprint-value:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;pprint(value)&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Prints the &lt;code&gt;value&lt;/code&gt; argument.
+If &lt;code&gt;value&lt;/code&gt; is a LUA table, &lt;code&gt;pprint&lt;/code&gt; recursively prints the keys
+and their values.&lt;/p&gt;
+
+&lt;h3 id=&#34;print:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;print(...)&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Prints the given arguments, separating them with a &lt;code&gt;\t&lt;/code&gt; (TAB).&lt;/p&gt;
+
+&lt;h2 id=&#34;the-client-object:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;The &lt;code&gt;client&lt;/code&gt; object&lt;/h2&gt;
+
+&lt;p&gt;Commands that interact with the client are availale through the
+&lt;code&gt;client&lt;/code&gt; global object.&lt;/p&gt;
+
+&lt;h3 id=&#34;client-exit:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;client:exit()&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Causes the client to exit cleanly.&lt;/p&gt;
+
+&lt;h3 id=&#34;client-version:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;client:version()&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Returns a LUA table with the client version information.
+The table has the following fields:&lt;/p&gt;
+
+&lt;div class=&#34;mdtable table-striped&#34;&gt;
+  &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Decription&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Client&amp;rsquo;s SemVer&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0.0.3&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hash&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Git hash&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ece936dd1f349fd9d0b31dbb9098cb204e5e8ff5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;taint&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Git state at build time&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;git index tainted&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;the-node-object:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;The &lt;code&gt;node&lt;/code&gt; object&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;snow-fox-client&lt;/code&gt; connects to a &lt;code&gt;snow-fox&lt;/code&gt; node at start time.
+The &lt;code&gt;node&lt;/code&gt; global object allows to interact with the specific node
+connected at start up.&lt;/p&gt;
+
+&lt;h3 id=&#34;node-status-callback-details:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;node:status(callback[, details])&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Requests the status of the node.&lt;/p&gt;
+
+&lt;p&gt;When the node returns the status information, the &lt;code&gt;callback&lt;/code&gt; is invoked
+with the result converted into a LUA table.&lt;/p&gt;
+
+&lt;p&gt;If the optional &lt;code&gt;details&lt;/code&gt; argument is set to &lt;code&gt;true&lt;/code&gt; (defaults to &lt;code&gt;false&lt;/code&gt;)
+then the node includes detailed information about itself.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

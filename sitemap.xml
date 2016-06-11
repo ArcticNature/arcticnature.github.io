@@ -3,8 +3,38 @@
   
   <url>
     <loc>https://arcticnature.github.io/</loc>
-    <lastmod>2016-04-07T22:18:41+01:00</lastmod>
+    <lastmod>2016-05-23T22:06:59+01:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/lua/client/</loc>
+    <lastmod>2016-05-23T22:06:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/advanced/events/</loc>
+    <lastmod>2016-05-17T20:47:54+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/lifecycles/cli/</loc>
+    <lastmod>2016-05-15T12:39:44+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/cli/client/</loc>
+    <lastmod>2016-04-11T22:39:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/advanced/status/system/</loc>
+    <lastmod>2016-04-09T22:48:34+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/advanced/status/</loc>
+    <lastmod>2016-04-09T09:38:16+01:00</lastmod>
   </url>
   
   <url>
@@ -28,22 +58,52 @@
   </url>
   
   <url>
-    <loc>https://arcticnature.github.io/references/protobuf/daemon-manager/</loc>
+    <loc>https://arcticnature.github.io/references/protobuf/dm/messages/</loc>
     <lastmod>2016-04-01T23:28:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://arcticnature.github.io/references/protobuf/daemon-spawner/</loc>
+    <loc>https://arcticnature.github.io/references/protobuf/dm/protocol/</loc>
     <lastmod>2016-04-01T23:28:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://arcticnature.github.io/references/protobuf/manager-spawner/</loc>
+    <loc>https://arcticnature.github.io/references/protobuf/ds/messages/</loc>
     <lastmod>2016-04-01T23:28:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://arcticnature.github.io/references/protobuf/</loc>
+    <loc>https://arcticnature.github.io/references/protobuf/ds/protocol/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/ms/messages/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/ms/protocol/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/public/messages/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/public/protocol/</loc>
+    <lastmod>2016-04-01T23:28:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/messages/</loc>
+    <lastmod>2016-04-01T23:17:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/protobuf/protocols/</loc>
     <lastmod>2016-04-01T23:17:42+01:00</lastmod>
   </url>
   

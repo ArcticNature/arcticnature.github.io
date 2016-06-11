@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/page\/changelog\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/ds\/messages\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,15 +25,15 @@
   </script>
 
   
-  <title>Change log | SnowFox</title>
+  <title>Daemon/Spawner Messages Reference | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.15" />
-  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../">
+      <a class="navbar-brand" href="../../../../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../page/install/"> Install </a>
+        <a href="../../../../page/install/"> Install </a>
         </li>
         
         
@@ -77,8 +77,8 @@
         
 
         
-        <li class="active">
-        <a href="../../page/project-status/"> Project Status </a>
+        <li class="">
+        <a href="../../../../page/project-status/"> Project Status </a>
         </li>
         
         
@@ -91,8 +91,8 @@
         
 
         
-        <li class="">
-        <a href="../../page/references/"> Full References </a>
+        <li class="active">
+        <a href="../../../../page/references/"> Full References </a>
         </li>
         
         
@@ -101,7 +101,7 @@
 
         
         <li class="">
-        <a href="../../page/about/"> About </a>
+        <a href="../../../../page/about/"> About </a>
         </li>
         
         
@@ -127,7 +127,7 @@
           <div class="page-header">
             <h1>
               
-                Change log
+                Daemon/Spawner Messages Reference
               
               
             </h1>
@@ -139,50 +139,46 @@
             <div class="col-xs-12 col-md-9">
               
 
-<h2 id="0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.3</h2>
+<p>Below is the list of messages exchanged between the Daemon and the Spawner:</p>
 
-<ul>
-<li>Client introduction.</li>
-<li>Event contexts.</li>
-<li>Lua interface to client API.</li>
-<li>Lua interface to node API.</li>
-<li>Manager&rsquo;s event registry.</li>
-<li>Node status request.</li>
-<li>Node status response.</li>
-<li>Promised events.</li>
-</ul>
+<h2 id="message-code:db98506c886bce6a1312f949ef4ed854"><code>Message::Code</code></h2>
 
-<h2 id="0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.2</h2>
+<div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.daemon_spanwer</span><span class="p">;</span>
 
-<ul>
-<li>Command line client started.</li>
-<li>Fixed daemon termination with Ctrl+C in console mode.</li>
-<li>Fixed undetected client disconnects.</li>
-<li>LUA utility wrapper classes.</li>
-<li>Manual event source.</li>
-<li>Node name from command line.</li>
-<li>Node name used in event ids.</li>
-<li>Print binary version and exit.</li>
-<li>Public protocol started.</li>
-<li>Scheduled event source.</li>
-<li>Started cluster interface.</li>
-<li>Status definition and helpers.</li>
-</ul>
+<span class="kd">enum</span> <span class="n">Code</span> <span class="p">{</span>
+  <span class="na">Ack</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="na">Shutdown</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
-<h2 id="0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.1</h2>
 
-<ul>
-<li>Event ids and correlation ids.</li>
-<li>Improved event handler registration at static initialisation time.</li>
-<li>Version header file.</li>
-</ul>
+<p><div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
 
-<h2 id="0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.0</h2>
+<tbody>
+<tr>
+<td>Ack</td>
+<td>1</td>
+<td>This message is an acknowledgement of a request</td>
+</tr>
 
-<ul>
-<li>Core framework.</li>
-<li>Process orchestration and daemonisation.</li>
-</ul>
+<tr>
+<td>Shutdown</td>
+<td>2</td>
+<td>Request the spawner process to shutdown</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</p>
 
             </div> 
 
@@ -191,10 +187,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.3</a></li>
-<li><a href="#0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.2</a></li>
-<li><a href="#0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.1</a></li>
-<li><a href="#0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.0</a></li>
+<li><a href="#message-code:db98506c886bce6a1312f949ef4ed854"><code>Message::Code</code></a></li>
 </ul></li>
 </ul>
 </nav>

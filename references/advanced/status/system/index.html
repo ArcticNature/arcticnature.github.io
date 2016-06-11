@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/page\/changelog\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/advanced\/status\/system\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,15 +25,15 @@
   </script>
 
   
-  <title>Change log | SnowFox</title>
+  <title>Node status codes | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.15" />
-  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../">
+      <a class="navbar-brand" href="../../../../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../page/install/"> Install </a>
+        <a href="../../../../page/install/"> Install </a>
         </li>
         
         
@@ -77,8 +77,8 @@
         
 
         
-        <li class="active">
-        <a href="../../page/project-status/"> Project Status </a>
+        <li class="">
+        <a href="../../../../page/project-status/"> Project Status </a>
         </li>
         
         
@@ -91,8 +91,8 @@
         
 
         
-        <li class="">
-        <a href="../../page/references/"> Full References </a>
+        <li class="active">
+        <a href="../../../../page/references/"> Full References </a>
         </li>
         
         
@@ -101,7 +101,7 @@
 
         
         <li class="">
-        <a href="../../page/about/"> About </a>
+        <a href="../../../../page/about/"> About </a>
         </li>
         
         
@@ -127,7 +127,7 @@
           <div class="page-header">
             <h1>
               
-                Change log
+                Node status codes
               
               
             </h1>
@@ -139,50 +139,35 @@
             <div class="col-xs-12 col-md-9">
               
 
-<h2 id="0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.3</h2>
+<p>This is a list of node status codes.</p>
 
-<ul>
-<li>Client introduction.</li>
-<li>Event contexts.</li>
-<li>Lua interface to client API.</li>
-<li>Lua interface to node API.</li>
-<li>Manager&rsquo;s event registry.</li>
-<li>Node status request.</li>
-<li>Node status response.</li>
-<li>Promised events.</li>
-</ul>
+<h3 id="unkown:fc01508acb380bfa5567c9fccdfa05e8"><code>UNKOWN</code></h3>
 
-<h2 id="0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.2</h2>
+<p>The state of the node could not be fully determined.</p>
 
-<ul>
-<li>Command line client started.</li>
-<li>Fixed daemon termination with Ctrl+C in console mode.</li>
-<li>Fixed undetected client disconnects.</li>
-<li>LUA utility wrapper classes.</li>
-<li>Manual event source.</li>
-<li>Node name from command line.</li>
-<li>Node name used in event ids.</li>
-<li>Print binary version and exit.</li>
-<li>Public protocol started.</li>
-<li>Scheduled event source.</li>
-<li>Started cluster interface.</li>
-<li>Status definition and helpers.</li>
-</ul>
+<h3 id="ok:fc01508acb380bfa5567c9fccdfa05e8"><code>OK</code></h3>
 
-<h2 id="0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.1</h2>
+<p>The node is up and running!</p>
 
-<ul>
-<li>Event ids and correlation ids.</li>
-<li>Improved event handler registration at static initialisation time.</li>
-<li>Version header file.</li>
-</ul>
+<h3 id="process-ready:fc01508acb380bfa5567c9fccdfa05e8"><code>PROCESS_READY</code></h3>
 
-<h2 id="0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.0</h2>
+<p>The initialisation of the process hosting the node is complete.</p>
 
-<ul>
-<li>Core framework.</li>
-<li>Process orchestration and daemonisation.</li>
-</ul>
+<h3 id="warning:fc01508acb380bfa5567c9fccdfa05e8"><code>WARNING</code></h3>
+
+<p>Something is not as desired.</p>
+
+<h3 id="process-starting:fc01508acb380bfa5567c9fccdfa05e8"><code>PROCESS_STARTING</code></h3>
+
+<p>The process hosting the node is starting up.</p>
+
+<h3 id="error:fc01508acb380bfa5567c9fccdfa05e8"><code>ERROR</code></h3>
+
+<p>The node is in error state.</p>
+
+<h3 id="end:fc01508acb380bfa5567c9fccdfa05e8"><code>END</code></h3>
+
+<p>Placeholder for the last valid node status code.</p>
 
             </div> 
 
@@ -191,10 +176,16 @@
 <ul>
 <li>
 <ul>
-<li><a href="#0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.3</a></li>
-<li><a href="#0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.2</a></li>
-<li><a href="#0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.1</a></li>
-<li><a href="#0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.0</a></li>
+<li>
+<ul>
+<li><a href="#unkown:fc01508acb380bfa5567c9fccdfa05e8"><code>UNKOWN</code></a></li>
+<li><a href="#ok:fc01508acb380bfa5567c9fccdfa05e8"><code>OK</code></a></li>
+<li><a href="#process-ready:fc01508acb380bfa5567c9fccdfa05e8"><code>PROCESS_READY</code></a></li>
+<li><a href="#warning:fc01508acb380bfa5567c9fccdfa05e8"><code>WARNING</code></a></li>
+<li><a href="#process-starting:fc01508acb380bfa5567c9fccdfa05e8"><code>PROCESS_STARTING</code></a></li>
+<li><a href="#error:fc01508acb380bfa5567c9fccdfa05e8"><code>ERROR</code></a></li>
+<li><a href="#end:fc01508acb380bfa5567c9fccdfa05e8"><code>END</code></a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>

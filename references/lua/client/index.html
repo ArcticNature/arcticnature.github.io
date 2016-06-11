@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/lua\/client\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>LUA client API | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                LUA client API
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>LUA interfaces available in the <code>snow-fox-client</code>.</p>
+
+<h2 id="global-names:4bd4f30263398a45e38fc9edfc648efa">Global names</h2>
+
+<p>The following names are available in the global scope.</p>
+
+<h3 id="clear:4bd4f30263398a45e38fc9edfc648efa"><code>clear()</code></h3>
+
+<p>Clears the terminal window and show the promp on the top line.</p>
+
+<h3 id="pprint-value:4bd4f30263398a45e38fc9edfc648efa"><code>pprint(value)</code></h3>
+
+<p>Prints the <code>value</code> argument.
+If <code>value</code> is a LUA table, <code>pprint</code> recursively prints the keys
+and their values.</p>
+
+<h3 id="print:4bd4f30263398a45e38fc9edfc648efa"><code>print(...)</code></h3>
+
+<p>Prints the given arguments, separating them with a <code>\t</code> (TAB).</p>
+
+<h2 id="the-client-object:4bd4f30263398a45e38fc9edfc648efa">The <code>client</code> object</h2>
+
+<p>Commands that interact with the client are availale through the
+<code>client</code> global object.</p>
+
+<h3 id="client-exit:4bd4f30263398a45e38fc9edfc648efa"><code>client:exit()</code></h3>
+
+<p>Causes the client to exit cleanly.</p>
+
+<h3 id="client-version:4bd4f30263398a45e38fc9edfc648efa"><code>client:version()</code></h3>
+
+<p>Returns a LUA table with the client version information.
+The table has the following fields:</p>
+
+<div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Decription</th>
+<th>Example</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td>String</td>
+<td>Client&rsquo;s SemVer</td>
+<td><code>0.0.3</code></td>
+</tr>
+
+<tr>
+<td><code>hash</code></td>
+<td>String</td>
+<td>Git hash</td>
+<td><code>ece936dd1f349fd9d0b31dbb9098cb204e5e8ff5</code></td>
+</tr>
+
+<tr>
+<td><code>taint</code></td>
+<td>String</td>
+<td>Git state at build time</td>
+<td><code>git index tainted</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<h2 id="the-node-object:4bd4f30263398a45e38fc9edfc648efa">The <code>node</code> object</h2>
+
+<p><code>snow-fox-client</code> connects to a <code>snow-fox</code> node at start time.
+The <code>node</code> global object allows to interact with the specific node
+connected at start up.</p>
+
+<h3 id="node-status-callback-details:4bd4f30263398a45e38fc9edfc648efa"><code>node:status(callback[, details])</code></h3>
+
+<p>Requests the status of the node.</p>
+
+<p>When the node returns the status information, the <code>callback</code> is invoked
+with the result converted into a LUA table.</p>
+
+<p>If the optional <code>details</code> argument is set to <code>true</code> (defaults to <code>false</code>)
+then the node includes detailed information about itself.</p>
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#global-names:4bd4f30263398a45e38fc9edfc648efa">Global names</a>
+<ul>
+<li><a href="#clear:4bd4f30263398a45e38fc9edfc648efa"><code>clear()</code></a></li>
+<li><a href="#pprint-value:4bd4f30263398a45e38fc9edfc648efa"><code>pprint(value)</code></a></li>
+<li><a href="#print:4bd4f30263398a45e38fc9edfc648efa"><code>print(...)</code></a></li>
+</ul></li>
+<li><a href="#the-client-object:4bd4f30263398a45e38fc9edfc648efa">The <code>client</code> object</a>
+<ul>
+<li><a href="#client-exit:4bd4f30263398a45e38fc9edfc648efa"><code>client:exit()</code></a></li>
+<li><a href="#client-version:4bd4f30263398a45e38fc9edfc648efa"><code>client:version()</code></a></li>
+</ul></li>
+<li><a href="#the-node-object:4bd4f30263398a45e38fc9edfc648efa">The <code>node</code> object</a>
+<ul>
+<li><a href="#node-status-callback-details:4bd4f30263398a45e38fc9edfc648efa"><code>node:status(callback[, details])</code></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>

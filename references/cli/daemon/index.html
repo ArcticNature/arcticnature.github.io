@@ -237,6 +237,29 @@ the effective group is set to this option.</p>
 <p>When run in daemon mode, or when <code>--drop_privileges</code> is specified,
 the effective user is set to this option.</p>
 
+<h2 id="cluster-options:ee90f49520f49f91517c72cf11ab0ded">Cluster options</h2>
+
+<h3 id="node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded"><code>--node_name</code>: unique name of the node</h3>
+
+<table class="hugo-attributes-table">
+  <p><tr>
+  <td class="hat-name">Type</td>
+  <td class="hat-value"><code>String</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+<p><tr>
+  <td class="hat-name">Default</td>
+  <td class="hat-value"><code>node</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+</table>
+
+
+<p>Used to set the name for the node.
+Names must be unique within the cluster.</p>
+
 <h2 id="i-o-options:ee90f49520f49f91517c72cf11ab0ded">I/O options</h2>
 
 <p>Customise the processes Input/Output.</p>
@@ -474,6 +497,10 @@ The path to the UNIX socket can be specified with this option.</p>
 
 <p>Print the list of available options and parameters and exits.</p>
 
+<h3 id="version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded"><code>--Version</code>: show version and exit</h3>
+
+<p>Print the version of the binary and exits.</p>
+
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
@@ -487,6 +514,10 @@ The path to the UNIX socket can be specified with this option.</p>
 <li><a href="#drop-privileges-drop-privileges-when-not-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--drop_privileges</code>: drop privileges when not in daemon mode</a></li>
 <li><a href="#group-group-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--group</code>: group to drop privileges to</a></li>
 <li><a href="#user-user-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--user</code>: user to drop privileges to</a></li>
+</ul></li>
+<li><a href="#cluster-options:ee90f49520f49f91517c72cf11ab0ded">Cluster options</a>
+<ul>
+<li><a href="#node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded"><code>--node_name</code>: unique name of the node</a></li>
 </ul></li>
 <li><a href="#i-o-options:ee90f49520f49f91517c72cf11ab0ded">I/O options</a>
 <ul>
@@ -510,6 +541,7 @@ The path to the UNIX socket can be specified with this option.</p>
 <li><a href="#other:ee90f49520f49f91517c72cf11ab0ded">Other</a>
 <ul>
 <li><a href="#help-show-available-options:ee90f49520f49f91517c72cf11ab0ded"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>

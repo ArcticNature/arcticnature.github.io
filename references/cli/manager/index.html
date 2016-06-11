@@ -143,6 +143,29 @@
 Logic unit of SnowFox, deals with user requests and system events.<br />
 <strong><code>snow-fox-manager</code> should not be called directly, let the daemon do it!</strong></p>
 
+<h2 id="cluster-options:655f1015670be3d6adf536b23ac66a92">Cluster options</h2>
+
+<h3 id="node-name-unique-name-of-the-node:655f1015670be3d6adf536b23ac66a92"><code>--node_name</code>: unique name of the node</h3>
+
+<table class="hugo-attributes-table">
+  <p><tr>
+  <td class="hat-name">Type</td>
+  <td class="hat-value"><code>String</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+<p><tr>
+  <td class="hat-name">Default</td>
+  <td class="hat-value"><code>node</code></td>
+  <td class="hat-comment"></td>
+</tr></p>
+
+</table>
+
+
+<p>Used to set the name for the node.
+Names must be unique within the cluster.</p>
+
 <h2 id="repository-options:655f1015670be3d6adf536b23ac66a92">Repository options</h2>
 
 <p>Configuration repository related options.</p>
@@ -264,6 +287,10 @@ The path to the UNIX socket can be specified with this option.</p>
 
 <p>Print the list of available options and parameters and exits.</p>
 
+<h3 id="version-show-version-and-exit:655f1015670be3d6adf536b23ac66a92"><code>--Version</code>: show version and exit</h3>
+
+<p>Print the version of the binary and exits.</p>
+
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
@@ -271,6 +298,10 @@ The path to the UNIX socket can be specified with this option.</p>
 <ul>
 <li>
 <ul>
+<li><a href="#cluster-options:655f1015670be3d6adf536b23ac66a92">Cluster options</a>
+<ul>
+<li><a href="#node-name-unique-name-of-the-node:655f1015670be3d6adf536b23ac66a92"><code>--node_name</code>: unique name of the node</a></li>
+</ul></li>
 <li><a href="#repository-options:655f1015670be3d6adf536b23ac66a92">Repository options</a>
 <ul>
 <li><a href="#repo-path-path-to-the-configuration-repository:655f1015670be3d6adf536b23ac66a92"><code>--repo_path</code>: path to the configuration repository</a></li>
@@ -285,6 +316,7 @@ The path to the UNIX socket can be specified with this option.</p>
 <li><a href="#other:655f1015670be3d6adf536b23ac66a92">Other</a>
 <ul>
 <li><a href="#help-show-available-options:655f1015670be3d6adf536b23ac66a92"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit:655f1015670be3d6adf536b23ac66a92"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>

@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/page\/changelog\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/public\/protocol\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,15 +25,15 @@
   </script>
 
   
-  <title>Change log | SnowFox</title>
+  <title>Public Protocol Reference | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.15" />
-  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../">
+      <a class="navbar-brand" href="../../../../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../page/install/"> Install </a>
+        <a href="../../../../page/install/"> Install </a>
         </li>
         
         
@@ -77,8 +77,8 @@
         
 
         
-        <li class="active">
-        <a href="../../page/project-status/"> Project Status </a>
+        <li class="">
+        <a href="../../../../page/project-status/"> Project Status </a>
         </li>
         
         
@@ -91,8 +91,8 @@
         
 
         
-        <li class="">
-        <a href="../../page/references/"> Full References </a>
+        <li class="active">
+        <a href="../../../../page/references/"> Full References </a>
         </li>
         
         
@@ -101,7 +101,7 @@
 
         
         <li class="">
-        <a href="../../page/about/"> About </a>
+        <a href="../../../../page/about/"> About </a>
         </li>
         
         
@@ -127,7 +127,7 @@
           <div class="page-header">
             <h1>
               
-                Change log
+                Public Protocol Reference
               
               
             </h1>
@@ -139,49 +139,33 @@
             <div class="col-xs-12 col-md-9">
               
 
-<h2 id="0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.3</h2>
+<h2 id="client-connection:7327496955357b9792bab8720dc507d6">Client connection</h2>
+
+<p>These events are exchanged when a client connects to the daemon.
+The sequence is initiated by the client.</p>
 
 <ul>
-<li>Client introduction.</li>
-<li>Event contexts.</li>
-<li>Lua interface to client API.</li>
-<li>Lua interface to node API.</li>
-<li>Manager&rsquo;s event registry.</li>
-<li>Node status request.</li>
-<li>Node status response.</li>
-<li>Promised events.</li>
+<li>The client sends a
+<a href="../../../../references/protobuf/messages/#message:db98506c886bce6a1312f949ef4ed854"><code>Message</code></a>
+with <code>Code::Introduce</code> to the daemon.</li>
+<li>The daemon responds with a
+<a href="../../../../references/protobuf/public/messages/#clientintroduce:db98506c886bce6a1312f949ef4ed854"><code>ClientIntroduce</code></a>
+response.</li>
+<li>The client should use the returned ID to build <code>correlation_id</code>s for its messages.</li>
 </ul>
 
-<h2 id="0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.2</h2>
+<h2 id="node-information:7327496955357b9792bab8720dc507d6">Node information</h2>
+
+<p>These events are exchanged when node information is requested.
+The sequence is initiated by the client.</p>
 
 <ul>
-<li>Command line client started.</li>
-<li>Fixed daemon termination with Ctrl+C in console mode.</li>
-<li>Fixed undetected client disconnects.</li>
-<li>LUA utility wrapper classes.</li>
-<li>Manual event source.</li>
-<li>Node name from command line.</li>
-<li>Node name used in event ids.</li>
-<li>Print binary version and exit.</li>
-<li>Public protocol started.</li>
-<li>Scheduled event source.</li>
-<li>Started cluster interface.</li>
-<li>Status definition and helpers.</li>
-</ul>
-
-<h2 id="0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.1</h2>
-
-<ul>
-<li>Event ids and correlation ids.</li>
-<li>Improved event handler registration at static initialisation time.</li>
-<li>Version header file.</li>
-</ul>
-
-<h2 id="0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.0</h2>
-
-<ul>
-<li>Core framework.</li>
-<li>Process orchestration and daemonisation.</li>
+<li>The user sends a
+<a href="../../../../references/protobuf/public/messages/#nodeinforequest:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoRequest</code></a>
+message to the Manager.</li>
+<li>The Manager sends a
+<a href="../../../../references/protobuf/public/messages/#nodeinforesponse:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoResponse</code></a>
+message back.</li>
 </ul>
 
             </div> 
@@ -191,10 +175,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.3</a></li>
-<li><a href="#0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.2</a></li>
-<li><a href="#0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.1</a></li>
-<li><a href="#0-0-0:42ba1d994f4fa8c6ad17a7efae7936cc">0.0.0</a></li>
+<li><a href="#client-connection:7327496955357b9792bab8720dc507d6">Client connection</a></li>
+<li><a href="#node-information:7327496955357b9792bab8720dc507d6">Node information</a></li>
 </ul></li>
 </ul>
 </nav>

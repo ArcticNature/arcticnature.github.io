@@ -150,7 +150,7 @@ process command line arguments.
 This is done to allow flexibility for the needs of the future
 focusing on the needs of the now and supporting backward compatibility.</p>
 
-<p>To accomplish this a special <code>--paerser</code> option is available.
+<p>To accomplish this a special <code>--parser</code> option is available.
 Because this is processed before a parser for the command line is
 selected there are a few restrictions on this options:</p>
 
@@ -210,6 +210,10 @@ Responsible for orchestrating the execution of the manager and the spawner.</p>
 <li><a href="#group-group-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--group</code>: group to drop privileges to</a></li>
 <li><a href="#user-user-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--user</code>: user to drop privileges to</a></li>
 </ul></li>
+<li><a href="#cluster-options:ee90f49520f49f91517c72cf11ab0ded">Cluster options</a>
+<ul>
+<li><a href="#node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded"><code>--node_name</code>: unique name of the node</a></li>
+</ul></li>
 <li><a href="#i-o-options:ee90f49520f49f91517c72cf11ab0ded">I/O options</a>
 <ul>
 <li><a href="#stderr-redirect-standard-error-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stderr</code>: redirect standard error to file</a></li>
@@ -232,6 +236,7 @@ Responsible for orchestrating the execution of the manager and the spawner.</p>
 <li><a href="#other:ee90f49520f49f91517c72cf11ab0ded">Other</a>
 <ul>
 <li><a href="#help-show-available-options:ee90f49520f49f91517c72cf11ab0ded"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -253,6 +258,10 @@ Logic unit of SnowFox, deals with user requests and system events.<br />
 <ul>
 <li>
 <ul>
+<li><a href="#cluster-options:655f1015670be3d6adf536b23ac66a92">Cluster options</a>
+<ul>
+<li><a href="#node-name-unique-name-of-the-node:655f1015670be3d6adf536b23ac66a92"><code>--node_name</code>: unique name of the node</a></li>
+</ul></li>
 <li><a href="#repository-options:655f1015670be3d6adf536b23ac66a92">Repository options</a>
 <ul>
 <li><a href="#repo-path-path-to-the-configuration-repository:655f1015670be3d6adf536b23ac66a92"><code>--repo_path</code>: path to the configuration repository</a></li>
@@ -267,6 +276,7 @@ Logic unit of SnowFox, deals with user requests and system events.<br />
 <li><a href="#other:655f1015670be3d6adf536b23ac66a92">Other</a>
 <ul>
 <li><a href="#help-show-available-options:655f1015670be3d6adf536b23ac66a92"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit:655f1015670be3d6adf536b23ac66a92"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -296,6 +306,31 @@ Priviledged unit of SnowFox, deals with operations that require root.<br />
 <li><a href="#other:fcac0069159e29dbe7d5e4ee62041494">Other</a>
 <ul>
 <li><a href="#help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494"><code>--Version</code>: show version and exit</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+              </div>
+              
+              <div class="cli-binaries">
+                <h2 id="4bd4f30263398a45e38fc9edfc648efa">
+                  <a href="../../references/cli/client/">
+                    <code>snow-fox-client</code>
+                  </a>
+                </h2>
+
+                <p><p>The official command line client.
+Used to interact with the SnowFox server.</p>
+</p>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#other:4bd4f30263398a45e38fc9edfc648efa">Other</a>
+<ul>
+<li><a href="#help-show-available-options:4bd4f30263398a45e38fc9edfc648efa"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit:4bd4f30263398a45e38fc9edfc648efa"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -336,6 +371,12 @@ Priviledged unit of SnowFox, deals with operations that require root.<br />
                 <li>
                   <a href="#fcac0069159e29dbe7d5e4ee62041494">
                     <code>snow-fox-spawner</code>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#4bd4f30263398a45e38fc9edfc648efa">
+                    <code>snow-fox-client</code>
                   </a>
                 </li>
                 

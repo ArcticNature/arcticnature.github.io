@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/references\/cli\/spanwer\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/protocols\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,7 +25,7 @@
   </script>
 
   
-  <title>snow-fox-spawner | SnowFox</title>
+  <title>ProtoBuf Protocols | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.15" />
@@ -127,7 +127,7 @@
           <div class="page-header">
             <h1>
               
-                snow-fox-spawner
+                ProtoBuf Protocols
               
               
             </h1>
@@ -139,67 +139,60 @@
             <div class="col-xs-12 col-md-9">
               
 
-<p>The SnowFox manager binary.
-Priviledged unit of SnowFox, deals with operations that require root.<br />
-<strong><code>snow-fox-spawner</code> should not be called directly, let the daemon do it!</strong></p>
+<p>Messages exchanged through protocol buffers have the format described in the
+<a href="../../../references/protobuf/messages/">messages</a> section.
+But knowing what to exchange is not as useful without knowing
+when to exchange it and what to expect as a response.</p>
 
-<h2 id="inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</h2>
+<p>These pages describe the sequence of messages that are exchanged
+and the responses to expect as a result of a request.</p>
 
-<p>Configure how <code>daemon</code>, <code>manager</code>, and <code>spawner</code> talk to each other.</p>
+<h2 id="common-elements:499a76f6c6f0266580dd6e9fecda27d5">Common elements</h2>
 
-<h3 id="spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</h3>
+<p>All messages have <code>correlation_id</code> which is used to identify the
+sequence of messages that are exchanged in the context of a
+request (what is the end goal of these messages?).
+When an event is generated a <code>correlation_id</code> is attached to it
+(and generated if not given through the <code>Message</code>).</p>
 
-<table class="hugo-attributes-table">
-  <p><tr>
-  <td class="hat-name">Type</td>
-  <td class="hat-value"><code>String</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
+<p>Any message sent to other system components or back to the client
+have the same <code>correlation_id</code> but all requests have a unique
+<code>correlation_id</code> so it is possible to know which request is each
+message part of.</p>
 
-<p><tr>
-  <td class="hat-name">Default</td>
-  <td class="hat-value"><code>/var/run/snow-fox-manager-spawner.socket</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
+<h2 id="daemon-and-manager:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Manager</h2>
 
-</table>
+<p>The Daemon sends very few messages to the Manager as it is only
+supposed to manage the processes on a node.</p>
 
+<p>See the full
+<a href="../../../references/protobuf/dm/protocol/">protocol</a>.</p>
 
-<p>Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
-The path to the UNIX socket can be specified with this option.</p>
+<h2 id="daemon-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Spawner</h2>
 
-<h3 id="spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</h3>
+<p>The Daemon sends very few messages to the Spawner as it is only
+supposed to manage the processes on a node.</p>
 
-<table class="hugo-attributes-table">
-  <p><tr>
-  <td class="hat-name">Type</td>
-  <td class="hat-value"><code>String</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
+<p>See the full
+<a href="../../../references/protobuf/ds/protocol/">protocol</a>.</p>
 
-<p><tr>
-  <td class="hat-name">Default</td>
-  <td class="hat-value"><code>/var/run/snow-fox-spawner.socket</code></td>
-  <td class="hat-comment"></td>
-</tr></p>
+<h2 id="manager-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Manager and Spawner</h2>
 
-</table>
+<p>Manager usually initates the exchange of messages to the Spawner as
+a result of a user request.</p>
 
+<p>These exchanges are documented as part of the public protocol but for
+all exhanges that are not the result of a user request see the full
+<a href="../../../references/protobuf/ms/protocol/">protocol</a>.</p>
 
-<p>Daemon and Spawner use UNIX sockets to exchange protocol buffer messages.
-The path to the UNIX socket can be specified with this option.</p>
+<h2 id="public-api:499a76f6c6f0266580dd6e9fecda27d5">Public API</h2>
 
-<h2 id="other:fcac0069159e29dbe7d5e4ee62041494">Other</h2>
+<p>This is usually where message exchanges ususally start and end.
+Systems and user can send requests to SnowFox through the public
+API but they need to be prepared to handle the responses.</p>
 
-<p>Miscellaneous options.</p>
-
-<h3 id="help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</h3>
-
-<p>Print the list of available options and parameters and exits.</p>
-
-<h3 id="version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494"><code>--Version</code>: show version and exit</h3>
-
-<p>Print the version of the binary and exits.</p>
+<p>See the full
+<a href="../../../references/protobuf/public/protocol/">protocol</a>.</p>
 
             </div> 
 
@@ -208,16 +201,11 @@ The path to the UNIX socket can be specified with this option.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</a>
-<ul>
-<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
-<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
-</ul></li>
-<li><a href="#other:fcac0069159e29dbe7d5e4ee62041494">Other</a>
-<ul>
-<li><a href="#help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</a></li>
-<li><a href="#version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494"><code>--Version</code>: show version and exit</a></li>
-</ul></li>
+<li><a href="#common-elements:499a76f6c6f0266580dd6e9fecda27d5">Common elements</a></li>
+<li><a href="#daemon-and-manager:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Manager</a></li>
+<li><a href="#daemon-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Spawner</a></li>
+<li><a href="#manager-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Manager and Spawner</a></li>
+<li><a href="#public-api:499a76f6c6f0266580dd6e9fecda27d5">Public API</a></li>
 </ul></li>
 </ul>
 </nav>

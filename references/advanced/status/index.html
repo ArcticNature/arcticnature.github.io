@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/advanced\/status\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Representing status | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+
+          <div class="page-header">
+            <h1>
+              
+                Representing status
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+            <div class="col-xs-12 col-md-9">
+              <p>SnowFox keeps track not only of itself but also the services it
+runs, depends on, or other items defined by extensions.
+To avoid users/admins insanity, all these status information is
+presented in a consistent way.</p>
+
+<p>Status information is formed of two bits:</p>
+
+<ul>
+<li><p>Traffic light overview:</p>
+
+<ul>
+<li>Red: the unit is confirmed to be in an undesired state
+(failed process, invalid configuration, &hellip;).</li>
+<li>Yellow: the unit is not in the desired state but that may not
+be an issue (system starting, configuration loading, &hellip;).</li>
+<li>Green: the unit is in the desired state.</li>
+</ul></li>
+
+<li><p>Status details:</p>
+
+<ul>
+<li>An exact status code for the unit.</li>
+<li>A human readable message with the reason for the status.</li>
+</ul></li>
+</ul>
+
+<p>This format allows to quickly check the overall system and to derive
+aggregate status overviews while keeping the details needed to react
+to issue in the system itself.</p>
+
+
+              
+              <div class="cli-binaries">
+                <h2 id="fc01508acb380bfa5567c9fccdfa05e8">
+                  <a href="../../../references/advanced/status/system/">
+                    <code>Node status codes</code>
+                  </a>
+                </h2>
+
+                <p><p>This is a list of node status codes.</p>
+</p>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#unkown:fc01508acb380bfa5567c9fccdfa05e8"><code>UNKOWN</code></a></li>
+<li><a href="#ok:fc01508acb380bfa5567c9fccdfa05e8"><code>OK</code></a></li>
+<li><a href="#process-ready:fc01508acb380bfa5567c9fccdfa05e8"><code>PROCESS_READY</code></a></li>
+<li><a href="#warning:fc01508acb380bfa5567c9fccdfa05e8"><code>WARNING</code></a></li>
+<li><a href="#process-starting:fc01508acb380bfa5567c9fccdfa05e8"><code>PROCESS_STARTING</code></a></li>
+<li><a href="#error:fc01508acb380bfa5567c9fccdfa05e8"><code>ERROR</code></a></li>
+<li><a href="#end:fc01508acb380bfa5567c9fccdfa05e8"><code>END</code></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+              </div>
+              
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              
+
+              <ul class="cli-toc">
+                
+                <li>
+                  <a href="#fc01508acb380bfa5567c9fccdfa05e8">
+                    <code>Node status codes</code>
+                  </a>
+                </li>
+                
+              </ul>
+            </div> 
+          </div> 
+
+        </div> 
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+
+    
+    <script type="text/javascript" src="../../../js/index/cli.js">
+    </script>
+  </body>
+</html>

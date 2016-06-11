@@ -114,5 +114,23 @@ event is initialised correctly.&lt;/p&gt;
 </description>
     </item>
     
+    <item>
+      <title>Client Lifecycle</title>
+      <link>https://arcticnature.github.io/references/lifecycles/cli/</link>
+      <pubDate>Sun, 15 May 2016 12:39:44 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/lifecycles/cli/</guid>
+      <description>
+
+&lt;p&gt;SnowFox client lifecycle events.&lt;/p&gt;
+
+&lt;h2 id=&#34;client-lua-init:b659b046131d4024ab5e2d3675716bf0&#34;&gt;&lt;code&gt;client::lua::init&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Called when the LUA environment for the client is initialised.
+The environment is available in &lt;code&gt;sf::core::context::Client::lua()&lt;/code&gt;
+for handlers to manipulate.&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

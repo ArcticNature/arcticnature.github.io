@@ -18,6 +18,36 @@
       <guid>https://arcticnature.github.io/page/changelog/</guid>
       <description>
 
+&lt;h2 id=&#34;0-0-3:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;0.0.3&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Client introduction.&lt;/li&gt;
+&lt;li&gt;Event contexts.&lt;/li&gt;
+&lt;li&gt;Lua interface to client API.&lt;/li&gt;
+&lt;li&gt;Lua interface to node API.&lt;/li&gt;
+&lt;li&gt;Manager&amp;rsquo;s event registry.&lt;/li&gt;
+&lt;li&gt;Node status request.&lt;/li&gt;
+&lt;li&gt;Node status response.&lt;/li&gt;
+&lt;li&gt;Promised events.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-2:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;0.0.2&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Command line client started.&lt;/li&gt;
+&lt;li&gt;Fixed daemon termination with Ctrl+C in console mode.&lt;/li&gt;
+&lt;li&gt;Fixed undetected client disconnects.&lt;/li&gt;
+&lt;li&gt;LUA utility wrapper classes.&lt;/li&gt;
+&lt;li&gt;Manual event source.&lt;/li&gt;
+&lt;li&gt;Node name from command line.&lt;/li&gt;
+&lt;li&gt;Node name used in event ids.&lt;/li&gt;
+&lt;li&gt;Print binary version and exit.&lt;/li&gt;
+&lt;li&gt;Public protocol started.&lt;/li&gt;
+&lt;li&gt;Scheduled event source.&lt;/li&gt;
+&lt;li&gt;Started cluster interface.&lt;/li&gt;
+&lt;li&gt;Status definition and helpers.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;0-0-1:42ba1d994f4fa8c6ad17a7efae7936cc&#34;&gt;0.0.1&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -52,17 +82,42 @@ SnowFox has a few different interfaces, each with its own section here.&lt;/p&gt
 is dedicated to the command line interfaces for the various binaries
 that form SnowFox.&lt;/p&gt;
 
-&lt;h2 id=&#34;protocol-buffers:95fc2e7abab391a8a595860a64f5b737&#34;&gt;Protocol Buffers&lt;/h2&gt;
+&lt;h2 id=&#34;lua-interfaces:95fc2e7abab391a8a595860a64f5b737&#34;&gt;LUA interfaces&lt;/h2&gt;
 
-&lt;p&gt;Protocol Buffers &lt;a href=&#34;../references/protobuf/&#34;&gt;message&lt;/a&gt;
-are used in four contexts in SnowFox:&lt;/p&gt;
+&lt;p&gt;LUA is used different contexts across SnowFox:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;../references/protobuf/daemon-manager/&#34;&gt;Daemon/Manager&lt;/a&gt; protocol.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../references/protobuf/daemon-spawner/&#34;&gt;Daemon/Spawner&lt;/a&gt; protocol.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../references/protobuf/manager-spawner/&#34;&gt;Manager/Spawner&lt;/a&gt; protocol.
+&lt;li&gt;The &lt;a href=&#34;../references/lua/client/&#34;&gt;LUA client API&lt;/a&gt; is
+what the user calls to run commands in the &lt;code&gt;snow-fox-client&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;/li&gt;
+&lt;h2 id=&#34;protocol-buffers:95fc2e7abab391a8a595860a64f5b737&#34;&gt;Protocol Buffers&lt;/h2&gt;
+
+&lt;p&gt;Protocol Buffers &lt;a href=&#34;../references/protobuf/messages/&#34;&gt;messages&lt;/a&gt;
+are used in SnowFox to communicate among components,
+with clients, and with other nodes.&lt;br /&gt;
+These messages are exhanged among systems to form an asynchronous client-server
+&lt;a href=&#34;../references/protobuf/protocols/&#34;&gt;communication protocols&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;These components have protocol buffer based APIs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Daemon and Manager
+&lt;a href=&#34;../references/protobuf/dm/messages/&#34;&gt;messages&lt;/a&gt;
+are exchanged according to the
+&lt;a href=&#34;../references/protobuf/dm/protocol/&#34;&gt;dm protocol&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Daemon and Spawner
+&lt;a href=&#34;../references/protobuf/ds/messages/&#34;&gt;messages&lt;/a&gt;
+are exchanged according to the
+&lt;a href=&#34;../references/protobuf/ds/protocol/&#34;&gt;ds protocol&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Manager and Spawner
+&lt;a href=&#34;../references/protobuf/ms/messages/&#34;&gt;messages&lt;/a&gt;
+are exchanged according to the
+&lt;a href=&#34;../references/protobuf/ms/protocol/&#34;&gt;ms protocol&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;SnowFox public API
+&lt;a href=&#34;../references/protobuf/public/messages/&#34;&gt;messages&lt;/a&gt;
+are exchanged according to the
+&lt;a href=&#34;../references/protobuf/public/protocol/&#34;&gt;public protocol&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;lifecycles:95fc2e7abab391a8a595860a64f5b737&#34;&gt;Lifecycles&lt;/h2&gt;
@@ -77,6 +132,15 @@ that follows the lifetime of the SnowFox process.&lt;/p&gt;
 &lt;p&gt;Checkout the
 &lt;a href=&#34;../references/lifecycles/&#34;&gt;details and full list&lt;/a&gt;
 of lifecycles to learn more about them.&lt;/p&gt;
+
+&lt;h2 id=&#34;advanced-topics:95fc2e7abab391a8a595860a64f5b737&#34;&gt;Advanced topics&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../references/advanced/status/&#34;&gt;Representing status&lt;/a&gt; of system and units alike.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../references/advanced/events/&#34;&gt;Event based system&lt;/a&gt;: event interface and the run loop.&lt;/li&gt;
+&lt;li&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -122,7 +186,7 @@ For the purpose of versioning, the public API of SnowFox is composed of:&lt;/p&g
 &lt;ul&gt;
 &lt;li&gt;The &lt;a href=&#34;../references/cli/&#34;&gt;command line&lt;/a&gt; options.&lt;/li&gt;
 &lt;li&gt;The configuration format.&lt;/li&gt;
-&lt;li&gt;The public protocol buffer API.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;../references/protobuf/public/protocol/&#34;&gt;public protocol buffer&lt;/a&gt; API.&lt;/li&gt;
 &lt;li&gt;The plugin API.&lt;/li&gt;
 &lt;li&gt;The lifecycles steps.&lt;/li&gt;
 &lt;/ul&gt;
@@ -143,65 +207,65 @@ For the purpose of versioning, the public API of SnowFox is composed of:&lt;/p&g
 &lt;tr&gt;
 &lt;td&gt;0.0.2&lt;/td&gt;
 &lt;td&gt;System state information&lt;/td&gt;
-&lt;td&gt;in progress&lt;/td&gt;
+&lt;td&gt;done&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;0.0.2&lt;/td&gt;
+&lt;td&gt;Command Line Client&lt;/td&gt;
+&lt;td&gt;done&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;0.0.3&lt;/td&gt;
-&lt;td&gt;Command Line Client&lt;/td&gt;
-&lt;td&gt;pending&lt;/td&gt;
+&lt;td&gt;System configuration&lt;/td&gt;
+&lt;td&gt;in progress&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;0.0.4&lt;/td&gt;
-&lt;td&gt;System configuration&lt;/td&gt;
-&lt;td&gt;pending&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;0.0.5&lt;/td&gt;
 &lt;td&gt;Service registry&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;0.0.6&lt;/td&gt;
+&lt;td&gt;0.0.5&lt;/td&gt;
 &lt;td&gt;Service load/list&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;0.0.7&lt;/td&gt;
+&lt;td&gt;0.0.6&lt;/td&gt;
 &lt;td&gt;Service start/stop/status&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;0.0.8&lt;/td&gt;
+&lt;td&gt;0.0.7&lt;/td&gt;
 &lt;td&gt;TCP connection support&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;0.0.9&lt;/td&gt;
+&lt;td&gt;0.0.8&lt;/td&gt;
 &lt;td&gt;Client connects over tcp&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;0.0.10&lt;/td&gt;
+&lt;td&gt;0.0.9&lt;/td&gt;
 &lt;td&gt;Cluster support&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;0.0.11&lt;/td&gt;
+&lt;td&gt;0.0.10&lt;/td&gt;
 &lt;td&gt;Metadata storage&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;0.0.12&lt;/td&gt;
+&lt;td&gt;0.0.11&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;snow-fox-bootstrap&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;pending&lt;/td&gt;
 &lt;/tr&gt;
@@ -266,6 +330,11 @@ I strongly encourage you to check them out!!!&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/gflags/gflags&#34;&gt;Google Flags&lt;/a&gt;: command line parsing for C/C++&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.lua.org/&#34;&gt;Lua&lt;/a&gt;: a powerful, fast, lightweight, embeddable scripting language.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.gnu.org/software/ncurses/&#34;&gt;Ncurses&lt;/a&gt;: a software emulation of curses in System V Release 4.0 (SVr4), and more.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cnswww.cns.cwru.edu/php/chet/readline/rltop.html&#34;&gt;Readline&lt;/a&gt;:
+provides a set of functions for use by applications that allow
+users to edit command lines as they are typed in.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&#34;build-tools:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Build tools&lt;/h4&gt;
