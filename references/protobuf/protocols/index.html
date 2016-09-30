@@ -28,7 +28,7 @@
   <title>ProtoBuf Protocols | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -147,7 +156,7 @@ when to exchange it and what to expect as a response.</p>
 <p>These pages describe the sequence of messages that are exchanged
 and the responses to expect as a result of a request.</p>
 
-<h2 id="common-elements:499a76f6c6f0266580dd6e9fecda27d5">Common elements</h2>
+<h2 id="common-elements">Common elements</h2>
 
 <p>All messages have <code>correlation_id</code> which is used to identify the
 sequence of messages that are exchanged in the context of a
@@ -160,7 +169,7 @@ have the same <code>correlation_id</code> but all requests have a unique
 <code>correlation_id</code> so it is possible to know which request is each
 message part of.</p>
 
-<h2 id="daemon-and-manager:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Manager</h2>
+<h2 id="daemon-and-manager">Daemon and Manager</h2>
 
 <p>The Daemon sends very few messages to the Manager as it is only
 supposed to manage the processes on a node.</p>
@@ -168,7 +177,7 @@ supposed to manage the processes on a node.</p>
 <p>See the full
 <a href="../../../references/protobuf/dm/protocol/">protocol</a>.</p>
 
-<h2 id="daemon-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Spawner</h2>
+<h2 id="daemon-and-spawner">Daemon and Spawner</h2>
 
 <p>The Daemon sends very few messages to the Spawner as it is only
 supposed to manage the processes on a node.</p>
@@ -176,7 +185,7 @@ supposed to manage the processes on a node.</p>
 <p>See the full
 <a href="../../../references/protobuf/ds/protocol/">protocol</a>.</p>
 
-<h2 id="manager-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Manager and Spawner</h2>
+<h2 id="manager-and-spawner">Manager and Spawner</h2>
 
 <p>Manager usually initates the exchange of messages to the Spawner as
 a result of a user request.</p>
@@ -185,7 +194,7 @@ a result of a user request.</p>
 all exhanges that are not the result of a user request see the full
 <a href="../../../references/protobuf/ms/protocol/">protocol</a>.</p>
 
-<h2 id="public-api:499a76f6c6f0266580dd6e9fecda27d5">Public API</h2>
+<h2 id="public-api">Public API</h2>
 
 <p>This is usually where message exchanges ususally start and end.
 Systems and user can send requests to SnowFox through the public
@@ -201,11 +210,11 @@ API but they need to be prepared to handle the responses.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#common-elements:499a76f6c6f0266580dd6e9fecda27d5">Common elements</a></li>
-<li><a href="#daemon-and-manager:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Manager</a></li>
-<li><a href="#daemon-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Daemon and Spawner</a></li>
-<li><a href="#manager-and-spawner:499a76f6c6f0266580dd6e9fecda27d5">Manager and Spawner</a></li>
-<li><a href="#public-api:499a76f6c6f0266580dd6e9fecda27d5">Public API</a></li>
+<li><a href="#common-elements">Common elements</a></li>
+<li><a href="#daemon-and-manager">Daemon and Manager</a></li>
+<li><a href="#daemon-and-spawner">Daemon and Spawner</a></li>
+<li><a href="#manager-and-spawner">Manager and Spawner</a></li>
+<li><a href="#public-api">Public API</a></li>
 </ul></li>
 </ul>
 </nav>

@@ -28,7 +28,7 @@
   <title>LUA client API | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -141,34 +150,34 @@
 
 <p>LUA interfaces available in the <code>snow-fox-client</code>.</p>
 
-<h2 id="global-names:4bd4f30263398a45e38fc9edfc648efa">Global names</h2>
+<h2 id="global-names">Global names</h2>
 
 <p>The following names are available in the global scope.</p>
 
-<h3 id="clear:4bd4f30263398a45e38fc9edfc648efa"><code>clear()</code></h3>
+<h3 id="clear"><code>clear()</code></h3>
 
 <p>Clears the terminal window and show the promp on the top line.</p>
 
-<h3 id="pprint-value:4bd4f30263398a45e38fc9edfc648efa"><code>pprint(value)</code></h3>
+<h3 id="pprint-value"><code>pprint(value)</code></h3>
 
 <p>Prints the <code>value</code> argument.
 If <code>value</code> is a LUA table, <code>pprint</code> recursively prints the keys
 and their values.</p>
 
-<h3 id="print:4bd4f30263398a45e38fc9edfc648efa"><code>print(...)</code></h3>
+<h3 id="print"><code>print(...)</code></h3>
 
 <p>Prints the given arguments, separating them with a <code>\t</code> (TAB).</p>
 
-<h2 id="the-client-object:4bd4f30263398a45e38fc9edfc648efa">The <code>client</code> object</h2>
+<h2 id="the-client-object">The <code>client</code> object</h2>
 
 <p>Commands that interact with the client are availale through the
 <code>client</code> global object.</p>
 
-<h3 id="client-exit:4bd4f30263398a45e38fc9edfc648efa"><code>client:exit()</code></h3>
+<h3 id="client-exit"><code>client:exit()</code></h3>
 
 <p>Causes the client to exit cleanly.</p>
 
-<h3 id="client-version:4bd4f30263398a45e38fc9edfc648efa"><code>client:version()</code></h3>
+<h3 id="client-version"><code>client:version()</code></h3>
 
 <p>Returns a LUA table with the client version information.
 The table has the following fields:</p>
@@ -211,13 +220,13 @@ The table has the following fields:</p>
 </div>
 
 
-<h2 id="the-node-object:4bd4f30263398a45e38fc9edfc648efa">The <code>node</code> object</h2>
+<h2 id="the-node-object">The <code>node</code> object</h2>
 
 <p><code>snow-fox-client</code> connects to a <code>snow-fox</code> node at start time.
 The <code>node</code> global object allows to interact with the specific node
 connected at start up.</p>
 
-<h3 id="node-status-callback-details:4bd4f30263398a45e38fc9edfc648efa"><code>node:status(callback[, details])</code></h3>
+<h3 id="node-status-callback-details"><code>node:status(callback[, details])</code></h3>
 
 <p>Requests the status of the node.</p>
 
@@ -234,20 +243,20 @@ then the node includes detailed information about itself.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#global-names:4bd4f30263398a45e38fc9edfc648efa">Global names</a>
+<li><a href="#global-names">Global names</a>
 <ul>
-<li><a href="#clear:4bd4f30263398a45e38fc9edfc648efa"><code>clear()</code></a></li>
-<li><a href="#pprint-value:4bd4f30263398a45e38fc9edfc648efa"><code>pprint(value)</code></a></li>
-<li><a href="#print:4bd4f30263398a45e38fc9edfc648efa"><code>print(...)</code></a></li>
+<li><a href="#clear"><code>clear()</code></a></li>
+<li><a href="#pprint-value"><code>pprint(value)</code></a></li>
+<li><a href="#print"><code>print(...)</code></a></li>
 </ul></li>
-<li><a href="#the-client-object:4bd4f30263398a45e38fc9edfc648efa">The <code>client</code> object</a>
+<li><a href="#the-client-object">The <code>client</code> object</a>
 <ul>
-<li><a href="#client-exit:4bd4f30263398a45e38fc9edfc648efa"><code>client:exit()</code></a></li>
-<li><a href="#client-version:4bd4f30263398a45e38fc9edfc648efa"><code>client:version()</code></a></li>
+<li><a href="#client-exit"><code>client:exit()</code></a></li>
+<li><a href="#client-version"><code>client:version()</code></a></li>
 </ul></li>
-<li><a href="#the-node-object:4bd4f30263398a45e38fc9edfc648efa">The <code>node</code> object</a>
+<li><a href="#the-node-object">The <code>node</code> object</a>
 <ul>
-<li><a href="#node-status-callback-details:4bd4f30263398a45e38fc9edfc648efa"><code>node:status(callback[, details])</code></a></li>
+<li><a href="#node-status-callback-details"><code>node:status(callback[, details])</code></a></li>
 </ul></li>
 </ul></li>
 </ul>

@@ -25,7 +25,7 @@ relevant &lt;code&gt;EventSource&lt;/code&gt;s and enters the event loop.&lt;/p&
 
 &lt;p&gt;This page descrives the events interface and semantics:&lt;/p&gt;
 
-&lt;h2 id=&#34;event-s-interface:cfe6bfb85feb4e5f1baa942dee8755c2&#34;&gt;&lt;code&gt;Event&lt;/code&gt;s interface&lt;/h2&gt;
+&lt;h2 id=&#34;event-s-interface&#34;&gt;&lt;code&gt;Event&lt;/code&gt;s interface&lt;/h2&gt;
 
 &lt;p&gt;Events:&lt;/p&gt;
 
@@ -38,7 +38,7 @@ relevant &lt;code&gt;EventSource&lt;/code&gt;s and enters the event loop.&lt;/p&
 &lt;p&gt;The &lt;code&gt;Event&lt;/code&gt; interface is defined in
 &lt;a href=&#34;https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h&#34;&gt;https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;sharing-state:cfe6bfb85feb4e5f1baa942dee8755c2&#34;&gt;Sharing state&lt;/h2&gt;
+&lt;h2 id=&#34;sharing-state&#34;&gt;Sharing state&lt;/h2&gt;
 
 &lt;p&gt;Events can be given parameters when they are created by the event source
 that creates them but they cannot otherwise interact with future events.&lt;/p&gt;

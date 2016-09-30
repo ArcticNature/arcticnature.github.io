@@ -28,7 +28,7 @@
   <title>Event based system | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -146,7 +155,7 @@ relevant <code>EventSource</code>s and enters the event loop.</p>
 
 <p>This page descrives the events interface and semantics:</p>
 
-<h2 id="event-s-interface:cfe6bfb85feb4e5f1baa942dee8755c2"><code>Event</code>s interface</h2>
+<h2 id="event-s-interface"><code>Event</code>s interface</h2>
 
 <p>Events:</p>
 
@@ -159,7 +168,7 @@ relevant <code>EventSource</code>s and enters the event loop.</p>
 <p>The <code>Event</code> interface is defined in
 <a href="https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h">https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h</a></p>
 
-<h2 id="sharing-state:cfe6bfb85feb4e5f1baa942dee8755c2">Sharing state</h2>
+<h2 id="sharing-state">Sharing state</h2>
 
 <p>Events can be given parameters when they are created by the event source
 that creates them but they cannot otherwise interact with future events.</p>
@@ -197,8 +206,8 @@ Concrete <code>EventContext</code>s are maps from <code>correlation_id</code>s t
 <ul>
 <li>
 <ul>
-<li><a href="#event-s-interface:cfe6bfb85feb4e5f1baa942dee8755c2"><code>Event</code>s interface</a></li>
-<li><a href="#sharing-state:cfe6bfb85feb4e5f1baa942dee8755c2">Sharing state</a></li>
+<li><a href="#event-s-interface"><code>Event</code>s interface</a></li>
+<li><a href="#sharing-state">Sharing state</a></li>
 </ul></li>
 </ul>
 </nav>

@@ -28,7 +28,7 @@
   <title>ProtoBuf Messages | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -139,7 +148,7 @@
             <div class="col-xs-12 col-md-9">
               
 
-<h2 id="common-elements:db98506c886bce6a1312f949ef4ed854">Common elements</h2>
+<h2 id="common-elements">Common elements</h2>
 
 <p>All ProtoBuf interfaces share a pattern which is used to build the
 APIs upon: all messages are extensions of a base <code>Message</code>.</p>
@@ -152,7 +161,7 @@ received.</p>
 <p>If a <code>Message</code> needs to pass additional parameters or data along
 with the <code>code</code>, extensions are used to achieve this.</p>
 
-<h3 id="message:db98506c886bce6a1312f949ef4ed854"><code>Message</code></h3>
+<h3 id="message"><code>Message</code></h3>
 
 <div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.PROTOCOL</span><span class="p">;</span>
 
@@ -166,7 +175,7 @@ with the <code>code</code>, extensions are used to achieve this.</p>
 </code></pre></div>
 
 
-<h4 id="message-attributes:db98506c886bce6a1312f949ef4ed854">Message attributes</h4>
+<h4 id="message-attributes">Message attributes</h4>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -190,12 +199,12 @@ with the <code>code</code>, extensions are used to achieve this.</p>
 </table>
 
 
-<h4 id="description:db98506c886bce6a1312f949ef4ed854">Description</h4>
+<h4 id="description">Description</h4>
 
 <p>The container for exchanged messages.
 Set <code>code</code> and extensions as needed.</p>
 
-<h2 id="daemon-and-manager:db98506c886bce6a1312f949ef4ed854">Daemon and Manager</h2>
+<h2 id="daemon-and-manager">Daemon and Manager</h2>
 
 <p>The daemon uses protocol buffers to inform the manager of changes
 to the core SnowFox processes (the <code>spawner</code> and the <code>daemon</code> itself).</p>
@@ -203,7 +212,7 @@ to the core SnowFox processes (the <code>spawner</code> and the <code>daemon</co
 <p>See the full
 <a href="../../../references/protobuf/dm/messages/">messages reference</a>.</p>
 
-<h2 id="daemon-and-spawner:db98506c886bce6a1312f949ef4ed854">Daemon and Spawner</h2>
+<h2 id="daemon-and-spawner">Daemon and Spawner</h2>
 
 <p>The daemon uses protocol buffers to inform the spawner of changes
 to the core SnowFox processes (the <code>manager</code> and the <code>daemon</code> itself).</p>
@@ -211,7 +220,7 @@ to the core SnowFox processes (the <code>manager</code> and the <code>daemon</co
 <p>See the full
 <a href="../../../references/protobuf/ds/messages/">messages reference</a>.</p>
 
-<h2 id="manager-and-spawner:db98506c886bce6a1312f949ef4ed854">Manager and Spawner</h2>
+<h2 id="manager-and-spawner">Manager and Spawner</h2>
 
 <p>The manager decides how to react to events from the user and the system.
 For security reasons, the manager should not run as a privileged process due to
@@ -224,7 +233,7 @@ to the spawner requesting it to act on its behalf.</p>
 <p>See the full
 <a href="../../../references/protobuf/ms/messages/">messages reference</a>.</p>
 
-<h2 id="public-api:db98506c886bce6a1312f949ef4ed854">Public API</h2>
+<h2 id="public-api">Public API</h2>
 
 <p>In order to allow the user, as well as other systems, to interact
 with SnowFox, the public API was built.</p>
@@ -239,18 +248,18 @@ with SnowFox, the public API was built.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#common-elements:db98506c886bce6a1312f949ef4ed854">Common elements</a>
+<li><a href="#common-elements">Common elements</a>
 <ul>
-<li><a href="#message:db98506c886bce6a1312f949ef4ed854"><code>Message</code></a>
+<li><a href="#message"><code>Message</code></a>
 <ul>
-<li><a href="#message-attributes:db98506c886bce6a1312f949ef4ed854">Message attributes</a></li>
-<li><a href="#description:db98506c886bce6a1312f949ef4ed854">Description</a></li>
+<li><a href="#message-attributes">Message attributes</a></li>
+<li><a href="#description">Description</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#daemon-and-manager:db98506c886bce6a1312f949ef4ed854">Daemon and Manager</a></li>
-<li><a href="#daemon-and-spawner:db98506c886bce6a1312f949ef4ed854">Daemon and Spawner</a></li>
-<li><a href="#manager-and-spawner:db98506c886bce6a1312f949ef4ed854">Manager and Spawner</a></li>
-<li><a href="#public-api:db98506c886bce6a1312f949ef4ed854">Public API</a></li>
+<li><a href="#daemon-and-manager">Daemon and Manager</a></li>
+<li><a href="#daemon-and-spawner">Daemon and Spawner</a></li>
+<li><a href="#manager-and-spawner">Manager and Spawner</a></li>
+<li><a href="#public-api">Public API</a></li>
 </ul></li>
 </ul>
 </nav>

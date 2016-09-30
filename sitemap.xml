@@ -3,8 +3,12 @@
   
   <url>
     <loc>https://arcticnature.github.io/</loc>
-    <lastmod>2016-05-23T22:06:59+01:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2016-09-10T00:03:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/lua/node-config/</loc>
+    <lastmod>2016-09-10T00:03:00+01:00</lastmod>
   </url>
   
   <url>
@@ -19,6 +23,11 @@
   
   <url>
     <loc>https://arcticnature.github.io/references/lifecycles/cli/</loc>
+    <lastmod>2016-05-15T12:39:44+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/references/lifecycles/config/</loc>
     <lastmod>2016-05-15T12:39:44+01:00</lastmod>
   </url>
   
@@ -135,6 +144,11 @@
   <url>
     <loc>https://arcticnature.github.io/page/project-status/</loc>
     <lastmod>2016-03-25T16:49:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arcticnature.github.io/page/quick-start/</loc>
+    <lastmod>2016-03-25T16:46:09+00:00</lastmod>
   </url>
   
   <url>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/lua\/node-config\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Node configuration | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.16" />
+  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        <li class="active">
+        <a href="../../../page/references/"> Full References </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                Node configuration
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>SnowFox nodes are configured through an extensible LUA interface.
+This is the core set of options and values provided.</p>
+
+<h2 id="the-core-object">The <code>core</code> object</h2>
+
+<p>A snow-fox node requres a few options to be set and allows many
+other to be tuned.</p>
+
+<p>The <code>core</code> object collects all configuration options that relate to
+the fundamental functioning of a node rather than a specific
+feature of snow-fox.</p>
+
+<p>This section provides a list of options provided in the official
+snow-fox distribution.
+Remember that components can extend these options so check the
+documentation of any additional or modified component you use.</p>
+
+<h3 id="core-event-manager"><code>core.event_manager</code></h3>
+
+<p>As SnowFox is an event-based system with an asynchronous run loop
+(similar to how node.js works) it needs a way to know if any
+of its configured sources has received an event.</p>
+
+<p>The event manager is what looks after all the sources and determines
+when one of them has an event that needs to be handled.</p>
+
+<p>The default value of <code>event_managers.epoll</code> should work for most
+cases and should only be changed by users that understand the
+implementation of the event managers in the code.</p>
+
+<h3 id="core-logger"><code>core.logger</code></h3>
+
+<p>By default SnowFox logs to standard output and standard error.
+The logging configuration can be changed by creating a new logger
+with the desired options.</p>
+
+<p>Allowed values for this options are picked from the <code>loggers</code>
+collection and the options of each logger is documented there.</p>
+
+<h3 id="core-events-from-source"><code>core.events_from(source)</code></h3>
+
+<p>Register an event source for use by the new configuration.
+An event source is one of the <code>sources</code> with their configuration.</p>
+
+<p>See the definition of each of the availale of <code>sources</code> for what
+they do and what options are available.</p>
+
+<h2 id="the-connectors-object">The <code>connectors</code> object</h2>
+
+<p>Connectors are SnowFox way to interface with processes.
+This means how processes start, stop, restart, etc &hellip;
+Different connectors&rsquo; configurations are stored in the <code>connectors</code>
+object.</p>
+
+<p>See individual <code>connectors</code> for details of the available options.</p>
+
+<h3 id="connectors-local"><code>connectors[&quot;local&quot;]</code></h3>
+
+<p>The <code>local</code> connector is the interface to the local host processes.
+Uses <code>fork</code> and <code>execve</code> to create new processes and signals to
+interact with them.</p>
+
+<h2 id="global-functions">Global functions</h2>
+
+<p>Not all configuration options can be described with one value
+or a list of values so components can define extra interfaces
+to the user by means of LUA functions.</p>
+
+<p>Below is the list of functions that are registered by core components.</p>
+
+<div class="alert alert-info" role="alert">
+  <p>No global function is available at this time.</p>
+
+</div>
+
+
+<h2 id="available-event-managers">Available <code>event_managers</code></h2>
+
+<p>Below is a list of available event manager.</p>
+
+<h3 id="event-managers-epoll"><code>event_managers.epoll</code></h3>
+
+<p>This uses the
+<a href="http://man7.org/linux/man-pages/man7/epoll.7.html">epoll kernel feature</a>
+to watch for events on the configured event sources.</p>
+
+<h2 id="available-loggers">Available <code>loggers</code></h2>
+
+<p>Different loggers target different backends.
+By default SnowFox uses the <code>console</code> logger to output events to
+stdout and stderr to ensure that early messages reach the user.</p>
+
+<p>The following special values are used to configure the logging level:</p>
+
+<ul>
+<li><code>DEBUG</code></li>
+<li><code>INFO</code></li>
+<li><code>WARNING</code></li>
+<li><code>ERROR</code></li>
+</ul>
+
+<h3 id="loggers-console"><code>loggers.console</code></h3>
+
+<p>Writes <code>DEBUG</code> and <code>INFO</code> messages to standard output
+and <code>WARNING</code> and <code>ERROR</code> messages to standard error.</p>
+
+<h3 id="loggers-null"><code>loggers.null</code></h3>
+
+<p>Drop all log messages.</p>
+
+<h2 id="available-sources">Available <code>sources</code></h2>
+
+<p>Sources are the starting point of all activity in SnowFox.
+Different features either register their own sources or register
+events with either the <code>ManualSource</code> or the <code>ScheduledSource</code>
+which are always available.</p>
+
+<h3 id="sources-scheduler"><code>sources.scheduler</code></h3>
+
+<p>Configure the <code>SchedulerSource</code>.</p>
+
+<p>Events are enqueued with a delay after which the event should be handled.
+Delays are expressed as multiple of <code>tick</code>s so that speeding up or
+down instances can be acieved easly.
+This avoids implementation guessing a delay that does not overload
+the system and let the user tune delays.</p>
+
+<p>The following options can be passed to configure the source:</p>
+
+<div class="mdtable table-striped">
+  <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>tick</code></td>
+<td>Int</td>
+<td>1</td>
+<td>Seconds in a <code>tick</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#the-core-object">The <code>core</code> object</a>
+<ul>
+<li><a href="#core-event-manager"><code>core.event_manager</code></a></li>
+<li><a href="#core-logger"><code>core.logger</code></a></li>
+<li><a href="#core-events-from-source"><code>core.events_from(source)</code></a></li>
+</ul></li>
+<li><a href="#the-connectors-object">The <code>connectors</code> object</a>
+<ul>
+<li><a href="#connectors-local"><code>connectors[&quot;local&quot;]</code></a></li>
+</ul></li>
+<li><a href="#global-functions">Global functions</a></li>
+<li><a href="#available-event-managers">Available <code>event_managers</code></a>
+<ul>
+<li><a href="#event-managers-epoll"><code>event_managers.epoll</code></a></li>
+</ul></li>
+<li><a href="#available-loggers">Available <code>loggers</code></a>
+<ul>
+<li><a href="#loggers-console"><code>loggers.console</code></a></li>
+<li><a href="#loggers-null"><code>loggers.null</code></a></li>
+</ul></li>
+<li><a href="#available-sources">Available <code>sources</code></a>
+<ul>
+<li><a href="#sources-scheduler"><code>sources.scheduler</code></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>

@@ -28,7 +28,7 @@
   <title>Project Status | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -148,7 +157,7 @@
 </div>
 
 
-<h2 id="version-number:d13b20e77898b314e01203e8c542ab16">Version number</h2>
+<h2 id="version-number">Version number</h2>
 
 <p>The version number follows the rules of <a href="http://semver.org/">Semantic Versioning</a>
 with one difference: for versions below <code>1.0.0</code> the meaning is shifted by one and
@@ -164,7 +173,7 @@ breaks often, the <code>MAJOR.MINOR.PATCH</code> are as follows:</p>
 <li><code>PATCH</code>: represents a backward compatible change (feature or bug fix).</li>
 </ul>
 
-<h3 id="the-public-api:d13b20e77898b314e01203e8c542ab16">The public API</h3>
+<h3 id="the-public-api">The public API</h3>
 
 <p>At the basis of semantic versioning there is a public API.
 The version number changes based on changes to that.
@@ -178,7 +187,7 @@ For the purpose of versioning, the public API of SnowFox is composed of:</p>
 <li>The lifecycles steps.</li>
 </ul>
 
-<h2 id="road-map:d13b20e77898b314e01203e8c542ab16">Road map</h2>
+<h2 id="road-map">Road map</h2>
 
 <div class="mdtable table-striped">
   <table>
@@ -192,67 +201,73 @@ For the purpose of versioning, the public API of SnowFox is composed of:</p>
 
 <tbody>
 <tr>
-<td>0.0.2</td>
+<td>0.0.3</td>
 <td>System state information</td>
 <td>done</td>
 </tr>
 
 <tr>
-<td>0.0.2</td>
+<td>0.0.3</td>
 <td>Command Line Client</td>
 <td>done</td>
 </tr>
 
 <tr>
-<td>0.0.3</td>
-<td>System configuration</td>
-<td>in progress</td>
-</tr>
-
-<tr>
 <td>0.0.4</td>
-<td>Service registry</td>
-<td>pending</td>
+<td>System configuration</td>
+<td>done</td>
 </tr>
 
 <tr>
 <td>0.0.5</td>
-<td>Service load/list</td>
-<td>pending</td>
+<td>Events refactoring</td>
+<td>in progress</td>
 </tr>
 
 <tr>
 <td>0.0.6</td>
-<td>Service start/stop/status</td>
-<td>pending</td>
-</tr>
-
-<tr>
-<td>0.0.7</td>
-<td>TCP connection support</td>
-<td>pending</td>
-</tr>
-
-<tr>
-<td>0.0.8</td>
-<td>Client connects over tcp</td>
-<td>pending</td>
-</tr>
-
-<tr>
-<td>0.0.9</td>
-<td>Cluster support</td>
-<td>pending</td>
-</tr>
-
-<tr>
-<td>0.0.10</td>
 <td>Metadata storage</td>
 <td>pending</td>
 </tr>
 
 <tr>
+<td>0.0.7</td>
+<td>Service registry</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.8</td>
+<td>Service load/list</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.9</td>
+<td>Service start/stop/status</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.0.10</td>
+<td>TCP connection support</td>
+<td>pending</td>
+</tr>
+
+<tr>
 <td>0.0.11</td>
+<td>Client connects over tcp</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.1.0</td>
+<td>Cluster support</td>
+<td>pending</td>
+</tr>
+
+<tr>
+<td>0.1.1</td>
 <td><code>snow-fox-bootstrap</code></td>
 <td>pending</td>
 </tr>
@@ -262,16 +277,16 @@ For the purpose of versioning, the public API of SnowFox is composed of:</p>
 </div>
 
 
-<h2 id="next-release:d13b20e77898b314e01203e8c542ab16">Next release</h2>
+<h2 id="next-release">Next release</h2>
 
 <p>The topic for the next release is: <b>basic service commands</b>.</p>
 
 <p>This release cycle will be complete when service start, list,
 stop, and status are implemented.</p>
 
-<p>This will approximately be version <code>0.0.7</code>.</p>
+<p>This will approximately be version <code>0.0.9</code>.</p>
 
-<h2 id="change-log:d13b20e77898b314e01203e8c542ab16">Change log</h2>
+<h2 id="change-log">Change log</h2>
 
 <p>Change logs &hellip;</p>
 
@@ -281,13 +296,13 @@ Except for that one time you need it!</p>
 <p>The <a href="../../page/changelog/">change log</a> for SnowFox is an
 itemised list of things that changed and the version it changed in.</p>
 
-<p><div class="alert alert-warning" role="alert">
+<div class="alert alert-warning" role="alert">
   <p>While the change log is as accurate as possible, it is
 <strong>not guaranteed to be complete</strong>.<br />
 If you need such guarantee you may have to scavange the git logs.</p>
 
 </div>
-</p>
+
 
             </div> 
 

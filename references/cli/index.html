@@ -30,7 +30,7 @@
   <title>Command Line Reference | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
 
@@ -65,6 +65,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -143,7 +152,7 @@
 <p>SnowFox is built out of many binareis and tools.
 These all have their own command line parameters and options.</p>
 
-<h2 id="choosing-a-parser:b659b046131d4024ab5e2d3675716bf0">Choosing a parser</h2>
+<h2 id="choosing-a-parser">Choosing a parser</h2>
 
 <p>SnowFox allows the user to select which parser will be used to
 process command line arguments.
@@ -168,11 +177,11 @@ selected there are a few restrictions on this options:</p>
 <li><code>snow-fox --parser=gflags --user snow-fox</code> is <strong>valid</strong>!</li>
 </ul>
 
-<h3 id="supported-parsers:b659b046131d4024ab5e2d3675716bf0">Supported parsers</h3>
+<h3 id="supported-parsers">Supported parsers</h3>
 
 <p>At the time, only one parser is supported: the <code>gflags</code> parser.</p>
 
-<h3 id="default-parser:b659b046131d4024ab5e2d3675716bf0">Default parser</h3>
+<h3 id="default-parser">Default parser</h3>
 
 <p>If the <code>--parser=PARSER</code> option is not specified the default parser is <code>gflags</code>.</p>
 
@@ -182,7 +191,7 @@ be indicated in the detailed description of the option.
 If an option is not available in all parsers, this will be noted
 in the detailed description too.</p>
 
-<h2 id="binaries:b659b046131d4024ab5e2d3675716bf0">Binaries</h2>
+<h2 id="binaries">Binaries</h2>
 
 <p>This section lists all the command line tools available to use
 and the available options:</p>
@@ -203,40 +212,40 @@ Responsible for orchestrating the execution of the manager and the spawner.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#daemon-options:ee90f49520f49f91517c72cf11ab0ded">Daemon options</a>
+<li><a href="#daemon-options">Daemon options</a>
 <ul>
-<li><a href="#daemonise-run-snowfox-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--daemonise</code>: run SnowFox in daemon mode</a></li>
-<li><a href="#drop-privileges-drop-privileges-when-not-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--drop_privileges</code>: drop privileges when not in daemon mode</a></li>
-<li><a href="#group-group-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--group</code>: group to drop privileges to</a></li>
-<li><a href="#user-user-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--user</code>: user to drop privileges to</a></li>
+<li><a href="#daemonise-run-snowfox-in-daemon-mode"><code>--daemonise</code>: run SnowFox in daemon mode</a></li>
+<li><a href="#drop-privileges-drop-privileges-when-not-in-daemon-mode"><code>--drop_privileges</code>: drop privileges when not in daemon mode</a></li>
+<li><a href="#group-group-to-drop-privileges-to"><code>--group</code>: group to drop privileges to</a></li>
+<li><a href="#user-user-to-drop-privileges-to"><code>--user</code>: user to drop privileges to</a></li>
 </ul></li>
-<li><a href="#cluster-options:ee90f49520f49f91517c72cf11ab0ded">Cluster options</a>
+<li><a href="#cluster-options">Cluster options</a>
 <ul>
-<li><a href="#node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded"><code>--node_name</code>: unique name of the node</a></li>
+<li><a href="#node-name-unique-name-of-the-node"><code>--node_name</code>: unique name of the node</a></li>
 </ul></li>
-<li><a href="#i-o-options:ee90f49520f49f91517c72cf11ab0ded">I/O options</a>
+<li><a href="#i-o-options">I/O options</a>
 <ul>
-<li><a href="#stderr-redirect-standard-error-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stderr</code>: redirect standard error to file</a></li>
-<li><a href="#stdin-redirect-standard-input-from-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdin</code>: redirect standard input from file</a></li>
-<li><a href="#stdout-redirect-standard-output-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdout</code>: redirect standard output to file</a></li>
-<li><a href="#work-dir-set-the-working-directory:ee90f49520f49f91517c72cf11ab0ded"><code>--work_dir</code>: set the working directory.</a></li>
+<li><a href="#stderr-redirect-standard-error-to-file"><code>--stderr</code>: redirect standard error to file</a></li>
+<li><a href="#stdin-redirect-standard-input-from-file"><code>--stdin</code>: redirect standard input from file</a></li>
+<li><a href="#stdout-redirect-standard-output-to-file"><code>--stdout</code>: redirect standard output to file</a></li>
+<li><a href="#work-dir-set-the-working-directory"><code>--work_dir</code>: set the working directory.</a></li>
 </ul></li>
-<li><a href="#repository-options:ee90f49520f49f91517c72cf11ab0ded">Repository options</a>
+<li><a href="#repository-options">Repository options</a>
 <ul>
-<li><a href="#repo-path-path-to-the-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_path</code>: path to the configuration repository</a></li>
-<li><a href="#repo-type-type-of-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_type</code>: type of configuration repository</a></li>
-<li><a href="#repo-ver-version-of-the-configuration-to-use:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_ver</code>: version of the configuration to use</a></li>
+<li><a href="#repo-path-path-to-the-configuration-repository"><code>--repo_path</code>: path to the configuration repository</a></li>
+<li><a href="#repo-type-type-of-configuration-repository"><code>--repo_type</code>: type of configuration repository</a></li>
+<li><a href="#repo-ver-version-of-the-configuration-to-use"><code>--repo_ver</code>: version of the configuration to use</a></li>
 </ul></li>
-<li><a href="#inter-process-communication:ee90f49520f49f91517c72cf11ab0ded">Inter-Process communication</a>
+<li><a href="#inter-process-communication">Inter-Process communication</a>
 <ul>
-<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager:ee90f49520f49f91517c72cf11ab0ded"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
-<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
-<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
+<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
 </ul></li>
-<li><a href="#other:ee90f49520f49f91517c72cf11ab0ded">Other</a>
+<li><a href="#other">Other</a>
 <ul>
-<li><a href="#help-show-available-options:ee90f49520f49f91517c72cf11ab0ded"><code>--help</code>: show available options</a></li>
-<li><a href="#version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded"><code>--Version</code>: show version and exit</a></li>
+<li><a href="#help-show-available-options"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -258,25 +267,25 @@ Logic unit of SnowFox, deals with user requests and system events.<br />
 <ul>
 <li>
 <ul>
-<li><a href="#cluster-options:655f1015670be3d6adf536b23ac66a92">Cluster options</a>
+<li><a href="#cluster-options">Cluster options</a>
 <ul>
-<li><a href="#node-name-unique-name-of-the-node:655f1015670be3d6adf536b23ac66a92"><code>--node_name</code>: unique name of the node</a></li>
+<li><a href="#node-name-unique-name-of-the-node"><code>--node_name</code>: unique name of the node</a></li>
 </ul></li>
-<li><a href="#repository-options:655f1015670be3d6adf536b23ac66a92">Repository options</a>
+<li><a href="#repository-options">Repository options</a>
 <ul>
-<li><a href="#repo-path-path-to-the-configuration-repository:655f1015670be3d6adf536b23ac66a92"><code>--repo_path</code>: path to the configuration repository</a></li>
-<li><a href="#repo-type-type-of-configuration-repository:655f1015670be3d6adf536b23ac66a92"><code>--repo_type</code>: type of configuration repository</a></li>
-<li><a href="#repo-ver-version-of-the-configuration-to-use:655f1015670be3d6adf536b23ac66a92"><code>--repo_ver</code>: version of the configuration to use</a></li>
+<li><a href="#repo-path-path-to-the-configuration-repository"><code>--repo_path</code>: path to the configuration repository</a></li>
+<li><a href="#repo-type-type-of-configuration-repository"><code>--repo_type</code>: type of configuration repository</a></li>
+<li><a href="#repo-ver-version-of-the-configuration-to-use"><code>--repo_ver</code>: version of the configuration to use</a></li>
 </ul></li>
-<li><a href="#inter-process-communication:655f1015670be3d6adf536b23ac66a92">Inter-Process communication</a>
+<li><a href="#inter-process-communication">Inter-Process communication</a>
 <ul>
-<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager:655f1015670be3d6adf536b23ac66a92"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
-<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:655f1015670be3d6adf536b23ac66a92"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
 </ul></li>
-<li><a href="#other:655f1015670be3d6adf536b23ac66a92">Other</a>
+<li><a href="#other">Other</a>
 <ul>
-<li><a href="#help-show-available-options:655f1015670be3d6adf536b23ac66a92"><code>--help</code>: show available options</a></li>
-<li><a href="#version-show-version-and-exit:655f1015670be3d6adf536b23ac66a92"><code>--Version</code>: show version and exit</a></li>
+<li><a href="#help-show-available-options"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -298,15 +307,15 @@ Priviledged unit of SnowFox, deals with operations that require root.<br />
 <ul>
 <li>
 <ul>
-<li><a href="#inter-process-communication:fcac0069159e29dbe7d5e4ee62041494">Inter-Process communication</a>
+<li><a href="#inter-process-communication">Inter-Process communication</a>
 <ul>
-<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
-<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
 </ul></li>
-<li><a href="#other:fcac0069159e29dbe7d5e4ee62041494">Other</a>
+<li><a href="#other">Other</a>
 <ul>
-<li><a href="#help-show-available-options:fcac0069159e29dbe7d5e4ee62041494"><code>--help</code>: show available options</a></li>
-<li><a href="#version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494"><code>--Version</code>: show version and exit</a></li>
+<li><a href="#help-show-available-options"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -327,10 +336,10 @@ Used to interact with the SnowFox server.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#other:4bd4f30263398a45e38fc9edfc648efa">Other</a>
+<li><a href="#other">Other</a>
 <ul>
-<li><a href="#help-show-available-options:4bd4f30263398a45e38fc9edfc648efa"><code>--help</code>: show available options</a></li>
-<li><a href="#version-show-version-and-exit:4bd4f30263398a45e38fc9edfc648efa"><code>--Version</code>: show version and exit</a></li>
+<li><a href="#help-show-available-options"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -344,12 +353,12 @@ Used to interact with the SnowFox server.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#choosing-a-parser:b659b046131d4024ab5e2d3675716bf0">Choosing a parser</a>
+<li><a href="#choosing-a-parser">Choosing a parser</a>
 <ul>
-<li><a href="#supported-parsers:b659b046131d4024ab5e2d3675716bf0">Supported parsers</a></li>
-<li><a href="#default-parser:b659b046131d4024ab5e2d3675716bf0">Default parser</a></li>
+<li><a href="#supported-parsers">Supported parsers</a></li>
+<li><a href="#default-parser">Default parser</a></li>
 </ul></li>
-<li><a href="#binaries:b659b046131d4024ab5e2d3675716bf0">Binaries</a></li>
+<li><a href="#binaries">Binaries</a></li>
 </ul></li>
 </ul>
 </nav>

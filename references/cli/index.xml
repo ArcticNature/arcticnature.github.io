@@ -21,11 +21,11 @@
 &lt;p&gt;The SnowFox daemon binary.
 Responsible for orchestrating the execution of the manager and the spawner.&lt;/p&gt;
 
-&lt;h2 id=&#34;daemon-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;Daemon options&lt;/h2&gt;
+&lt;h2 id=&#34;daemon-options&#34;&gt;Daemon options&lt;/h2&gt;
 
 &lt;p&gt;These options tweak the daemonisation process.&lt;/p&gt;
 
-&lt;h3 id=&#34;daemonise-run-snowfox-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--daemonise&lt;/code&gt;: run SnowFox in daemon mode&lt;/h3&gt;
+&lt;h3 id=&#34;daemonise-run-snowfox-in-daemon-mode&#34;&gt;&lt;code&gt;--daemonise&lt;/code&gt;: run SnowFox in daemon mode&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -50,7 +50,7 @@ starts the &lt;code&gt;snow-fox-manager&lt;/code&gt; process.&lt;/p&gt;
 &lt;p&gt;You can use &lt;code&gt;--group&lt;/code&gt; and &lt;code&gt;--user&lt;/code&gt; options to change the group/user
 to drop to.&lt;/p&gt;
 
-&lt;h3 id=&#34;drop-privileges-drop-privileges-when-not-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--drop_privileges&lt;/code&gt;: drop privileges when not in daemon mode&lt;/h3&gt;
+&lt;h3 id=&#34;drop-privileges-drop-privileges-when-not-in-daemon-mode&#34;&gt;&lt;code&gt;--drop_privileges&lt;/code&gt;: drop privileges when not in daemon mode&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -74,7 +74,7 @@ to drop to.&lt;/p&gt;
 &lt;p&gt;Because this is a security risk, &lt;code&gt;--drop_privileges&lt;/code&gt; can be specified to still
 drop group and user privileges even without daemonising the process.&lt;/p&gt;
 
-&lt;h3 id=&#34;group-group-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--group&lt;/code&gt;: group to drop privileges to&lt;/h3&gt;
+&lt;h3 id=&#34;group-group-to-drop-privileges-to&#34;&gt;&lt;code&gt;--group&lt;/code&gt;: group to drop privileges to&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -95,7 +95,7 @@ drop group and user privileges even without daemonising the process.&lt;/p&gt;
 &lt;p&gt;When run in daemon mode, or when &lt;code&gt;--drop_privileges&lt;/code&gt; is specified,
 the effective group is set to this option.&lt;/p&gt;
 
-&lt;h3 id=&#34;user-user-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--user&lt;/code&gt;: user to drop privileges to&lt;/h3&gt;
+&lt;h3 id=&#34;user-user-to-drop-privileges-to&#34;&gt;&lt;code&gt;--user&lt;/code&gt;: user to drop privileges to&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -116,9 +116,9 @@ the effective group is set to this option.&lt;/p&gt;
 &lt;p&gt;When run in daemon mode, or when &lt;code&gt;--drop_privileges&lt;/code&gt; is specified,
 the effective user is set to this option.&lt;/p&gt;
 
-&lt;h2 id=&#34;cluster-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;Cluster options&lt;/h2&gt;
+&lt;h2 id=&#34;cluster-options&#34;&gt;Cluster options&lt;/h2&gt;
 
-&lt;h3 id=&#34;node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--node_name&lt;/code&gt;: unique name of the node&lt;/h3&gt;
+&lt;h3 id=&#34;node-name-unique-name-of-the-node&#34;&gt;&lt;code&gt;--node_name&lt;/code&gt;: unique name of the node&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -139,11 +139,11 @@ the effective user is set to this option.&lt;/p&gt;
 &lt;p&gt;Used to set the name for the node.
 Names must be unique within the cluster.&lt;/p&gt;
 
-&lt;h2 id=&#34;i-o-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;I/O options&lt;/h2&gt;
+&lt;h2 id=&#34;i-o-options&#34;&gt;I/O options&lt;/h2&gt;
 
 &lt;p&gt;Customise the processes Input/Output.&lt;/p&gt;
 
-&lt;h3 id=&#34;stderr-redirect-standard-error-to-file:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--stderr&lt;/code&gt;: redirect standard error to file&lt;/h3&gt;
+&lt;h3 id=&#34;stderr-redirect-standard-error-to-file&#34;&gt;&lt;code&gt;--stderr&lt;/code&gt;: redirect standard error to file&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -164,7 +164,7 @@ Names must be unique within the cluster.&lt;/p&gt;
 &lt;p&gt;When the specified value is not the empty string, the standard error
 of the SnowFox processes is redirected to the file at this path.&lt;/p&gt;
 
-&lt;h3 id=&#34;stdin-redirect-standard-input-from-file:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--stdin&lt;/code&gt;: redirect standard input from file&lt;/h3&gt;
+&lt;h3 id=&#34;stdin-redirect-standard-input-from-file&#34;&gt;&lt;code&gt;--stdin&lt;/code&gt;: redirect standard input from file&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -185,7 +185,7 @@ of the SnowFox processes is redirected to the file at this path.&lt;/p&gt;
 &lt;p&gt;When the specified value is not the empty string, the standard input
 of the SnowFox processes is read from the file at this path.&lt;/p&gt;
 
-&lt;h3 id=&#34;stdout-redirect-standard-output-to-file:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--stdout&lt;/code&gt;: redirect standard output to file&lt;/h3&gt;
+&lt;h3 id=&#34;stdout-redirect-standard-output-to-file&#34;&gt;&lt;code&gt;--stdout&lt;/code&gt;: redirect standard output to file&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -206,7 +206,7 @@ of the SnowFox processes is read from the file at this path.&lt;/p&gt;
 &lt;p&gt;When the specified value is not the empty string, the standard output
 of the SnowFox processes is redirected to the file at this path.&lt;/p&gt;
 
-&lt;h3 id=&#34;work-dir-set-the-working-directory:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--work_dir&lt;/code&gt;: set the working directory.&lt;/h3&gt;
+&lt;h3 id=&#34;work-dir-set-the-working-directory&#34;&gt;&lt;code&gt;--work_dir&lt;/code&gt;: set the working directory.&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -226,11 +226,11 @@ of the SnowFox processes is redirected to the file at this path.&lt;/p&gt;
 
 &lt;p&gt;Set the given path as the process working directory.&lt;/p&gt;
 
-&lt;h2 id=&#34;repository-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;Repository options&lt;/h2&gt;
+&lt;h2 id=&#34;repository-options&#34;&gt;Repository options&lt;/h2&gt;
 
 &lt;p&gt;Configuration repository related options.&lt;/p&gt;
 
-&lt;h3 id=&#34;repo-path-path-to-the-configuration-repository:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--repo_path&lt;/code&gt;: path to the configuration repository&lt;/h3&gt;
+&lt;h3 id=&#34;repo-path-path-to-the-configuration-repository&#34;&gt;&lt;code&gt;--repo_path&lt;/code&gt;: path to the configuration repository&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -252,9 +252,9 @@ of the SnowFox processes is redirected to the file at this path.&lt;/p&gt;
 
 &lt;p&gt;This option is forwarded to the Manager.&lt;/p&gt;
 
-&lt;h3 id=&#34;repo-type-type-of-configuration-repository:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--repo_type&lt;/code&gt;: type of configuration repository&lt;/h3&gt;
+&lt;h3 id=&#34;repo-type-type-of-configuration-repository&#34;&gt;&lt;code&gt;--repo_type&lt;/code&gt;: type of configuration repository&lt;/h3&gt;
 
-&lt;p&gt;&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
   &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
   &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
@@ -268,16 +268,16 @@ of the SnowFox processes is redirected to the file at this path.&lt;/p&gt;
 &lt;/tr&gt;&lt;/p&gt;
 
 &lt;/table&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Type of version control system repository where the configuration is stored.
 The only supported type of repository is &lt;code&gt;git&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;This option is forwarded to the Manager.&lt;/p&gt;
 
-&lt;h3 id=&#34;repo-ver-version-of-the-configuration-to-use:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--repo_ver&lt;/code&gt;: version of the configuration to use&lt;/h3&gt;
+&lt;h3 id=&#34;repo-ver-version-of-the-configuration-to-use&#34;&gt;&lt;code&gt;--repo_ver&lt;/code&gt;: version of the configuration to use&lt;/h3&gt;
 
-&lt;p&gt;&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
   &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
   &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
@@ -291,7 +291,7 @@ The only supported type of repository is &lt;code&gt;git&lt;/code&gt;.&lt;/p&gt;
 &lt;/tr&gt;&lt;/p&gt;
 
 &lt;/table&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;The identifier of the configuration version to use.
 It may be a logical name (such as &lt;code&gt;master&lt;/code&gt;) or an actual version
@@ -299,13 +299,13 @@ It may be a logical name (such as &lt;code&gt;master&lt;/code&gt;) or an actual 
 
 &lt;p&gt;This option is forwarded to the Manager.&lt;/p&gt;
 
-&lt;h2 id=&#34;inter-process-communication:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;Inter-Process communication&lt;/h2&gt;
+&lt;h2 id=&#34;inter-process-communication&#34;&gt;Inter-Process communication&lt;/h2&gt;
 
 &lt;p&gt;Configure how &lt;code&gt;daemon&lt;/code&gt;, &lt;code&gt;manager&lt;/code&gt;, and &lt;code&gt;spawner&lt;/code&gt; talk to each other.&lt;/p&gt;
 
-&lt;h3 id=&#34;manager-socket-socket-file-to-connect-daemon-and-manager:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--manager_socket&lt;/code&gt;: socket file to connect daemon and manager&lt;/h3&gt;
+&lt;h3 id=&#34;manager-socket-socket-file-to-connect-daemon-and-manager&#34;&gt;&lt;code&gt;--manager_socket&lt;/code&gt;: socket file to connect daemon and manager&lt;/h3&gt;
 
-&lt;p&gt;&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
   &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
   &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
@@ -319,14 +319,14 @@ It may be a logical name (such as &lt;code&gt;master&lt;/code&gt;) or an actual 
 &lt;/tr&gt;&lt;/p&gt;
 
 &lt;/table&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Daemon and Manager use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
-&lt;h3 id=&#34;spawner-manager-socket-socket-file-to-connect-manager-and-spawner:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--spawner_manager_socket&lt;/code&gt;: socket file to connect manager and spawner&lt;/h3&gt;
+&lt;h3 id=&#34;spawner-manager-socket-socket-file-to-connect-manager-and-spawner&#34;&gt;&lt;code&gt;--spawner_manager_socket&lt;/code&gt;: socket file to connect manager and spawner&lt;/h3&gt;
 
-&lt;p&gt;&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
   &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
   &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
@@ -340,16 +340,16 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 &lt;/tr&gt;&lt;/p&gt;
 
 &lt;/table&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
 &lt;p&gt;This option is forwarded from the &lt;code&gt;daemon&lt;/code&gt; to both &lt;code&gt;manager&lt;/code&gt; and &lt;code&gt;spawner&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;spawner-socket-socket-file-to-connect-daemon-and-spawner:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--spawner_socket&lt;/code&gt;: socket file to connect daemon and spawner&lt;/h3&gt;
+&lt;h3 id=&#34;spawner-socket-socket-file-to-connect-daemon-and-spawner&#34;&gt;&lt;code&gt;--spawner_socket&lt;/code&gt;: socket file to connect daemon and spawner&lt;/h3&gt;
 
-&lt;p&gt;&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
   &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
   &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
@@ -363,20 +363,20 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 &lt;/tr&gt;&lt;/p&gt;
 
 &lt;/table&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Daemon and Spawner use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
-&lt;h2 id=&#34;other:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;Other&lt;/h2&gt;
+&lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
 
 &lt;p&gt;Miscellaneous options.&lt;/p&gt;
 
-&lt;h3 id=&#34;help-show-available-options:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
+&lt;h3 id=&#34;help-show-available-options&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
 
 &lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
 
-&lt;h3 id=&#34;version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+&lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
 &lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
 </description>
@@ -394,9 +394,9 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 Logic unit of SnowFox, deals with user requests and system events.&lt;br /&gt;
 &lt;strong&gt;&lt;code&gt;snow-fox-manager&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;cluster-options:655f1015670be3d6adf536b23ac66a92&#34;&gt;Cluster options&lt;/h2&gt;
+&lt;h2 id=&#34;cluster-options&#34;&gt;Cluster options&lt;/h2&gt;
 
-&lt;h3 id=&#34;node-name-unique-name-of-the-node:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--node_name&lt;/code&gt;: unique name of the node&lt;/h3&gt;
+&lt;h3 id=&#34;node-name-unique-name-of-the-node&#34;&gt;&lt;code&gt;--node_name&lt;/code&gt;: unique name of the node&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -417,11 +417,11 @@ Logic unit of SnowFox, deals with user requests and system events.&lt;br /&gt;
 &lt;p&gt;Used to set the name for the node.
 Names must be unique within the cluster.&lt;/p&gt;
 
-&lt;h2 id=&#34;repository-options:655f1015670be3d6adf536b23ac66a92&#34;&gt;Repository options&lt;/h2&gt;
+&lt;h2 id=&#34;repository-options&#34;&gt;Repository options&lt;/h2&gt;
 
 &lt;p&gt;Configuration repository related options.&lt;/p&gt;
 
-&lt;h3 id=&#34;repo-path-path-to-the-configuration-repository:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--repo_path&lt;/code&gt;: path to the configuration repository&lt;/h3&gt;
+&lt;h3 id=&#34;repo-path-path-to-the-configuration-repository&#34;&gt;&lt;code&gt;--repo_path&lt;/code&gt;: path to the configuration repository&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -441,7 +441,7 @@ Names must be unique within the cluster.&lt;/p&gt;
 
 &lt;p&gt;Location on the file system of the configuration repository.&lt;/p&gt;
 
-&lt;h3 id=&#34;repo-type-type-of-configuration-repository:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--repo_type&lt;/code&gt;: type of configuration repository&lt;/h3&gt;
+&lt;h3 id=&#34;repo-type-type-of-configuration-repository&#34;&gt;&lt;code&gt;--repo_type&lt;/code&gt;: type of configuration repository&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -462,7 +462,7 @@ Names must be unique within the cluster.&lt;/p&gt;
 &lt;p&gt;Type of version control system repository where the configuration is stored.
 The only supported type of repository is &lt;code&gt;git&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;repo-ver-version-of-the-configuration-to-use:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--repo_ver&lt;/code&gt;: version of the configuration to use&lt;/h3&gt;
+&lt;h3 id=&#34;repo-ver-version-of-the-configuration-to-use&#34;&gt;&lt;code&gt;--repo_ver&lt;/code&gt;: version of the configuration to use&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -484,13 +484,13 @@ The only supported type of repository is &lt;code&gt;git&lt;/code&gt;.&lt;/p&gt;
 It may be a logical name (such as &lt;code&gt;master&lt;/code&gt;) or an actual version
 (a commit hash).&lt;/p&gt;
 
-&lt;h2 id=&#34;inter-process-communication:655f1015670be3d6adf536b23ac66a92&#34;&gt;Inter-Process communication&lt;/h2&gt;
+&lt;h2 id=&#34;inter-process-communication&#34;&gt;Inter-Process communication&lt;/h2&gt;
 
 &lt;p&gt;Configure how &lt;code&gt;daemon&lt;/code&gt;, &lt;code&gt;manager&lt;/code&gt;, and &lt;code&gt;spawner&lt;/code&gt; talk to each other.&lt;/p&gt;
 
-&lt;h3 id=&#34;manager-socket-socket-file-to-connect-daemon-and-manager:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--manager_socket&lt;/code&gt;: socket file to connect daemon and manager&lt;/h3&gt;
+&lt;h3 id=&#34;manager-socket-socket-file-to-connect-daemon-and-manager&#34;&gt;&lt;code&gt;--manager_socket&lt;/code&gt;: socket file to connect daemon and manager&lt;/h3&gt;
 
-&lt;p&gt;&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
   &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
   &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
@@ -504,63 +504,12 @@ It may be a logical name (such as &lt;code&gt;master&lt;/code&gt;) or an actual 
 &lt;/tr&gt;&lt;/p&gt;
 
 &lt;/table&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Daemon and Manager use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
-&lt;h3 id=&#34;spawner-manager-socket-socket-file-to-connect-manager-and-spawner:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--spawner_manager_socket&lt;/code&gt;: socket file to connect manager and spawner&lt;/h3&gt;
-
-&lt;p&gt;&lt;table class=&#34;hugo-attributes-table&#34;&gt;
-  &lt;p&gt;&lt;tr&gt;
-  &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
-  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
-  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;tr&gt;
-  &lt;td class=&#34;hat-name&#34;&gt;Default&lt;/td&gt;
-  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;/var/run/snow-fox-manager-spawner.socket&lt;/code&gt;&lt;/td&gt;
-  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/p&gt;
-
-&lt;/table&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
-The path to the UNIX socket can be specified with this option.&lt;/p&gt;
-
-&lt;h2 id=&#34;other:655f1015670be3d6adf536b23ac66a92&#34;&gt;Other&lt;/h2&gt;
-
-&lt;p&gt;Miscellaneous options.&lt;/p&gt;
-
-&lt;h3 id=&#34;help-show-available-options:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
-
-&lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
-
-&lt;h3 id=&#34;version-show-version-and-exit:655f1015670be3d6adf536b23ac66a92&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
-
-&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>snow-fox-spawner</title>
-      <link>https://arcticnature.github.io/references/cli/spanwer/</link>
-      <pubDate>Mon, 28 Mar 2016 23:47:42 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/references/cli/spanwer/</guid>
-      <description>
-
-&lt;p&gt;The SnowFox manager binary.
-Priviledged unit of SnowFox, deals with operations that require root.&lt;br /&gt;
-&lt;strong&gt;&lt;code&gt;snow-fox-spawner&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;inter-process-communication:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;Inter-Process communication&lt;/h2&gt;
-
-&lt;p&gt;Configure how &lt;code&gt;daemon&lt;/code&gt;, &lt;code&gt;manager&lt;/code&gt;, and &lt;code&gt;spawner&lt;/code&gt; talk to each other.&lt;/p&gt;
-
-&lt;h3 id=&#34;spawner-manager-socket-socket-file-to-connect-manager-and-spawner:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;&lt;code&gt;--spawner_manager_socket&lt;/code&gt;: socket file to connect manager and spawner&lt;/h3&gt;
+&lt;h3 id=&#34;spawner-manager-socket-socket-file-to-connect-manager-and-spawner&#34;&gt;&lt;code&gt;--spawner_manager_socket&lt;/code&gt;: socket file to connect manager and spawner&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -581,7 +530,58 @@ Priviledged unit of SnowFox, deals with operations that require root.&lt;br /&gt
 &lt;p&gt;Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
-&lt;h3 id=&#34;spawner-socket-socket-file-to-connect-daemon-and-spawner:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;&lt;code&gt;--spawner_socket&lt;/code&gt;: socket file to connect daemon and spawner&lt;/h3&gt;
+&lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
+
+&lt;p&gt;Miscellaneous options.&lt;/p&gt;
+
+&lt;h3 id=&#34;help-show-available-options&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
+
+&lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
+
+&lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>snow-fox-spawner</title>
+      <link>https://arcticnature.github.io/references/cli/spanwer/</link>
+      <pubDate>Mon, 28 Mar 2016 23:47:42 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/cli/spanwer/</guid>
+      <description>
+
+&lt;p&gt;The SnowFox manager binary.
+Priviledged unit of SnowFox, deals with operations that require root.&lt;br /&gt;
+&lt;strong&gt;&lt;code&gt;snow-fox-spawner&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;inter-process-communication&#34;&gt;Inter-Process communication&lt;/h2&gt;
+
+&lt;p&gt;Configure how &lt;code&gt;daemon&lt;/code&gt;, &lt;code&gt;manager&lt;/code&gt;, and &lt;code&gt;spawner&lt;/code&gt; talk to each other.&lt;/p&gt;
+
+&lt;h3 id=&#34;spawner-manager-socket-socket-file-to-connect-manager-and-spawner&#34;&gt;&lt;code&gt;--spawner_manager_socket&lt;/code&gt;: socket file to connect manager and spawner&lt;/h3&gt;
+
+&lt;table class=&#34;hugo-attributes-table&#34;&gt;
+  &lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;Type&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;String&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tr&gt;
+  &lt;td class=&#34;hat-name&#34;&gt;Default&lt;/td&gt;
+  &lt;td class=&#34;hat-value&#34;&gt;&lt;code&gt;/var/run/snow-fox-manager-spawner.socket&lt;/code&gt;&lt;/td&gt;
+  &lt;td class=&#34;hat-comment&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/p&gt;
+
+&lt;/table&gt;
+
+
+&lt;p&gt;Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
+The path to the UNIX socket can be specified with this option.&lt;/p&gt;
+
+&lt;h3 id=&#34;spawner-socket-socket-file-to-connect-daemon-and-spawner&#34;&gt;&lt;code&gt;--spawner_socket&lt;/code&gt;: socket file to connect daemon and spawner&lt;/h3&gt;
 
 &lt;table class=&#34;hugo-attributes-table&#34;&gt;
   &lt;p&gt;&lt;tr&gt;
@@ -602,15 +602,15 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 &lt;p&gt;Daemon and Spawner use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
-&lt;h2 id=&#34;other:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;Other&lt;/h2&gt;
+&lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
 
 &lt;p&gt;Miscellaneous options.&lt;/p&gt;
 
-&lt;h3 id=&#34;help-show-available-options:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
+&lt;h3 id=&#34;help-show-available-options&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
 
 &lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
 
-&lt;h3 id=&#34;version-show-version-and-exit:fcac0069159e29dbe7d5e4ee62041494&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+&lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
 &lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
 </description>
@@ -630,15 +630,15 @@ Used to interact with the SnowFox server.&lt;/p&gt;
 
 
 
-&lt;h2 id=&#34;other:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;Other&lt;/h2&gt;
+&lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
 
 &lt;p&gt;Miscellaneous options.&lt;/p&gt;
 
-&lt;h3 id=&#34;help-show-available-options:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
+&lt;h3 id=&#34;help-show-available-options&#34;&gt;&lt;code&gt;--help&lt;/code&gt;: show available options&lt;/h3&gt;
 
 &lt;p&gt;Print the list of available options and parameters and exits.&lt;/p&gt;
 
-&lt;h3 id=&#34;version-show-version-and-exit:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
+&lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
 &lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
 </description>

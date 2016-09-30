@@ -28,7 +28,7 @@
   <title>snow-fox | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -142,11 +151,11 @@
 <p>The SnowFox daemon binary.
 Responsible for orchestrating the execution of the manager and the spawner.</p>
 
-<h2 id="daemon-options:ee90f49520f49f91517c72cf11ab0ded">Daemon options</h2>
+<h2 id="daemon-options">Daemon options</h2>
 
 <p>These options tweak the daemonisation process.</p>
 
-<h3 id="daemonise-run-snowfox-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--daemonise</code>: run SnowFox in daemon mode</h3>
+<h3 id="daemonise-run-snowfox-in-daemon-mode"><code>--daemonise</code>: run SnowFox in daemon mode</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -171,7 +180,7 @@ starts the <code>snow-fox-manager</code> process.</p>
 <p>You can use <code>--group</code> and <code>--user</code> options to change the group/user
 to drop to.</p>
 
-<h3 id="drop-privileges-drop-privileges-when-not-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--drop_privileges</code>: drop privileges when not in daemon mode</h3>
+<h3 id="drop-privileges-drop-privileges-when-not-in-daemon-mode"><code>--drop_privileges</code>: drop privileges when not in daemon mode</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -195,7 +204,7 @@ to drop to.</p>
 <p>Because this is a security risk, <code>--drop_privileges</code> can be specified to still
 drop group and user privileges even without daemonising the process.</p>
 
-<h3 id="group-group-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--group</code>: group to drop privileges to</h3>
+<h3 id="group-group-to-drop-privileges-to"><code>--group</code>: group to drop privileges to</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -216,7 +225,7 @@ drop group and user privileges even without daemonising the process.</p>
 <p>When run in daemon mode, or when <code>--drop_privileges</code> is specified,
 the effective group is set to this option.</p>
 
-<h3 id="user-user-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--user</code>: user to drop privileges to</h3>
+<h3 id="user-user-to-drop-privileges-to"><code>--user</code>: user to drop privileges to</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -237,9 +246,9 @@ the effective group is set to this option.</p>
 <p>When run in daemon mode, or when <code>--drop_privileges</code> is specified,
 the effective user is set to this option.</p>
 
-<h2 id="cluster-options:ee90f49520f49f91517c72cf11ab0ded">Cluster options</h2>
+<h2 id="cluster-options">Cluster options</h2>
 
-<h3 id="node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded"><code>--node_name</code>: unique name of the node</h3>
+<h3 id="node-name-unique-name-of-the-node"><code>--node_name</code>: unique name of the node</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -260,11 +269,11 @@ the effective user is set to this option.</p>
 <p>Used to set the name for the node.
 Names must be unique within the cluster.</p>
 
-<h2 id="i-o-options:ee90f49520f49f91517c72cf11ab0ded">I/O options</h2>
+<h2 id="i-o-options">I/O options</h2>
 
 <p>Customise the processes Input/Output.</p>
 
-<h3 id="stderr-redirect-standard-error-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stderr</code>: redirect standard error to file</h3>
+<h3 id="stderr-redirect-standard-error-to-file"><code>--stderr</code>: redirect standard error to file</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -285,7 +294,7 @@ Names must be unique within the cluster.</p>
 <p>When the specified value is not the empty string, the standard error
 of the SnowFox processes is redirected to the file at this path.</p>
 
-<h3 id="stdin-redirect-standard-input-from-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdin</code>: redirect standard input from file</h3>
+<h3 id="stdin-redirect-standard-input-from-file"><code>--stdin</code>: redirect standard input from file</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -306,7 +315,7 @@ of the SnowFox processes is redirected to the file at this path.</p>
 <p>When the specified value is not the empty string, the standard input
 of the SnowFox processes is read from the file at this path.</p>
 
-<h3 id="stdout-redirect-standard-output-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdout</code>: redirect standard output to file</h3>
+<h3 id="stdout-redirect-standard-output-to-file"><code>--stdout</code>: redirect standard output to file</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -327,7 +336,7 @@ of the SnowFox processes is read from the file at this path.</p>
 <p>When the specified value is not the empty string, the standard output
 of the SnowFox processes is redirected to the file at this path.</p>
 
-<h3 id="work-dir-set-the-working-directory:ee90f49520f49f91517c72cf11ab0ded"><code>--work_dir</code>: set the working directory.</h3>
+<h3 id="work-dir-set-the-working-directory"><code>--work_dir</code>: set the working directory.</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -347,11 +356,11 @@ of the SnowFox processes is redirected to the file at this path.</p>
 
 <p>Set the given path as the process working directory.</p>
 
-<h2 id="repository-options:ee90f49520f49f91517c72cf11ab0ded">Repository options</h2>
+<h2 id="repository-options">Repository options</h2>
 
 <p>Configuration repository related options.</p>
 
-<h3 id="repo-path-path-to-the-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_path</code>: path to the configuration repository</h3>
+<h3 id="repo-path-path-to-the-configuration-repository"><code>--repo_path</code>: path to the configuration repository</h3>
 
 <table class="hugo-attributes-table">
   <p><tr>
@@ -373,9 +382,9 @@ of the SnowFox processes is redirected to the file at this path.</p>
 
 <p>This option is forwarded to the Manager.</p>
 
-<h3 id="repo-type-type-of-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_type</code>: type of configuration repository</h3>
+<h3 id="repo-type-type-of-configuration-repository"><code>--repo_type</code>: type of configuration repository</h3>
 
-<p><table class="hugo-attributes-table">
+<table class="hugo-attributes-table">
   <p><tr>
   <td class="hat-name">Type</td>
   <td class="hat-value"><code>String</code></td>
@@ -389,16 +398,16 @@ of the SnowFox processes is redirected to the file at this path.</p>
 </tr></p>
 
 </table>
-</p>
+
 
 <p>Type of version control system repository where the configuration is stored.
 The only supported type of repository is <code>git</code>.</p>
 
 <p>This option is forwarded to the Manager.</p>
 
-<h3 id="repo-ver-version-of-the-configuration-to-use:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_ver</code>: version of the configuration to use</h3>
+<h3 id="repo-ver-version-of-the-configuration-to-use"><code>--repo_ver</code>: version of the configuration to use</h3>
 
-<p><table class="hugo-attributes-table">
+<table class="hugo-attributes-table">
   <p><tr>
   <td class="hat-name">Type</td>
   <td class="hat-value"><code>String</code></td>
@@ -412,7 +421,7 @@ The only supported type of repository is <code>git</code>.</p>
 </tr></p>
 
 </table>
-</p>
+
 
 <p>The identifier of the configuration version to use.
 It may be a logical name (such as <code>master</code>) or an actual version
@@ -420,13 +429,13 @@ It may be a logical name (such as <code>master</code>) or an actual version
 
 <p>This option is forwarded to the Manager.</p>
 
-<h2 id="inter-process-communication:ee90f49520f49f91517c72cf11ab0ded">Inter-Process communication</h2>
+<h2 id="inter-process-communication">Inter-Process communication</h2>
 
 <p>Configure how <code>daemon</code>, <code>manager</code>, and <code>spawner</code> talk to each other.</p>
 
-<h3 id="manager-socket-socket-file-to-connect-daemon-and-manager:ee90f49520f49f91517c72cf11ab0ded"><code>--manager_socket</code>: socket file to connect daemon and manager</h3>
+<h3 id="manager-socket-socket-file-to-connect-daemon-and-manager"><code>--manager_socket</code>: socket file to connect daemon and manager</h3>
 
-<p><table class="hugo-attributes-table">
+<table class="hugo-attributes-table">
   <p><tr>
   <td class="hat-name">Type</td>
   <td class="hat-value"><code>String</code></td>
@@ -440,14 +449,14 @@ It may be a logical name (such as <code>master</code>) or an actual version
 </tr></p>
 
 </table>
-</p>
+
 
 <p>Daemon and Manager use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.</p>
 
-<h3 id="spawner-manager-socket-socket-file-to-connect-manager-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</h3>
+<h3 id="spawner-manager-socket-socket-file-to-connect-manager-and-spawner"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</h3>
 
-<p><table class="hugo-attributes-table">
+<table class="hugo-attributes-table">
   <p><tr>
   <td class="hat-name">Type</td>
   <td class="hat-value"><code>String</code></td>
@@ -461,16 +470,16 @@ The path to the UNIX socket can be specified with this option.</p>
 </tr></p>
 
 </table>
-</p>
+
 
 <p>Manager and Spawner use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.</p>
 
 <p>This option is forwarded from the <code>daemon</code> to both <code>manager</code> and <code>spawner</code>.</p>
 
-<h3 id="spawner-socket-socket-file-to-connect-daemon-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_socket</code>: socket file to connect daemon and spawner</h3>
+<h3 id="spawner-socket-socket-file-to-connect-daemon-and-spawner"><code>--spawner_socket</code>: socket file to connect daemon and spawner</h3>
 
-<p><table class="hugo-attributes-table">
+<table class="hugo-attributes-table">
   <p><tr>
   <td class="hat-name">Type</td>
   <td class="hat-value"><code>String</code></td>
@@ -484,20 +493,20 @@ The path to the UNIX socket can be specified with this option.</p>
 </tr></p>
 
 </table>
-</p>
+
 
 <p>Daemon and Spawner use UNIX sockets to exchange protocol buffer messages.
 The path to the UNIX socket can be specified with this option.</p>
 
-<h2 id="other:ee90f49520f49f91517c72cf11ab0ded">Other</h2>
+<h2 id="other">Other</h2>
 
 <p>Miscellaneous options.</p>
 
-<h3 id="help-show-available-options:ee90f49520f49f91517c72cf11ab0ded"><code>--help</code>: show available options</h3>
+<h3 id="help-show-available-options"><code>--help</code>: show available options</h3>
 
 <p>Print the list of available options and parameters and exits.</p>
 
-<h3 id="version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded"><code>--Version</code>: show version and exit</h3>
+<h3 id="version-show-version-and-exit"><code>--Version</code>: show version and exit</h3>
 
 <p>Print the version of the binary and exits.</p>
 
@@ -508,40 +517,40 @@ The path to the UNIX socket can be specified with this option.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#daemon-options:ee90f49520f49f91517c72cf11ab0ded">Daemon options</a>
+<li><a href="#daemon-options">Daemon options</a>
 <ul>
-<li><a href="#daemonise-run-snowfox-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--daemonise</code>: run SnowFox in daemon mode</a></li>
-<li><a href="#drop-privileges-drop-privileges-when-not-in-daemon-mode:ee90f49520f49f91517c72cf11ab0ded"><code>--drop_privileges</code>: drop privileges when not in daemon mode</a></li>
-<li><a href="#group-group-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--group</code>: group to drop privileges to</a></li>
-<li><a href="#user-user-to-drop-privileges-to:ee90f49520f49f91517c72cf11ab0ded"><code>--user</code>: user to drop privileges to</a></li>
+<li><a href="#daemonise-run-snowfox-in-daemon-mode"><code>--daemonise</code>: run SnowFox in daemon mode</a></li>
+<li><a href="#drop-privileges-drop-privileges-when-not-in-daemon-mode"><code>--drop_privileges</code>: drop privileges when not in daemon mode</a></li>
+<li><a href="#group-group-to-drop-privileges-to"><code>--group</code>: group to drop privileges to</a></li>
+<li><a href="#user-user-to-drop-privileges-to"><code>--user</code>: user to drop privileges to</a></li>
 </ul></li>
-<li><a href="#cluster-options:ee90f49520f49f91517c72cf11ab0ded">Cluster options</a>
+<li><a href="#cluster-options">Cluster options</a>
 <ul>
-<li><a href="#node-name-unique-name-of-the-node:ee90f49520f49f91517c72cf11ab0ded"><code>--node_name</code>: unique name of the node</a></li>
+<li><a href="#node-name-unique-name-of-the-node"><code>--node_name</code>: unique name of the node</a></li>
 </ul></li>
-<li><a href="#i-o-options:ee90f49520f49f91517c72cf11ab0ded">I/O options</a>
+<li><a href="#i-o-options">I/O options</a>
 <ul>
-<li><a href="#stderr-redirect-standard-error-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stderr</code>: redirect standard error to file</a></li>
-<li><a href="#stdin-redirect-standard-input-from-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdin</code>: redirect standard input from file</a></li>
-<li><a href="#stdout-redirect-standard-output-to-file:ee90f49520f49f91517c72cf11ab0ded"><code>--stdout</code>: redirect standard output to file</a></li>
-<li><a href="#work-dir-set-the-working-directory:ee90f49520f49f91517c72cf11ab0ded"><code>--work_dir</code>: set the working directory.</a></li>
+<li><a href="#stderr-redirect-standard-error-to-file"><code>--stderr</code>: redirect standard error to file</a></li>
+<li><a href="#stdin-redirect-standard-input-from-file"><code>--stdin</code>: redirect standard input from file</a></li>
+<li><a href="#stdout-redirect-standard-output-to-file"><code>--stdout</code>: redirect standard output to file</a></li>
+<li><a href="#work-dir-set-the-working-directory"><code>--work_dir</code>: set the working directory.</a></li>
 </ul></li>
-<li><a href="#repository-options:ee90f49520f49f91517c72cf11ab0ded">Repository options</a>
+<li><a href="#repository-options">Repository options</a>
 <ul>
-<li><a href="#repo-path-path-to-the-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_path</code>: path to the configuration repository</a></li>
-<li><a href="#repo-type-type-of-configuration-repository:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_type</code>: type of configuration repository</a></li>
-<li><a href="#repo-ver-version-of-the-configuration-to-use:ee90f49520f49f91517c72cf11ab0ded"><code>--repo_ver</code>: version of the configuration to use</a></li>
+<li><a href="#repo-path-path-to-the-configuration-repository"><code>--repo_path</code>: path to the configuration repository</a></li>
+<li><a href="#repo-type-type-of-configuration-repository"><code>--repo_type</code>: type of configuration repository</a></li>
+<li><a href="#repo-ver-version-of-the-configuration-to-use"><code>--repo_ver</code>: version of the configuration to use</a></li>
 </ul></li>
-<li><a href="#inter-process-communication:ee90f49520f49f91517c72cf11ab0ded">Inter-Process communication</a>
+<li><a href="#inter-process-communication">Inter-Process communication</a>
 <ul>
-<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager:ee90f49520f49f91517c72cf11ab0ded"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
-<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
-<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner:ee90f49520f49f91517c72cf11ab0ded"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
+<li><a href="#manager-socket-socket-file-to-connect-daemon-and-manager"><code>--manager_socket</code>: socket file to connect daemon and manager</a></li>
+<li><a href="#spawner-manager-socket-socket-file-to-connect-manager-and-spawner"><code>--spawner_manager_socket</code>: socket file to connect manager and spawner</a></li>
+<li><a href="#spawner-socket-socket-file-to-connect-daemon-and-spawner"><code>--spawner_socket</code>: socket file to connect daemon and spawner</a></li>
 </ul></li>
-<li><a href="#other:ee90f49520f49f91517c72cf11ab0ded">Other</a>
+<li><a href="#other">Other</a>
 <ul>
-<li><a href="#help-show-available-options:ee90f49520f49f91517c72cf11ab0ded"><code>--help</code>: show available options</a></li>
-<li><a href="#version-show-version-and-exit:ee90f49520f49f91517c72cf11ab0ded"><code>--Version</code>: show version and exit</a></li>
+<li><a href="#help-show-available-options"><code>--help</code>: show available options</a></li>
+<li><a href="#version-show-version-and-exit"><code>--Version</code>: show version and exit</a></li>
 </ul></li>
 </ul></li>
 </ul>

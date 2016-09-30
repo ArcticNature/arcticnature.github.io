@@ -28,7 +28,7 @@
   <title>Event Lifecycle | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -144,14 +153,14 @@
 
 
 
-<h2 id="eventlifecyclearg:8f53f2c628bc43b6db30a5e661b5da6b"><code>EventLifecycleArg</code></h2>
+<h2 id="eventlifecyclearg"><code>EventLifecycleArg</code></h2>
 
 <p>The <code>EventLifecycleArg</code> is a <code>BaseLifecycleArg</code> that stores
 a reference to an <code>Event</code> instance.
 It is passed to <code>event::*</code> lifecycle events that require an
 <code>Event</code> instance to operate on.</p>
 
-<h2 id="event-identify:8f53f2c628bc43b6db30a5e661b5da6b"><code>event::_identify</code></h2>
+<h2 id="event-identify"><code>event::_identify</code></h2>
 
 <p>A special step in the lifecycle of an event that is triggered
 just after an event is created but before the <code>event::initialise</code>
@@ -166,7 +175,7 @@ The <code>Event</code> reference to operate on is passed to the handler in an
 <code>sf::core::lifecycle::EventLifecycle::Init</code> method to ensure the
 event is initialised correctly.</p>
 
-<h2 id="event-initialise:8f53f2c628bc43b6db30a5e661b5da6b"><code>event::initialise</code></h2>
+<h2 id="event-initialise"><code>event::initialise</code></h2>
 
 <p>This step is triggered when an <code>Event</code> is initialised and identified.
 The <code>Event</code> reference to operate on is passed to the handler in an
@@ -186,9 +195,9 @@ event is initialised correctly.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#eventlifecyclearg:8f53f2c628bc43b6db30a5e661b5da6b"><code>EventLifecycleArg</code></a></li>
-<li><a href="#event-identify:8f53f2c628bc43b6db30a5e661b5da6b"><code>event::_identify</code></a></li>
-<li><a href="#event-initialise:8f53f2c628bc43b6db30a5e661b5da6b"><code>event::initialise</code></a></li>
+<li><a href="#eventlifecyclearg"><code>EventLifecycleArg</code></a></li>
+<li><a href="#event-identify"><code>event::_identify</code></a></li>
+<li><a href="#event-initialise"><code>event::initialise</code></a></li>
 </ul></li>
 </ul>
 </nav>

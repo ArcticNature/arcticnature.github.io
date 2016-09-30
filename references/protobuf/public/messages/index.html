@@ -28,7 +28,7 @@
   <title>Public Messages Refenrece | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -141,7 +150,7 @@
 
 <p>Below is the list of messages exchanged between SnowFox and external software:</p>
 
-<h2 id="message-code:db98506c886bce6a1312f949ef4ed854"><code>Message::Code</code></h2>
+<h2 id="message-code"><code>Message::Code</code></h2>
 
 <div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.public_api</span><span class="p">;</span>
 
@@ -154,7 +163,7 @@
 </code></pre></div>
 
 
-<p><div class="mdtable table-striped">
+<div class="mdtable table-striped">
   <table>
 <thead>
 <tr>
@@ -192,11 +201,11 @@
 </table>
 
 </div>
-</p>
 
-<h2 id="clientintroduce:db98506c886bce6a1312f949ef4ed854"><code>ClientIntroduce</code></h2>
 
-<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">ClientIntroduce</span> <span class="p">{</span>
+<h2 id="clientintroduce"><code>ClientIntroduce</code></h2>
+
+<div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">ClientIntroduce</span> <span class="p">{</span>
   <span class="k">required</span> <span class="kt">string</span> <span class="na">client_id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
   <span class="kd">extend</span> <span class="nc">Message</span> <span class="p">{</span>
@@ -204,9 +213,9 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-</p>
 
-<p><div class="mdtable table-striped">
+
+<div class="mdtable table-striped">
   <table>
 <thead>
 <tr>
@@ -226,11 +235,11 @@
 </table>
 
 </div>
-</p>
 
-<h2 id="nodeinforequest:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoRequest</code></h2>
 
-<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">NodeInfoRequest</span> <span class="p">{</span>
+<h2 id="nodeinforequest"><code>NodeInfoRequest</code></h2>
+
+<div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">NodeInfoRequest</span> <span class="p">{</span>
   <span class="k">optional</span> <span class="kt">bool</span> <span class="na">details</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="kc">false</span><span class="p">];</span>
 
   <span class="kd">extend</span> <span class="nc">Message</span> <span class="p">{</span>
@@ -238,9 +247,9 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-</p>
 
-<p><div class="mdtable table-striped">
+
+<div class="mdtable table-striped">
   <table>
 <thead>
 <tr>
@@ -260,11 +269,16 @@
 </table>
 
 </div>
-</p>
 
-<h2 id="nodeinforesponse:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoResponse</code></h2>
 
-<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">NodeInfoResponse</span> <span class="p">{</span>
+<h2 id="nodeinforesponse"><code>NodeInfoResponse</code></h2>
+
+<div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kd">message</span> <span class="nc">NodeInfoResponse</span> <span class="p">{</span>
+  <span class="kd">message</span> <span class="nc">ConfigVersion</span> <span class="p">{</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">effective</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="kt">string</span> <span class="na">symbolic</span>  <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+
   <span class="kd">message</span> <span class="nc">NodeVersion</span> <span class="p">{</span>
     <span class="k">required</span> <span class="kt">string</span> <span class="na">commit</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">optional</span> <span class="kt">string</span> <span class="na">taint</span>   <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -274,6 +288,7 @@
   <span class="kd">message</span> <span class="nc">NodeInfo</span> <span class="p">{</span>
     <span class="k">required</span> <span class="kt">string</span> <span class="na">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">required</span> <span class="n">NodeVersion</span> <span class="na">version</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">optional</span> <span class="n">ConfigVersion</span> <span class="na">config</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="kd">message</span> <span class="nc">SystemStatus</span> <span class="p">{</span>
@@ -296,7 +311,7 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-</p>
+
 
 <p><div class="mdtable table-striped">
   <table>
@@ -354,9 +369,9 @@
 <a href="../../../../references/advanced/status/">status is represented</a>
 are described in an advanced referece section.</p>
 
-<h2 id="statuscolour:db98506c886bce6a1312f949ef4ed854"><code>StatusColour</code></h2>
+<h2 id="statuscolour"><code>StatusColour</code></h2>
 
-<p><div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.public_api</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-proto" data-lang="proto"><span></span><span class="kn">package</span> <span class="nn">sf</span><span class="o">.</span><span class="n">core.protocol.public_api</span><span class="p">;</span>
 
 <span class="kd">enum</span> <span class="n">StatusColour</span> <span class="p">{</span>
   <span class="na">Unkown</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
@@ -365,9 +380,9 @@ are described in an advanced referece section.</p>
   <span class="na">Red</span>    <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-</p>
 
-<p><div class="mdtable table-striped">
+
+<div class="mdtable table-striped">
   <table>
 <thead>
 <tr>
@@ -405,7 +420,7 @@ are described in an advanced referece section.</p>
 </table>
 
 </div>
-</p>
+
 
             </div> 
 
@@ -414,11 +429,11 @@ are described in an advanced referece section.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#message-code:db98506c886bce6a1312f949ef4ed854"><code>Message::Code</code></a></li>
-<li><a href="#clientintroduce:db98506c886bce6a1312f949ef4ed854"><code>ClientIntroduce</code></a></li>
-<li><a href="#nodeinforequest:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoRequest</code></a></li>
-<li><a href="#nodeinforesponse:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoResponse</code></a></li>
-<li><a href="#statuscolour:db98506c886bce6a1312f949ef4ed854"><code>StatusColour</code></a></li>
+<li><a href="#message-code"><code>Message::Code</code></a></li>
+<li><a href="#clientintroduce"><code>ClientIntroduce</code></a></li>
+<li><a href="#nodeinforequest"><code>NodeInfoRequest</code></a></li>
+<li><a href="#nodeinforesponse"><code>NodeInfoResponse</code></a></li>
+<li><a href="#statuscolour"><code>StatusColour</code></a></li>
 </ul></li>
 </ul>
 </nav>

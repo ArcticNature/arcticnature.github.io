@@ -28,7 +28,7 @@
   <title>Install | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -151,7 +160,44 @@
 
 
 
-<h2 id="install-from-source:ee40007639ba1d9861b5cc3e7ade0aef">Install from source</h2>
+<h2 id="overview">Overview</h2>
+
+<p>SnowFox aims to be a fully featured, distributed, service manager.
+There are (at least) two compilactions with this:</p>
+
+<ul>
+<li>What is fully featured?
+You will need different features to me and always adding new ones
+may not be an option.</li>
+<li>If all features are implemented from scratch inside SnowFox itself
+the codebase would become so complex that it would be impossible to
+maintain and evolve.</li>
+</ul>
+
+<p>So SnowFox has a different approach to most features: if there is an open
+source solution that already implements what we need, integrate with it
+instead of rebuilding it.</p>
+
+<p><strong>As a result installing SnowFox is not just about SnowFox.</strong>
+Some systems (like <a href="https://coreos.com/etcd/">etcd</a>) are required to run
+SnowFox while others (like <a href="https://www.powerdns.com/index.html">PowerDNS</a>)
+are required only for some features and SnowFox will be able to start
+and be used even without them.</p>
+
+<h3 id="steps">Steps</h3>
+
+<p>These are the steps required to install and run a SnowFox cluster:</p>
+
+<ol>
+<li>(Needed for cluster support, not yet available)
+ Install and start an etcd cluster: <a href="https://coreos.com/etcd/docs/latest/clustering.html">https://coreos.com/etcd/docs/latest/clustering.html</a></li>
+<li>Install SnowFox following the instructions below.</li>
+<li>Create a configuration repository (clone and customise the default one:
+ <a href="https://github.com/ArcticNature/default-config">https://github.com/ArcticNature/default-config</a> )</li>
+<li>Start SnowFox.</li>
+</ol>
+
+<h2 id="install-from-source">Install from source</h2>
 
 <p>At this time, the only install method is through direct
 source code compilation.</p>
@@ -167,7 +213,7 @@ easy to compile the entire project with little effort.</p>
 steps on Fedora 23.
 Be aware that this is for gidance only and that your mileage may vary.</p>
 
-<h3 id="installing-compile-time-dependencies:ee40007639ba1d9861b5cc3e7ade0aef">Installing compile-time dependencies</h3>
+<h3 id="installing-compile-time-dependencies">Installing compile-time dependencies</h3>
 
 <p>Install the compilers and build tools used by SnowFox&rsquo;s build system:
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo dnf install cmake gcc-c++ git make openssl-devel protobuf-compiler protobuf-devel
@@ -181,7 +227,7 @@ sudo npm install grunt-cli
 </code></pre></div>
 </p>
 
-<h3 id="compiling-the-code:ee40007639ba1d9861b5cc3e7ade0aef">Compiling the code</h3>
+<h3 id="compiling-the-code">Compiling the code</h3>
 
 <p>Pull SnowFox&rsquo;s source code and compile it:
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>mkdir -p /tmp/snow-fox-source
@@ -195,7 +241,7 @@ grunt distribute
 </code></pre></div>
 </p>
 
-<h3 id="installing-the-result:ee40007639ba1d9861b5cc3e7ade0aef">Installing the result</h3>
+<h3 id="installing-the-result">Installing the result</h3>
 
 <p>The output of a distribution build is stored in <code>out/packages</code>.
 For convenience, let us put the compiled distribution in <code>/opt</code>:
@@ -206,7 +252,7 @@ sudo chown -R snow-fox:snow-fox /opt/snow-fox
 </code></pre></div>
 </p>
 
-<p><div class="alert alert-success" role="alert">
+<div class="alert alert-success" role="alert">
   <p><strong>Congratulations!</strong>
   SnowFox is now installed in <code>/opt/snow-fox/bin/snow-fox</code>.</p>
 
@@ -215,7 +261,7 @@ sudo chown -R snow-fox:snow-fox /opt/snow-fox
   <a href="../../page/references/">References</a> sections!</p>
 
 </div>
-</p>
+
 
             </div> 
 
@@ -224,11 +270,15 @@ sudo chown -R snow-fox:snow-fox /opt/snow-fox
 <ul>
 <li>
 <ul>
-<li><a href="#install-from-source:ee40007639ba1d9861b5cc3e7ade0aef">Install from source</a>
+<li><a href="#overview">Overview</a>
 <ul>
-<li><a href="#installing-compile-time-dependencies:ee40007639ba1d9861b5cc3e7ade0aef">Installing compile-time dependencies</a></li>
-<li><a href="#compiling-the-code:ee40007639ba1d9861b5cc3e7ade0aef">Compiling the code</a></li>
-<li><a href="#installing-the-result:ee40007639ba1d9861b5cc3e7ade0aef">Installing the result</a></li>
+<li><a href="#steps">Steps</a></li>
+</ul></li>
+<li><a href="#install-from-source">Install from source</a>
+<ul>
+<li><a href="#installing-compile-time-dependencies">Installing compile-time dependencies</a></li>
+<li><a href="#compiling-the-code">Compiling the code</a></li>
+<li><a href="#installing-the-result">Installing the result</a></li>
 </ul></li>
 </ul></li>
 </ul>

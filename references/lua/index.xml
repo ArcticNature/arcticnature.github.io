@@ -20,34 +20,34 @@
 
 &lt;p&gt;LUA interfaces available in the &lt;code&gt;snow-fox-client&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;global-names:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;Global names&lt;/h2&gt;
+&lt;h2 id=&#34;global-names&#34;&gt;Global names&lt;/h2&gt;
 
 &lt;p&gt;The following names are available in the global scope.&lt;/p&gt;
 
-&lt;h3 id=&#34;clear:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;clear()&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;clear&#34;&gt;&lt;code&gt;clear()&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Clears the terminal window and show the promp on the top line.&lt;/p&gt;
 
-&lt;h3 id=&#34;pprint-value:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;pprint(value)&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;pprint-value&#34;&gt;&lt;code&gt;pprint(value)&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Prints the &lt;code&gt;value&lt;/code&gt; argument.
 If &lt;code&gt;value&lt;/code&gt; is a LUA table, &lt;code&gt;pprint&lt;/code&gt; recursively prints the keys
 and their values.&lt;/p&gt;
 
-&lt;h3 id=&#34;print:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;print(...)&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;print&#34;&gt;&lt;code&gt;print(...)&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Prints the given arguments, separating them with a &lt;code&gt;\t&lt;/code&gt; (TAB).&lt;/p&gt;
 
-&lt;h2 id=&#34;the-client-object:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;The &lt;code&gt;client&lt;/code&gt; object&lt;/h2&gt;
+&lt;h2 id=&#34;the-client-object&#34;&gt;The &lt;code&gt;client&lt;/code&gt; object&lt;/h2&gt;
 
 &lt;p&gt;Commands that interact with the client are availale through the
 &lt;code&gt;client&lt;/code&gt; global object.&lt;/p&gt;
 
-&lt;h3 id=&#34;client-exit:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;client:exit()&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;client-exit&#34;&gt;&lt;code&gt;client:exit()&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Causes the client to exit cleanly.&lt;/p&gt;
 
-&lt;h3 id=&#34;client-version:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;client:version()&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;client-version&#34;&gt;&lt;code&gt;client:version()&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Returns a LUA table with the client version information.
 The table has the following fields:&lt;/p&gt;
@@ -90,13 +90,13 @@ The table has the following fields:&lt;/p&gt;
 &lt;/div&gt;
 
 
-&lt;h2 id=&#34;the-node-object:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;The &lt;code&gt;node&lt;/code&gt; object&lt;/h2&gt;
+&lt;h2 id=&#34;the-node-object&#34;&gt;The &lt;code&gt;node&lt;/code&gt; object&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;snow-fox-client&lt;/code&gt; connects to a &lt;code&gt;snow-fox&lt;/code&gt; node at start time.
 The &lt;code&gt;node&lt;/code&gt; global object allows to interact with the specific node
 connected at start up.&lt;/p&gt;
 
-&lt;h3 id=&#34;node-status-callback-details:4bd4f30263398a45e38fc9edfc648efa&#34;&gt;&lt;code&gt;node:status(callback[, details])&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;node-status-callback-details&#34;&gt;&lt;code&gt;node:status(callback[, details])&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Requests the status of the node.&lt;/p&gt;
 
@@ -105,6 +105,169 @@ with the result converted into a LUA table.&lt;/p&gt;
 
 &lt;p&gt;If the optional &lt;code&gt;details&lt;/code&gt; argument is set to &lt;code&gt;true&lt;/code&gt; (defaults to &lt;code&gt;false&lt;/code&gt;)
 then the node includes detailed information about itself.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Node configuration</title>
+      <link>https://arcticnature.github.io/references/lua/node-config/</link>
+      <pubDate>Sat, 10 Sep 2016 00:03:00 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/lua/node-config/</guid>
+      <description>
+
+&lt;p&gt;SnowFox nodes are configured through an extensible LUA interface.
+This is the core set of options and values provided.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-core-object&#34;&gt;The &lt;code&gt;core&lt;/code&gt; object&lt;/h2&gt;
+
+&lt;p&gt;A snow-fox node requres a few options to be set and allows many
+other to be tuned.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;core&lt;/code&gt; object collects all configuration options that relate to
+the fundamental functioning of a node rather than a specific
+feature of snow-fox.&lt;/p&gt;
+
+&lt;p&gt;This section provides a list of options provided in the official
+snow-fox distribution.
+Remember that components can extend these options so check the
+documentation of any additional or modified component you use.&lt;/p&gt;
+
+&lt;h3 id=&#34;core-event-manager&#34;&gt;&lt;code&gt;core.event_manager&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;As SnowFox is an event-based system with an asynchronous run loop
+(similar to how node.js works) it needs a way to know if any
+of its configured sources has received an event.&lt;/p&gt;
+
+&lt;p&gt;The event manager is what looks after all the sources and determines
+when one of them has an event that needs to be handled.&lt;/p&gt;
+
+&lt;p&gt;The default value of &lt;code&gt;event_managers.epoll&lt;/code&gt; should work for most
+cases and should only be changed by users that understand the
+implementation of the event managers in the code.&lt;/p&gt;
+
+&lt;h3 id=&#34;core-logger&#34;&gt;&lt;code&gt;core.logger&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;By default SnowFox logs to standard output and standard error.
+The logging configuration can be changed by creating a new logger
+with the desired options.&lt;/p&gt;
+
+&lt;p&gt;Allowed values for this options are picked from the &lt;code&gt;loggers&lt;/code&gt;
+collection and the options of each logger is documented there.&lt;/p&gt;
+
+&lt;h3 id=&#34;core-events-from-source&#34;&gt;&lt;code&gt;core.events_from(source)&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Register an event source for use by the new configuration.
+An event source is one of the &lt;code&gt;sources&lt;/code&gt; with their configuration.&lt;/p&gt;
+
+&lt;p&gt;See the definition of each of the availale of &lt;code&gt;sources&lt;/code&gt; for what
+they do and what options are available.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-connectors-object&#34;&gt;The &lt;code&gt;connectors&lt;/code&gt; object&lt;/h2&gt;
+
+&lt;p&gt;Connectors are SnowFox way to interface with processes.
+This means how processes start, stop, restart, etc &amp;hellip;
+Different connectors&amp;rsquo; configurations are stored in the &lt;code&gt;connectors&lt;/code&gt;
+object.&lt;/p&gt;
+
+&lt;p&gt;See individual &lt;code&gt;connectors&lt;/code&gt; for details of the available options.&lt;/p&gt;
+
+&lt;h3 id=&#34;connectors-local&#34;&gt;&lt;code&gt;connectors[&amp;quot;local&amp;quot;]&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;local&lt;/code&gt; connector is the interface to the local host processes.
+Uses &lt;code&gt;fork&lt;/code&gt; and &lt;code&gt;execve&lt;/code&gt; to create new processes and signals to
+interact with them.&lt;/p&gt;
+
+&lt;h2 id=&#34;global-functions&#34;&gt;Global functions&lt;/h2&gt;
+
+&lt;p&gt;Not all configuration options can be described with one value
+or a list of values so components can define extra interfaces
+to the user by means of LUA functions.&lt;/p&gt;
+
+&lt;p&gt;Below is the list of functions that are registered by core components.&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;No global function is available at this time.&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;available-event-managers&#34;&gt;Available &lt;code&gt;event_managers&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Below is a list of available event manager.&lt;/p&gt;
+
+&lt;h3 id=&#34;event-managers-epoll&#34;&gt;&lt;code&gt;event_managers.epoll&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;This uses the
+&lt;a href=&#34;http://man7.org/linux/man-pages/man7/epoll.7.html&#34;&gt;epoll kernel feature&lt;/a&gt;
+to watch for events on the configured event sources.&lt;/p&gt;
+
+&lt;h2 id=&#34;available-loggers&#34;&gt;Available &lt;code&gt;loggers&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Different loggers target different backends.
+By default SnowFox uses the &lt;code&gt;console&lt;/code&gt; logger to output events to
+stdout and stderr to ensure that early messages reach the user.&lt;/p&gt;
+
+&lt;p&gt;The following special values are used to configure the logging level:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEBUG&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INFO&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WARNING&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ERROR&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;loggers-console&#34;&gt;&lt;code&gt;loggers.console&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Writes &lt;code&gt;DEBUG&lt;/code&gt; and &lt;code&gt;INFO&lt;/code&gt; messages to standard output
+and &lt;code&gt;WARNING&lt;/code&gt; and &lt;code&gt;ERROR&lt;/code&gt; messages to standard error.&lt;/p&gt;
+
+&lt;h3 id=&#34;loggers-null&#34;&gt;&lt;code&gt;loggers.null&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Drop all log messages.&lt;/p&gt;
+
+&lt;h2 id=&#34;available-sources&#34;&gt;Available &lt;code&gt;sources&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Sources are the starting point of all activity in SnowFox.
+Different features either register their own sources or register
+events with either the &lt;code&gt;ManualSource&lt;/code&gt; or the &lt;code&gt;ScheduledSource&lt;/code&gt;
+which are always available.&lt;/p&gt;
+
+&lt;h3 id=&#34;sources-scheduler&#34;&gt;&lt;code&gt;sources.scheduler&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Configure the &lt;code&gt;SchedulerSource&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Events are enqueued with a delay after which the event should be handled.
+Delays are expressed as multiple of &lt;code&gt;tick&lt;/code&gt;s so that speeding up or
+down instances can be acieved easly.
+This avoids implementation guessing a delay that does not overload
+the system and let the user tune delays.&lt;/p&gt;
+
+&lt;p&gt;The following options can be passed to configure the source:&lt;/p&gt;
+
+&lt;div class=&#34;mdtable table-striped&#34;&gt;
+  &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tick&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Int&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Seconds in a &lt;code&gt;tick&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
 </description>
     </item>
     

@@ -28,7 +28,7 @@
   <title>Public Protocol Reference | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.16" />
   <link rel="stylesheet" type="text/css" href="../../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../../css/pygments-monokai.css" />
 
@@ -63,6 +63,15 @@
 
       
       <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../../../page/quick-start/"> Quick Start </a>
+        </li>
+        
         
         
         
@@ -139,32 +148,32 @@
             <div class="col-xs-12 col-md-9">
               
 
-<h2 id="client-connection:7327496955357b9792bab8720dc507d6">Client connection</h2>
+<h2 id="client-connection">Client connection</h2>
 
 <p>These events are exchanged when a client connects to the daemon.
 The sequence is initiated by the client.</p>
 
 <ul>
 <li>The client sends a
-<a href="../../../../references/protobuf/messages/#message:db98506c886bce6a1312f949ef4ed854"><code>Message</code></a>
+<a href="../../../../references/protobuf/messages/#message"><code>Message</code></a>
 with <code>Code::Introduce</code> to the daemon.</li>
 <li>The daemon responds with a
-<a href="../../../../references/protobuf/public/messages/#clientintroduce:db98506c886bce6a1312f949ef4ed854"><code>ClientIntroduce</code></a>
+<a href="../../../../references/protobuf/public/messages/#clientintroduce"><code>ClientIntroduce</code></a>
 response.</li>
 <li>The client should use the returned ID to build <code>correlation_id</code>s for its messages.</li>
 </ul>
 
-<h2 id="node-information:7327496955357b9792bab8720dc507d6">Node information</h2>
+<h2 id="node-information">Node information</h2>
 
 <p>These events are exchanged when node information is requested.
 The sequence is initiated by the client.</p>
 
 <ul>
 <li>The user sends a
-<a href="../../../../references/protobuf/public/messages/#nodeinforequest:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoRequest</code></a>
+<a href="../../../../references/protobuf/public/messages/#nodeinforequest"><code>NodeInfoRequest</code></a>
 message to the Manager.</li>
 <li>The Manager sends a
-<a href="../../../../references/protobuf/public/messages/#nodeinforesponse:db98506c886bce6a1312f949ef4ed854"><code>NodeInfoResponse</code></a>
+<a href="../../../../references/protobuf/public/messages/#nodeinforesponse"><code>NodeInfoResponse</code></a>
 message back.</li>
 </ul>
 
@@ -175,8 +184,8 @@ message back.</li>
 <ul>
 <li>
 <ul>
-<li><a href="#client-connection:7327496955357b9792bab8720dc507d6">Client connection</a></li>
-<li><a href="#node-information:7327496955357b9792bab8720dc507d6">Node information</a></li>
+<li><a href="#client-connection">Client connection</a></li>
+<li><a href="#node-information">Node information</a></li>
 </ul></li>
 </ul>
 </nav>
