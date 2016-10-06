@@ -7,8 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
-    <lastBuildDate>Sat, 10 Sep 2016 00:03:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 06 Oct 2016 19:54:29 +0100</lastBuildDate>
     <atom:link href="https://arcticnature.github.io/references/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LUA Interfaces</title>
+      <link>https://arcticnature.github.io/references/lua/</link>
+      <pubDate>Thu, 06 Oct 2016 19:54:29 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/lua/</guid>
+      <description>&lt;p&gt;LUA is used different contexts across SnowFox:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;../references/lua/client/&#34;&gt;LUA client API&lt;/a&gt; is
+what the user calls to run commands in the &lt;code&gt;snow-fox-client&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;../references/lua/node-config/&#34;&gt;Node configuration&lt;/a&gt;
+is the LUA interface to a SnowFox node&amp;rsquo;s configuration.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Node configuration</title>
@@ -794,39 +811,6 @@ to the spawner, if it is not dead.&lt;/li&gt;
 
 &lt;/div&gt;
 &lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Daemon/Spawner Protocol Reference</title>
-      <link>https://arcticnature.github.io/references/protobuf/ds/protocol/</link>
-      <pubDate>Fri, 01 Apr 2016 23:28:11 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/references/protobuf/ds/protocol/</guid>
-      <description>
-
-&lt;h2 id=&#34;system-shutdown&#34;&gt;System Shutdown&lt;/h2&gt;
-
-&lt;p&gt;The system shutdown can be initiated from the daemon by:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A user&amp;rsquo;s sending &lt;code&gt;SIGTERM&lt;/code&gt; to the daemon.&lt;/li&gt;
-&lt;li&gt;The manager subprocess terminating.&lt;/li&gt;
-&lt;li&gt;The spawner subprocess terminating.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In any of the above cases:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The daemon sends a &lt;code&gt;Message&lt;/code&gt; with code &lt;code&gt;Message::Code::Shutdown&lt;/code&gt;
-to the manager, if it is not dead.&lt;/li&gt;
-&lt;li&gt;The manager performs the shutdown actions and terminates.&lt;/li&gt;
-&lt;li&gt;The daemon detects that the manager terminated.&lt;/li&gt;
-&lt;li&gt;The daemon sends a &lt;code&gt;Message&lt;/code&gt; with code &lt;code&gt;Message::Code::Shutdown&lt;/code&gt;
-to the spawner, if it is not dead.&lt;/li&gt;
-&lt;li&gt;The spawner performs the shutdown actions and terminates.&lt;/li&gt;
-&lt;li&gt;The daemon terminates.&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

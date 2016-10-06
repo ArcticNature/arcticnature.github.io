@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/page\/changelog\/";
+      var permalink = "https:\/\/arcticnature.github.io\/changelog\/";
 
       var is_home = false ;
       if (is_home) {
@@ -29,11 +29,11 @@
   
 
   <meta name="generator" content="Hugo 0.16" />
-  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../">
+      <a class="navbar-brand" href="../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../page/quick-start/"> Quick Start </a>
+        <a href="../quick-start/"> Quick Start </a>
         </li>
         
         
@@ -78,7 +78,7 @@
 
         
         <li class="">
-        <a href="../../page/install/"> Install </a>
+        <a href="../install/"> Install </a>
         </li>
         
         
@@ -87,7 +87,7 @@
 
         
         <li class="active">
-        <a href="../../page/project-status/"> Project Status </a>
+        <a href="../project-status/"> Project Status </a>
         </li>
         
         
@@ -100,9 +100,37 @@
         
 
         
-        <li class="">
-        <a href="../../page/references/"> Full References </a>
+        
+        <li class="dropdown ">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Full References
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="">
+              <a href="../references/">Full References</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/cli/">Command Line Reference</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/lua/">LUA Interfaces</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/lifecycles/">Lifecycles Reference</a>
+            </li>
+            
+          </ul>
         </li>
+
         
         
         
@@ -110,7 +138,7 @@
 
         
         <li class="">
-        <a href="../../page/about/"> About </a>
+        <a href="../about/"> About </a>
         </li>
         
         
@@ -148,41 +176,8 @@
             <div class="col-xs-12 col-md-9">
               
 
-<h2 id="undetermined">Undetermined</h2>
 
-<ul>
-<li>TODO(stefano): Daemon and Spawner log through the manager.</li>
-<li>TODO(stefano): Logger configuration.</li>
-<li>TODO(stefano): Log level filtering.</li>
-<li>TODO(stefano): Spawner and Daemon configuration.</li>
-<li>TODO(stefano): Spawner and Daemon event manager.</li>
-</ul>
 
-<h2 id="0-0-7">0.0.7</h2>
-
-<ul>
-<li>TODO(stefano): Service registry.</li>
-</ul>
-
-<h2 id="0-0-6">0.0.6</h2>
-
-<ul>
-<li>TODO(stefano): TOPIC: Metadata storage</li>
-<li>TODO(stefano): Metadata store model.</li>
-<li>TODO(stefano): SQLite (local) metadata store.</li>
-<li>TODO(stefano): Node metadata store.</li>
-<li>TODO(stefano): Node metadata store configuration.</li>
-</ul>
-
-<h2 id="0-0-5">0.0.5</h2>
-
-<ul>
-<li>TODO(stefano): TOPIC: Events refactoring.</li>
-<li>TODO(stefano): Introduce <code>Reactor</code>s (to react to state change).</li>
-<li>TODO(stefano): Refactor <code>EventSourceManager</code> to <code>IoManager</code>.</li>
-<li>TODO(stefano): Introduce static <code>EventSource</code>s.</li>
-<li>TODO(stefano): Refactor <code>EventDrain</code> to support buffering and async flushes.</li>
-</ul>
 
 <h2 id="0-0-4">0.0.4</h2>
 
@@ -251,10 +246,6 @@
 <ul>
 <li>
 <ul>
-<li><a href="#undetermined">Undetermined</a></li>
-<li><a href="#0-0-7">0.0.7</a></li>
-<li><a href="#0-0-6">0.0.6</a></li>
-<li><a href="#0-0-5">0.0.5</a></li>
 <li><a href="#0-0-4">0.0.4</a></li>
 <li><a href="#0-0-3">0.0.3</a></li>
 <li><a href="#0-0-2">0.0.2</a></li>

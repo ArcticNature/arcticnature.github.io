@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Full References | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.16" />
+  <link rel="stylesheet" type="text/css" href="../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../quick-start/"> Quick Start </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Full References
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="active">
+              <a href="../references/">Full References</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/cli/">Command Line Reference</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/lua/">LUA Interfaces</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/lifecycles/">Lifecycles Reference</a>
+            </li>
+            
+          </ul>
+        </li>
+
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                Full References
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>The full reference pages are for those who want to know all the details.
+SnowFox has a few different interfaces, each with its own section here.</p>
+
+<h2 id="command-line-references">Command line references</h2>
+
+<p>The <a href="../references/cli/">Command Line Reference</a> section
+is dedicated to the command line interfaces for the various binaries
+that form SnowFox.</p>
+
+<h2 id="lua-interfaces">LUA interfaces</h2>
+
+<p>LUA is used different contexts across SnowFox:</p>
+
+<ul>
+<li>The <a href="../references/lua/client/">LUA client API</a> is
+what the user calls to run commands in the <code>snow-fox-client</code>.</li>
+<li>The <a href="../references/lua/node-config/">Node configuration</a>
+is the LUA interface to a SnowFox node&rsquo;s configuration.</li>
+</ul>
+
+<h2 id="protocol-buffers">Protocol Buffers</h2>
+
+<p>Protocol Buffers <a href="../references/protobuf/messages/">messages</a>
+are used in SnowFox to communicate among components,
+with clients, and with other nodes.<br />
+These messages are exhanged among systems to form an asynchronous client-server
+<a href="../references/protobuf/protocols/">communication protocols</a>.</p>
+
+<p>These components have protocol buffer based APIs:</p>
+
+<ul>
+<li>Daemon and Manager
+<a href="../references/protobuf/dm/messages/">messages</a>
+are exchanged according to the
+<a href="../references/protobuf/dm/protocol/">dm protocol</a>.</li>
+<li>Daemon and Spawner
+<a href="../references/protobuf/ds/messages/">messages</a>
+are exchanged according to the
+<a href="../references/protobuf/ds/protocol/">ds protocol</a>.</li>
+<li>Manager and Spawner
+<a href="../references/protobuf/ms/messages/">messages</a>
+are exchanged according to the
+<a href="../references/protobuf/ms/protocol/">ms protocol</a>.</li>
+<li>SnowFox public API
+<a href="../references/protobuf/public/messages/">messages</a>
+are exchanged according to the
+<a href="../references/protobuf/public/protocol/">public protocol</a>.</li>
+</ul>
+
+<h2 id="lifecycles">Lifecycles</h2>
+
+<p>Lifecycles are used to provide flexibility to SnowFox.
+A lifecycle is a well defined sequence of events, with optional parameters,
+which are triggered by parts of the system as it evolves.</p>
+
+<p>An example is the <code>process</code> lifecycle, which is a sequence of events
+that follows the lifetime of the SnowFox process.</p>
+
+<p>Checkout the
+<a href="../references/lifecycles/">details and full list</a>
+of lifecycles to learn more about them.</p>
+
+<h2 id="advanced-topics">Advanced topics</h2>
+
+<ul>
+<li><a href="../references/advanced/status/">Representing status</a> of system and units alike.</li>
+<li><a href="../references/advanced/events/">Event based system</a>: event interface and the run loop.
+
+</li>
+</ul>
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#command-line-references">Command line references</a></li>
+<li><a href="#lua-interfaces">LUA interfaces</a></li>
+<li><a href="#protocol-buffers">Protocol Buffers</a></li>
+<li><a href="#lifecycles">Lifecycles</a></li>
+<li><a href="#advanced-topics">Advanced topics</a></li>
+</ul></li>
+</ul>
+</nav>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>

@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/page\/project-status\/";
+      var permalink = "https:\/\/arcticnature.github.io\/project-status\/";
 
       var is_home = false ;
       if (is_home) {
@@ -29,11 +29,11 @@
   
 
   <meta name="generator" content="Hugo 0.16" />
-  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../">
+      <a class="navbar-brand" href="../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../page/quick-start/"> Quick Start </a>
+        <a href="../quick-start/"> Quick Start </a>
         </li>
         
         
@@ -78,7 +78,7 @@
 
         
         <li class="">
-        <a href="../../page/install/"> Install </a>
+        <a href="../install/"> Install </a>
         </li>
         
         
@@ -87,7 +87,7 @@
 
         
         <li class="active">
-        <a href="../../page/project-status/"> Project Status </a>
+        <a href="../project-status/"> Project Status </a>
         </li>
         
         
@@ -100,9 +100,37 @@
         
 
         
-        <li class="">
-        <a href="../../page/references/"> Full References </a>
+        
+        <li class="dropdown ">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Full References
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="">
+              <a href="../references/">Full References</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/cli/">Command Line Reference</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/lua/">LUA Interfaces</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/lifecycles/">Lifecycles Reference</a>
+            </li>
+            
+          </ul>
         </li>
+
         
         
         
@@ -110,7 +138,7 @@
 
         
         <li class="">
-        <a href="../../page/about/"> About </a>
+        <a href="../about/"> About </a>
         </li>
         
         
@@ -180,9 +208,9 @@ The version number changes based on changes to that.
 For the purpose of versioning, the public API of SnowFox is composed of:</p>
 
 <ul>
-<li>The <a href="../../references/cli/">command line</a> options.</li>
+<li>The <a href="../references/cli/">command line</a> options.</li>
 <li>The configuration format.</li>
-<li>The <a href="../../references/protobuf/public/protocol/">public protocol buffer</a> API.</li>
+<li>The <a href="../references/protobuf/public/protocol/">public protocol buffer</a> API.</li>
 <li>The plugin API.</li>
 <li>The lifecycles steps.</li>
 </ul>
@@ -219,55 +247,55 @@ For the purpose of versioning, the public API of SnowFox is composed of:</p>
 </tr>
 
 <tr>
-<td>0.0.5</td>
+<td>0.1.0</td>
 <td>Events refactoring</td>
 <td>in progress</td>
 </tr>
 
 <tr>
-<td>0.0.6</td>
+<td>0.1.1</td>
 <td>Metadata storage</td>
 <td>pending</td>
 </tr>
 
 <tr>
-<td>0.0.7</td>
+<td>0.1.2</td>
 <td>Service registry</td>
 <td>pending</td>
 </tr>
 
 <tr>
-<td>0.0.8</td>
+<td>0.1.3</td>
 <td>Service load/list</td>
 <td>pending</td>
 </tr>
 
 <tr>
-<td>0.0.9</td>
+<td>0.1.4</td>
 <td>Service start/stop/status</td>
 <td>pending</td>
 </tr>
 
 <tr>
-<td>0.0.10</td>
+<td>0.1.5</td>
 <td>TCP connection support</td>
 <td>pending</td>
 </tr>
 
 <tr>
-<td>0.0.11</td>
+<td>0.1.6</td>
 <td>Client connects over tcp</td>
 <td>pending</td>
 </tr>
 
 <tr>
-<td>0.1.0</td>
+<td>0.2.0</td>
 <td>Cluster support</td>
 <td>pending</td>
 </tr>
 
 <tr>
-<td>0.1.1</td>
+<td>0.2.1</td>
 <td><code>snow-fox-bootstrap</code></td>
 <td>pending</td>
 </tr>
@@ -293,7 +321,7 @@ stop, and status are implemented.</p>
 <p>Boring for both authors and readers.
 Except for that one time you need it!</p>
 
-<p>The <a href="../../page/changelog/">change log</a> for SnowFox is an
+<p>The <a href="../changelog/">change log</a> for SnowFox is an
 itemised list of things that changed and the version it changed in.</p>
 
 <div class="alert alert-warning" role="alert">
