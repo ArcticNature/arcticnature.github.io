@@ -2,13 +2,309 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SnowFox</title>
-    <link>https://arcticnature.github.io/</link>
+    <link>https://arcticnature.github.io/index.xml</link>
     <description>Recent content on SnowFox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
-    <lastBuildDate>Thu, 06 Oct 2016 19:54:29 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 21 Apr 2017 18:20:41 +0100</lastBuildDate>
     <atom:link href="https://arcticnature.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Change log</title>
+      <link>https://arcticnature.github.io/changelog/</link>
+      <pubDate>Fri, 21 Apr 2017 18:20:41 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/changelog/</guid>
+      <description>
+
+
+
+
+&lt;h2 id=&#34;0-1-0&#34;&gt;0.1.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Topic&lt;/em&gt;: Events refactoring.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add failure modes documentation.&lt;/li&gt;
+&lt;li&gt;Add glossary page to documentation.&lt;/li&gt;
+&lt;li&gt;All writes use flush instead of FDs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Context&lt;/code&gt; static methods to uppercase (lowercase for instance version).&lt;/li&gt;
+&lt;li&gt;Create a &lt;code&gt;PromiseKeeper&lt;/code&gt; and add to static context.&lt;/li&gt;
+&lt;li&gt;Exceptions inherit from &lt;code&gt;std::runtime_error&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Handle global promise failures by re-thworing them in the run loop.&lt;/li&gt;
+&lt;li&gt;Implement &lt;code&gt;Buffer&lt;/code&gt;s for drains buffering system.&lt;/li&gt;
+&lt;li&gt;Introduce hooks with functors and static types.&lt;/li&gt;
+&lt;li&gt;Introduce promeses.&lt;/li&gt;
+&lt;li&gt;Make Drain and Source FD accessible to LoopManagers only.&lt;/li&gt;
+&lt;li&gt;Move FD check to new &lt;code&gt;core.utility.net&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Quick access to full reference pages.&lt;/li&gt;
+&lt;li&gt;Refactor &lt;code&gt;Event&lt;/code&gt; error handling with &lt;code&gt;std::exception_ptr&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Refactor &lt;code&gt;EventDrain&lt;/code&gt; to support buffering and async flushes.&lt;/li&gt;
+&lt;li&gt;Refactor &lt;code&gt;EventSource&lt;/code&gt; to improve interface.&lt;/li&gt;
+&lt;li&gt;Refactor &lt;code&gt;EventSourceManager&lt;/code&gt; to &lt;code&gt;LoopManager&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Refactor &lt;code&gt;MessageIO::send&lt;/code&gt; to use drains instead of fds.&lt;/li&gt;
+&lt;li&gt;SheduledSource to tick promise keeper.&lt;/li&gt;
+&lt;li&gt;Use lifecycles to auto-add drains with data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-4&#34;&gt;0.0.4&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create/Migrate ScheduledSources during reconfig.&lt;/li&gt;
+&lt;li&gt;Git backed repository.&lt;/li&gt;
+&lt;li&gt;Initial configuration loading.&lt;/li&gt;
+&lt;li&gt;Migrate Managers&amp;rsquo;s sources (spawner and daemon).&lt;/li&gt;
+&lt;li&gt;Migrate ManaualSource during reconfig.&lt;/li&gt;
+&lt;li&gt;Node configuration and example repo.&lt;/li&gt;
+&lt;li&gt;Node configuration loader.&lt;/li&gt;
+&lt;li&gt;Return configuration version with node&amp;rsquo;s status.&lt;/li&gt;
+&lt;li&gt;ScheduledSource configuration.&lt;/li&gt;
+&lt;li&gt;Support event manager reconfiguration.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-3&#34;&gt;0.0.3&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Client introduction.&lt;/li&gt;
+&lt;li&gt;Event contexts.&lt;/li&gt;
+&lt;li&gt;Lua interface to client API.&lt;/li&gt;
+&lt;li&gt;Lua interface to node API.&lt;/li&gt;
+&lt;li&gt;Manager&amp;rsquo;s event registry.&lt;/li&gt;
+&lt;li&gt;Node status request.&lt;/li&gt;
+&lt;li&gt;Node status response.&lt;/li&gt;
+&lt;li&gt;Promised events.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-2&#34;&gt;0.0.2&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Command line client started.&lt;/li&gt;
+&lt;li&gt;Fixed daemon termination with Ctrl+C in console mode.&lt;/li&gt;
+&lt;li&gt;Fixed undetected client disconnects.&lt;/li&gt;
+&lt;li&gt;LUA utility wrapper classes.&lt;/li&gt;
+&lt;li&gt;Manual event source.&lt;/li&gt;
+&lt;li&gt;Node name from command line.&lt;/li&gt;
+&lt;li&gt;Node name used in event ids.&lt;/li&gt;
+&lt;li&gt;Print binary version and exit.&lt;/li&gt;
+&lt;li&gt;Public protocol started.&lt;/li&gt;
+&lt;li&gt;Scheduled event source.&lt;/li&gt;
+&lt;li&gt;Started cluster interface.&lt;/li&gt;
+&lt;li&gt;Status definition and helpers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-1&#34;&gt;0.0.1&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Event ids and correlation ids.&lt;/li&gt;
+&lt;li&gt;Improved event handler registration at static initialisation time.&lt;/li&gt;
+&lt;li&gt;Version header file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-0-0&#34;&gt;0.0.0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Core framework.&lt;/li&gt;
+&lt;li&gt;Process orchestration and daemonisation.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Technical log</title>
+      <link>https://arcticnature.github.io/techlog/</link>
+      <pubDate>Sun, 16 Apr 2017 00:29:00 +0000</pubDate>
+      
+      <guid>https://arcticnature.github.io/techlog/</guid>
+      <description>
+
+&lt;p&gt;I have started this project for fun and personal interest.
+This is why I have tried to implement features the &amp;ldquo;best&amp;rdquo; possible
+way without compromising on stability or software design.&lt;/p&gt;
+
+&lt;p&gt;That did not work out &amp;hellip;
+The complexity is still high, several things could have been done
+better, and the system is not able to do almost anything compared
+to the endless list of ideas I have in mind.&lt;/p&gt;
+
+&lt;p&gt;To change this I have acepted that sometime it is best to compromise
+by implementing something knowing that it will need to change at some
+point but without uet knowing how that will have to look like.&lt;/p&gt;
+
+&lt;p&gt;This page is therefore here to keep track of what needs to be
+improved, re-worked or re-done and what the limits/problems
+at the moment that needs to be addressed.&lt;/p&gt;
+
+&lt;h2 id=&#34;events&#34;&gt;Events&lt;/h2&gt;
+
+&lt;p&gt;The events need to be reworked because the following areas will soon
+hit several limits:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Event id generation: messy format and assignment.&lt;/li&gt;
+&lt;li&gt;Promise links: need to link events to promises and
+  resolve/reject when events are handled.&lt;/li&gt;
+&lt;li&gt;Need some RPC framework to link events across multiple
+processes/nodes.&lt;/li&gt;
+&lt;li&gt;Better tracing and visibility (introduce OpenTracing).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Replace home-grown system with libevent instead?&lt;/p&gt;
+
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;p&gt;The configuration system is currently synchronous.
+That means that configuration of the spawner cannot be linked
+to the configuration and advanced options (like cheking if a
+restricted port can be opened) are hard/impossible to implement.&lt;/p&gt;
+
+&lt;p&gt;The other problem with the current system is &amp;ldquo;inheritance&amp;rdquo; of
+resources: if a TCP socket is open and a reconfig operation
+does not change the details (bind address or port) the current
+socket should be reused.&lt;/p&gt;
+
+&lt;p&gt;The first problem can be solved with promises and making the
+verify and apply stages to become promeses.&lt;/p&gt;
+
+&lt;h2 id=&#34;module-initialization&#34;&gt;Module Initialization&lt;/h2&gt;
+
+&lt;p&gt;Currently requires to force inclusion of all symbols.
+Need to find a better way to deal with that.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://lxr.free-electrons.com/source/include/linux/init.h#L162&#34;&gt;http://lxr.free-electrons.com/source/include/linux/init.h#L162&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lxr.free-electrons.com/source/include/linux/init.h#L108&#34;&gt;http://lxr.free-electrons.com/source/include/linux/init.h#L108&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.linux.com/learn/kernel-newbie-corner-kernel-symbols-whats-available-your-module-what-isnt&#34;&gt;https://www.linux.com/learn/kernel-newbie-corner-kernel-symbols-whats-available-your-module-what-isnt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gcc.gnu.org/onlinedocs/gcc-3.2/gcc/Variable-Attributes.html&#34;&gt;https://gcc.gnu.org/onlinedocs/gcc-3.2/gcc/Variable-Attributes.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/3104923/static-initialization&#34;&gt;http://stackoverflow.com/questions/3104923/static-initialization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Could use hooks to make init call nicer (can use labda instead of classes)
+but I still need to figure out how to &amp;ldquo;force&amp;rdquo; inclusion of the symbol
+if no header or source file are directly referenced.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Advanced Topics</title>
+      <link>https://arcticnature.github.io/references/advanced/</link>
+      <pubDate>Thu, 13 Oct 2016 14:52:49 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/advanced/</guid>
+      <description>
+
+&lt;p&gt;These pages discuss the details of how parts of SnowFox work.
+Mostly this refers to how features should work so that their
+implementaion can be defined and focused.&lt;/p&gt;
+
+&lt;p&gt;The other use for these pages is details that are useful to
+components authors, advanced users, or adveanced configurations.&lt;/p&gt;
+
+&lt;h2 id=&#34;e&#34;&gt;E&lt;/h2&gt;
+
+&lt;h3 id=&#34;the-event-system-hahahugoshortcode-1hbhb&#34;&gt;&lt;a href=&#34;./references/advanced/events/&#34;&gt;The Event System&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;This page describes the event interface, the event manager,
+and the run loop.&lt;/p&gt;
+
+
+
+
+&lt;h2 id=&#34;r&#34;&gt;R&lt;/h2&gt;
+
+
+
+
+&lt;h3 id=&#34;representing-status-hahahugoshortcode-4hbhb&#34;&gt;&lt;a href=&#34;./references/advanced/status/&#34;&gt;Representing status&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;This page describes how status of system and units alike is
+represented in SnowFox and exposed by the API.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Glossary</title>
+      <link>https://arcticnature.github.io/references/glossary/</link>
+      <pubDate>Sun, 09 Oct 2016 14:52:49 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/references/glossary/</guid>
+      <description>
+
+&lt;h2 id=&#34;a&#34;&gt;A&lt;/h2&gt;
+
+&lt;h3 id=&#34;agent&#34;&gt;Agent&lt;/h3&gt;
+
+&lt;p&gt;Processes running on each SnowFox host to provide additional features
+to SnowFox or infrastructure support processes.&lt;/p&gt;
+
+&lt;p&gt;Good examples of agents are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sensuapp.org/&#34;&gt;Sensu&lt;/a&gt; client.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://saltstack.com/&#34;&gt;Salt Stack&lt;/a&gt; minion.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;c&#34;&gt;C&lt;/h2&gt;
+
+&lt;h3 id=&#34;component&#34;&gt;Component&lt;/h3&gt;
+
+&lt;p&gt;SnowFox is designed to be extensible at compile time
+and configurable at runtime.&lt;br /&gt;
+This is achieved through components: units that add features to SnowFox.&lt;/p&gt;
+
+&lt;p&gt;Components can implement the same interface defined in other components
+and therefore provide a choice of implementation.
+These implementation can rely on external and third-party products which
+are considered part of the component itself.&lt;/p&gt;
+
+&lt;h3 id=&#34;connector&#34;&gt;Connector&lt;/h3&gt;
+
+&lt;p&gt;A connector is an interface for SnowFox to manage and monitor services.
+Examples are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;local&lt;/code&gt; connector: to manage and monitor processes on the host.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;docker&lt;/code&gt; connector: to manage and monitor local docker containers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;d&#34;&gt;D&lt;/h2&gt;
+
+&lt;h3 id=&#34;the-daemon-process&#34;&gt;The Daemon process&lt;/h3&gt;
+
+&lt;p&gt;SnowFox runs as a daemon process by default.
+The &lt;code&gt;daemon&lt;/code&gt; component is what manages the daemonization process and
+manages the Spawner and Manager processes.&lt;/p&gt;
+
+&lt;h2 id=&#34;i&#34;&gt;I&lt;/h2&gt;
+
+&lt;h3 id=&#34;instance&#34;&gt;Instance&lt;/h3&gt;
+
+&lt;p&gt;An instance is the unit monitored by SnowFox.
+This can be a process, docker container, or anything that a
+connector can register and interact with.&lt;/p&gt;
+
+&lt;h2 id=&#34;m&#34;&gt;M&lt;/h2&gt;
+
+&lt;h3 id=&#34;the-manager-process&#34;&gt;The Manager process&lt;/h3&gt;
+
+&lt;p&gt;The manager process waits for user requests and system events
+and reacts to them.
+It runs in non-privileged mode and runs the majority of the code.&lt;/p&gt;
+
+&lt;p&gt;All privileged actions are dispatched to the spawner process.&lt;/p&gt;
+
+&lt;h2 id=&#34;s&#34;&gt;S&lt;/h2&gt;
+
+&lt;h3 id=&#34;service&#34;&gt;Service&lt;/h3&gt;
+
+&lt;p&gt;A service is a definition to start one or more instances.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-spawner-process&#34;&gt;The Spawner process&lt;/h3&gt;
+
+&lt;p&gt;The spawner process is part of the SnowFox daemon and is
+responsible for performing all priviledged actions.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LUA Interfaces</title>
@@ -28,15 +324,204 @@ is the LUA interface to a SnowFox node&amp;rsquo;s configuration.&lt;/li&gt;
     </item>
     
     <item>
+      <title>Individual Node Failures</title>
+      <link>https://arcticnature.github.io/failures/node/</link>
+      <pubDate>Thu, 06 Oct 2016 19:44:49 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/failures/node/</guid>
+      <description>&lt;p&gt;This section relates to failures limited to the host SnowFox runs on.
+It covers how the node can recover from these failures while the system
+as a whole may need to proceed further and independently to recover from
+a lost node.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;snowfox-s-process-death&#34;&gt;SnowFox&amp;rsquo;s process death&lt;/h2&gt;
+
+&lt;h4&gt;
+  Component
+  &lt;small&gt;
+  &lt;span class=&#34;label label-primary&#34;&gt;Daemon&lt;/span&gt;,
+  &lt;span class=&#34;label label-primary&#34;&gt;Manager&lt;/span&gt;, or
+  &lt;span class=&#34;label label-primary&#34;&gt;Spawner&lt;/span&gt;
+  process.
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Root cause
+  &lt;small&gt;
+A SnowFox process is dead or terminated
+(may it be bug, kernel, or human request).
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Side effects
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Clients connected to the node will be disconnected.&lt;/li&gt;
+&lt;li&gt;Cluster loses access to the node.&lt;/li&gt;
+&lt;li&gt;Node monitoring and management through SnowFox is unavailable.&lt;/li&gt;
+&lt;li&gt;Pending requests will time out.&lt;/li&gt;
+&lt;li&gt;The cluster may react assuming the entire host failed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Mitigation
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Processes started by SnowFox are not tied to the manager.&lt;br /&gt;
+As a result they will not be impacted by the failure.&lt;/li&gt;
+&lt;li&gt;Once the node comes back online it will resume monitoring
+the processes and update its internal status.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;internal-errors&#34;&gt;Internal errors&lt;/h2&gt;
+
+&lt;h4&gt;
+  Component
+  &lt;small&gt;
+  &lt;span class=&#34;label label-primary&#34;&gt;Any&lt;/span&gt;
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Root cause
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Bugs in the code.&lt;/li&gt;
+&lt;li&gt;Unexpected behaviour from other components.&lt;/li&gt;
+&lt;li&gt;User error.&lt;/li&gt;
+&lt;li&gt;Others &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Side effects
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Features may not work as expected.&lt;/li&gt;
+&lt;li&gt;Most errors are ignored if not explicitly handled to prevent node failures.&lt;/li&gt;
+&lt;li&gt;Processes may not be started or terminated.&lt;/li&gt;
+&lt;li&gt;Requests may never return (neither successfully nor unsuccessfully).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Mitigation
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Timeouts should be used to protected against missed events from components.&lt;/li&gt;
+&lt;li&gt;Retries and timers should be used to provide &lt;strong&gt;eventual consistency&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;local-service-failure&#34;&gt;Local service failure&lt;/h2&gt;
+
+&lt;h4&gt;
+  Component
+  &lt;small&gt;
+  &lt;a href=&#34;./references/glossary/#agent&#34;&gt;
+    &lt;span class=&#34;label label-primary&#34;&gt;Agents&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Root cause
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Bug in the agent.&lt;/li&gt;
+&lt;li&gt;Unexpected response from the agent.&lt;/li&gt;
+&lt;li&gt;User or kernel termination of the agent.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Side effects
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Features may become unavailable.&lt;/li&gt;
+&lt;li&gt;Requests may timeout.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Mitigation
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Timeouts should be used to protected against missed events from components.&lt;/li&gt;
+&lt;li&gt;Retries and timers should be used to provide &lt;strong&gt;eventual consistency&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Failure modes</title>
+      <link>https://arcticnature.github.io/failures/</link>
+      <pubDate>Thu, 06 Oct 2016 19:41:12 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/failures/</guid>
+      <description>&lt;p&gt;SnowFox is a complex system that interacts with other
+more or less complex systems.&lt;/p&gt;
+
+&lt;p&gt;This means that there are several possible ways for individual
+components, systems, and the overall infrastructure will fail.
+Some of these failures are going to be common (process restart,
+server reboot, &amp;hellip;) some of them less frequent (network partitions).&lt;/p&gt;
+
+&lt;p&gt;All of them must be understood to be dealt with and often users
+must understand what the failure scenarios are and how the software
+deals with them to avoid surprises when they happen.&lt;/p&gt;
+
+
+
+
+&lt;div class=&#34;pageset-block&#34;&gt;
+  &lt;h2 id=&#34;failures-27112ec1dcd678166d5adceaac1f6391&#34;&gt;
+    &lt;a href=&#34;./failures/node/&#34;&gt;Individual Node Failures&lt;/a&gt;
+  &lt;/h2&gt;
+  &lt;p&gt;This section relates to failures limited to the host SnowFox runs on.
+It covers how the node can recover from these failures while the system
+as a whole may need to proceed further and independently to recover from
+a lost node.&lt;/p&gt;
+&lt;/div&gt;
+
+
+</description>
+    </item>
+    
+    <item>
       <title>Node configuration</title>
       <link>https://arcticnature.github.io/references/lua/node-config/</link>
       <pubDate>Sat, 10 Sep 2016 00:03:00 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lua/node-config/</guid>
-      <description>
-
-&lt;p&gt;SnowFox nodes are configured through an extensible LUA interface.
-This is the core set of options and values provided.&lt;/p&gt;
+      <description>&lt;p&gt;SnowFox nodes are configured through an extensible LUA interface.
+This is the core set of options and values provided.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;the-core-object&#34;&gt;The &lt;code&gt;core&lt;/code&gt; object&lt;/h2&gt;
 
@@ -185,9 +670,7 @@ the system and let the user tune delays.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;/div&gt;
-
-</description>
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -196,9 +679,8 @@ the system and let the user tune delays.&lt;/p&gt;
       <pubDate>Mon, 23 May 2016 22:06:59 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lua/client/</guid>
-      <description>
-
-&lt;p&gt;LUA interfaces available in the &lt;code&gt;snow-fox-client&lt;/code&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;LUA interfaces available in the &lt;code&gt;snow-fox-client&lt;/code&gt;.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;global-names&#34;&gt;Global names&lt;/h2&gt;
 
@@ -284,8 +766,7 @@ connected at start up.&lt;/p&gt;
 with the result converted into a LUA table.&lt;/p&gt;
 
 &lt;p&gt;If the optional &lt;code&gt;details&lt;/code&gt; argument is set to &lt;code&gt;true&lt;/code&gt; (defaults to &lt;code&gt;false&lt;/code&gt;)
-then the node includes detailed information about itself.&lt;/p&gt;
-</description>
+then the node includes detailed information about itself.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -298,12 +779,12 @@ then the node includes detailed information about itself.&lt;/p&gt;
 
 &lt;p&gt;SnowFox is an event based system.
 &lt;code&gt;Event&lt;/code&gt;s are created by different &lt;code&gt;EventSource&lt;/code&gt;s.&lt;br /&gt;
-Each &lt;code&gt;snow-fox-*&lt;/code&gt; process configures an &lt;code&gt;EventSourceManager&lt;/code&gt; and the
+Each &lt;code&gt;snow-fox-*&lt;/code&gt; process configures a &lt;code&gt;LoopManager&lt;/code&gt; and the
 relevant &lt;code&gt;EventSource&lt;/code&gt;s and enters the event loop.&lt;/p&gt;
 
 &lt;p&gt;This page descrives the events interface and semantics:&lt;/p&gt;
 
-&lt;h2 id=&#34;event-s-interface&#34;&gt;&lt;code&gt;Event&lt;/code&gt;s interface&lt;/h2&gt;
+&lt;h2 id=&#34;the-event-s-interface&#34;&gt;The &lt;code&gt;Event&lt;/code&gt;s interface&lt;/h2&gt;
 
 &lt;p&gt;Events:&lt;/p&gt;
 
@@ -316,7 +797,188 @@ relevant &lt;code&gt;EventSource&lt;/code&gt;s and enters the event loop.&lt;/p&
 &lt;p&gt;The &lt;code&gt;Event&lt;/code&gt; interface is defined in
 &lt;a href=&#34;https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h&#34;&gt;https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h&lt;/a&gt;&lt;/p&gt;
 
+&lt;h3 id=&#34;events-and-promises&#34;&gt;Events and promises&lt;/h3&gt;
+
+&lt;p&gt;Events are closer to fire and forget operations:
+something happens and it is handled.&lt;/p&gt;
+
+&lt;p&gt;Promises are an easy way to perform part of a task and resume it later in
+the futere when more information is available or operations are complete.&lt;/p&gt;
+
+&lt;p&gt;When an event needs to resume work at a later time it can create a promise.
+Promises can be stored in &lt;code&gt;sf::core::context::Static-&amp;gt;promises()&lt;/code&gt;, a map from
+string (usually the &lt;code&gt;Event&lt;/code&gt;&amp;rsquo;s &lt;code&gt;correlation_id&lt;/code&gt;) to a &lt;code&gt;Promise&lt;/code&gt; object.&lt;/p&gt;
+
+&lt;p&gt;Promises can be resolved or failed at a later stage using the
+&lt;code&gt;PromiseFullfill&lt;/code&gt; and &lt;code&gt;PromiseReject&lt;/code&gt; events.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-run-loop&#34;&gt;The run loop&lt;/h2&gt;
+
+&lt;p&gt;SnowFox is a single-threaded, event oriented process.&lt;/p&gt;
+
+&lt;p&gt;This means the process performs tasks that enqueue operations that are
+performed by the operating system or other processes and waits for the
+responses to requestes made to these systems.
+External systems can also send events to SnowFox and trigger reactions
+from it.&lt;/p&gt;
+
+&lt;p&gt;The system is based around &lt;code&gt;EventSources&lt;/code&gt; and &lt;code&gt;EventDrains&lt;/code&gt;.
+Sources are notified by the OS when an event is ready to be received.
+Drains are used by the process to enqueue outgoing requests or responses.
+When the OS determines that the drain is ready to send data SnowFox will
+flush the buffer over the channel untill the buffer is empty.&lt;/p&gt;
+
+&lt;p&gt;The majority of errors are logged and ignored to avoid stoppoing the
+entire SnowFox node in the presence of small or even transient errors.
+The eventual consistency nature of SnowFox will retry failed tasks later.&lt;/p&gt;
+
+&lt;p&gt;The sequence of events generally goes as follows:
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;./references/advanced/loop.svg&#34; alt=&#34;Drains hierarchy&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;the-loopmanager&#34;&gt;The &lt;code&gt;LoopManager&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;LoopManager&lt;/code&gt; is what SnowFox uses to track all the sources and drains
+that are active.&lt;/p&gt;
+
+&lt;p&gt;When a source is ready the &lt;code&gt;LoopManager&lt;/code&gt; will stop waiting and call the parse
+method of the source.
+If the method returns an &lt;code&gt;Event&lt;/code&gt; the run loop will handle it before
+returning to the &lt;code&gt;LoopManager&lt;/code&gt; for more events.&lt;/p&gt;
+
+&lt;p&gt;When a drain is ready the &lt;code&gt;LoopManager&lt;/code&gt; will stop waiting and call the flush
+method on the drain.
+Once the drain returns it indicates if the buffer is empty or not.
+If the buffer is empty the drain is removed from the manager.
+Drains add themselves back to the manager when the buffer is filled again.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;LoopManager&lt;/code&gt; may return a null &lt;code&gt;Event&lt;/code&gt; if a source or a drain triggered
+an change that did not lead to the creation of a real &lt;code&gt;Event&lt;/code&gt;.
+In this case the run loop simply ignores the null &lt;code&gt;Event&lt;/code&gt; and resumes waiting.&lt;/p&gt;
+
+&lt;h2 id=&#34;scope-of-drains-and-sources&#34;&gt;Scope of drains and sources&lt;/h2&gt;
+
+&lt;p&gt;Event drains are stored in the static context index by ID.&lt;br /&gt;
+Whenever a component registers a new drain it ends up in here,
+regardless of its expected lifetime.&lt;/p&gt;
+
+&lt;p&gt;This is so that drains can survive configuration reloads and
+pending operations can be completed.
+This also means that configuration reloads do not teminate
+connections that are still active.&lt;/p&gt;
+
+&lt;p&gt;On the other hand not all sources should survive configuration reloads
+but some should, depening on what they are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Listener sources&lt;/strong&gt;:
+these sources wait for connections to be established
+and create secondary sources for each connection.
+Should not survive configuration reloads (may be replaced by them).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configured sources&lt;/strong&gt;:
+are similar to listeners in that the wait for other processes to send
+events but are usually waiting for responses to requests sent by SnowFox
+(i.e: metadata storage, &lt;code&gt;ScheduledSource&lt;/code&gt;, &amp;hellip;).
+Should not survice configuration reloads.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Scoped sources&lt;/strong&gt;:
+these sources are linked to specific connections (usually with clients).
+Should survive configuration reloads and clean itself up on close.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Static sources&lt;/strong&gt;:
+Are internal sources like the &lt;code&gt;ManualSource&lt;/code&gt; or the
+spawner and daemon sources.
+They are never going to change or be closed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The sources that need to survive configuration reloads are stored
+in the static context while the sources that are replaced by a
+configuration reload are stored in the dynamic context.&lt;/p&gt;
+
+&lt;h2 id=&#34;core-hierarchies&#34;&gt;Core Hierarchies&lt;/h2&gt;
+
+&lt;p&gt;The following hierarchies are defined by core components and are
+the building blocks of other classes and components.&lt;/p&gt;
+
+&lt;h3 id=&#34;drains&#34;&gt;Drains&lt;/h3&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;./references/advanced/drains.svg&#34; alt=&#34;Drains hierarchy&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Remeber that these are &lt;strong&gt;not&lt;/strong&gt; all possible drains but
+only those provided by core components:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;EventDrain&lt;/code&gt;: The base drain definition.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NullDrain&lt;/code&gt;: A special drain that ignores all data.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BoundDrain&lt;/code&gt;: A drain bound to a signle &lt;code&gt;EventSourceRef&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ProtoBufDrain&lt;/code&gt;: A drain to send protobuf messages.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Daemon*Drain&lt;/code&gt;:
+A group of drains to send messages to the daemon
+(from spawner and manager).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Manager*Drain&lt;/code&gt;:
+A group of drains to send messages to the manager
+(from spawner and daemon).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Spawner*Drain&lt;/code&gt;:
+A group of drains to send messages to the spaner
+(from manager and daemon).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PublicDrain&lt;/code&gt;: The drain to send messages to clients.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;sources&#34;&gt;Sources&lt;/h3&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;./references/advanced/sources.svg&#34; alt=&#34;Sources hierarchy&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Remeber that these are &lt;strong&gt;not&lt;/strong&gt; all possible sources but
+only those provided by core components:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;EventSource&lt;/code&gt;: The base source definition.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ManualSource&lt;/code&gt;: A source that emits &lt;code&gt;EventRef&lt;/code&gt;s added by the system.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ReadlineSource&lt;/code&gt;: A source that emits strings read with &lt;code&gt;readline&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SchedulerSource&lt;/code&gt;: A source that emits &lt;code&gt;EventRef&lt;/code&gt;s on a timer.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SignalSource&lt;/code&gt;: A source that emits events based on signals.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BoundSource&lt;/code&gt;: A source bound to a signle &lt;code&gt;EventDrainRef&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ProtoBufSource&lt;/code&gt;: A source to read protobuf messages.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Daemon*Source&lt;/code&gt;:
+A group of sources to read messages from the daemon
+(to spawner and manager).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Manager*Source&lt;/code&gt;:
+A group of sources to read messages from the manager
+(to spawner and daemon).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Spawner*Source&lt;/code&gt;:
+A group of sources to read messages from the spaner
+(to manager and daemon).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PublicSource&lt;/code&gt;: The source to read messages from clients.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;sharing-state&#34;&gt;Sharing state&lt;/h2&gt;
+
+&lt;div class=&#34;alert alert-danger&#34; role=&#34;alert&#34;&gt;
+  &lt;p&gt;This feature is deprecated in favour of &lt;strong&gt;promises&lt;/strong&gt; (see above).&lt;/p&gt;
+
+&lt;/div&gt;
+
 
 &lt;p&gt;Events can be given parameters when they are created by the event source
 that creates them but they cannot otherwise interact with future events.&lt;/p&gt;
@@ -355,16 +1017,14 @@ Concrete &lt;code&gt;EventContext&lt;/code&gt;s are maps from &lt;code&gt;correl
       <pubDate>Sun, 15 May 2016 12:39:44 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lifecycles/cli/</guid>
-      <description>
-
-&lt;p&gt;SnowFox client lifecycle events.&lt;/p&gt;
+      <description>&lt;p&gt;SnowFox client lifecycle events.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;client-lua-init&#34;&gt;&lt;code&gt;client::lua::init&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;Called when the LUA environment for the client is initialised.
 The environment is available in &lt;code&gt;sf::core::context::Client::lua()&lt;/code&gt;
-for handlers to manipulate.&lt;/p&gt;
-</description>
+for handlers to manipulate.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -373,9 +1033,8 @@ for handlers to manipulate.&lt;/p&gt;
       <pubDate>Sun, 15 May 2016 12:39:44 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lifecycles/config/</guid>
-      <description>
-
-&lt;p&gt;SnowFox configuration lifecycles for node, cluster.&lt;/p&gt;
+      <description>&lt;p&gt;SnowFox configuration lifecycles for node, cluster.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;nodeconfiglifecyclearg&#34;&gt;&lt;code&gt;NodeConfigLifecycleArg&lt;/code&gt;&lt;/h2&gt;
 
@@ -396,8 +1055,7 @@ and add them to the configuration loader.&lt;/p&gt;
 
 &lt;p&gt;Initialise the Lua environment for a NodeConfigLoader.
 This handler should be used by components to provide an interface
-to the users to configure the components themselves.&lt;/p&gt;
-</description>
+to the users to configure the components themselves.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -406,10 +1064,9 @@ to the users to configure the components themselves.&lt;/p&gt;
       <pubDate>Mon, 11 Apr 2016 22:39:59 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/cli/client/</guid>
-      <description>
-
-&lt;p&gt;The official command line client.
-Used to interact with the SnowFox server.&lt;/p&gt;
+      <description>&lt;p&gt;The official command line client.
+Used to interact with the SnowFox server.
+&lt;/p&gt;
 
 
 
@@ -424,8 +1081,7 @@ Used to interact with the SnowFox server.&lt;/p&gt;
 
 &lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
-&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
-</description>
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -434,9 +1090,8 @@ Used to interact with the SnowFox server.&lt;/p&gt;
       <pubDate>Sat, 09 Apr 2016 22:48:34 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/advanced/status/system/</guid>
-      <description>
-
-&lt;p&gt;This is a list of node status codes.&lt;/p&gt;
+      <description>&lt;p&gt;This is a list of node status codes.
+&lt;/p&gt;
 
 &lt;h3 id=&#34;unkown&#34;&gt;&lt;code&gt;UNKOWN&lt;/code&gt;&lt;/h3&gt;
 
@@ -464,8 +1119,7 @@ Used to interact with the SnowFox server.&lt;/p&gt;
 
 &lt;h3 id=&#34;end&#34;&gt;&lt;code&gt;END&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;Placeholder for the last valid node status code.&lt;/p&gt;
-</description>
+&lt;p&gt;Placeholder for the last valid node status code.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -503,336 +1157,6 @@ be an issue (system starting, configuration loading, &amp;hellip;).&lt;/li&gt;
 &lt;p&gt;This format allows to quickly check the overall system and to derive
 aggregate status overviews while keeping the details needed to react
 to issue in the system itself.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Change log</title>
-      <link>https://arcticnature.github.io/changelog/</link>
-      <pubDate>Thu, 07 Apr 2016 22:18:41 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/changelog/</guid>
-      <description>
-
-
-
-
-&lt;h2 id=&#34;0-0-4&#34;&gt;0.0.4&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create/Migrate ScheduledSources during reconfig.&lt;/li&gt;
-&lt;li&gt;Git backed repository.&lt;/li&gt;
-&lt;li&gt;Initial configuration loading.&lt;/li&gt;
-&lt;li&gt;Migrate Managers&amp;rsquo;s sources (spawner and daemon).&lt;/li&gt;
-&lt;li&gt;Migrate ManaualSource during reconfig.&lt;/li&gt;
-&lt;li&gt;Node configuration and example repo.&lt;/li&gt;
-&lt;li&gt;Node configuration loader.&lt;/li&gt;
-&lt;li&gt;Return configuration version with node&amp;rsquo;s status.&lt;/li&gt;
-&lt;li&gt;ScheduledSource configuration.&lt;/li&gt;
-&lt;li&gt;Support event manager reconfiguration.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;0-0-3&#34;&gt;0.0.3&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Client introduction.&lt;/li&gt;
-&lt;li&gt;Event contexts.&lt;/li&gt;
-&lt;li&gt;Lua interface to client API.&lt;/li&gt;
-&lt;li&gt;Lua interface to node API.&lt;/li&gt;
-&lt;li&gt;Manager&amp;rsquo;s event registry.&lt;/li&gt;
-&lt;li&gt;Node status request.&lt;/li&gt;
-&lt;li&gt;Node status response.&lt;/li&gt;
-&lt;li&gt;Promised events.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;0-0-2&#34;&gt;0.0.2&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Command line client started.&lt;/li&gt;
-&lt;li&gt;Fixed daemon termination with Ctrl+C in console mode.&lt;/li&gt;
-&lt;li&gt;Fixed undetected client disconnects.&lt;/li&gt;
-&lt;li&gt;LUA utility wrapper classes.&lt;/li&gt;
-&lt;li&gt;Manual event source.&lt;/li&gt;
-&lt;li&gt;Node name from command line.&lt;/li&gt;
-&lt;li&gt;Node name used in event ids.&lt;/li&gt;
-&lt;li&gt;Print binary version and exit.&lt;/li&gt;
-&lt;li&gt;Public protocol started.&lt;/li&gt;
-&lt;li&gt;Scheduled event source.&lt;/li&gt;
-&lt;li&gt;Started cluster interface.&lt;/li&gt;
-&lt;li&gt;Status definition and helpers.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;0-0-1&#34;&gt;0.0.1&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Event ids and correlation ids.&lt;/li&gt;
-&lt;li&gt;Improved event handler registration at static initialisation time.&lt;/li&gt;
-&lt;li&gt;Version header file.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;0-0-0&#34;&gt;0.0.0&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Core framework.&lt;/li&gt;
-&lt;li&gt;Process orchestration and daemonisation.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Event Lifecycle</title>
-      <link>https://arcticnature.github.io/references/lifecycles/event/</link>
-      <pubDate>Sun, 03 Apr 2016 10:36:08 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/references/lifecycles/event/</guid>
-      <description>
-
-&lt;p&gt;Extend and customise events as they move across SnowFox.&lt;/p&gt;
-
-
-
-
-&lt;h2 id=&#34;eventlifecyclearg&#34;&gt;&lt;code&gt;EventLifecycleArg&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;The &lt;code&gt;EventLifecycleArg&lt;/code&gt; is a &lt;code&gt;BaseLifecycleArg&lt;/code&gt; that stores
-a reference to an &lt;code&gt;Event&lt;/code&gt; instance.
-It is passed to &lt;code&gt;event::*&lt;/code&gt; lifecycle events that require an
-&lt;code&gt;Event&lt;/code&gt; instance to operate on.&lt;/p&gt;
-
-&lt;h2 id=&#34;event-identify&#34;&gt;&lt;code&gt;event::_identify&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;A special step in the lifecycle of an event that is triggered
-just after an event is created but before the &lt;code&gt;event::initialise&lt;/code&gt;
-step.&lt;/p&gt;
-
-&lt;p&gt;This step generates the id (and possibly the correlation id) of an
-&lt;code&gt;Event&lt;/code&gt; instance.
-The &lt;code&gt;Event&lt;/code&gt; reference to operate on is passed to the handler in an
-&lt;code&gt;EventLifecycleArg&lt;/code&gt; instance.&lt;/p&gt;
-
-&lt;p&gt;Every component that instantiates an object should use the
-&lt;code&gt;sf::core::lifecycle::EventLifecycle::Init&lt;/code&gt; method to ensure the
-event is initialised correctly.&lt;/p&gt;
-
-&lt;h2 id=&#34;event-initialise&#34;&gt;&lt;code&gt;event::initialise&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;This step is triggered when an &lt;code&gt;Event&lt;/code&gt; is initialised and identified.
-The &lt;code&gt;Event&lt;/code&gt; reference to operate on is passed to the handler in an
-&lt;code&gt;EventLifecycleArg&lt;/code&gt; instance.&lt;/p&gt;
-
-&lt;p&gt;Every component that instantiates an object should use the
-&lt;code&gt;sf::core::lifecycle::Event::Initialise&lt;/code&gt; method to ensure the
-event is initialised correctly.&lt;/p&gt;
-
-
-
-</description>
-    </item>
-    
-    <item>
-      <title>Process Lifecycle</title>
-      <link>https://arcticnature.github.io/references/lifecycles/process/</link>
-      <pubDate>Sun, 03 Apr 2016 10:34:39 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/references/lifecycles/process/</guid>
-      <description>
-
-&lt;p&gt;React to the running process evolution and events.&lt;/p&gt;
-
-&lt;h2 id=&#34;process-init&#34;&gt;&lt;code&gt;process::init&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Triggered when the process is started.
-Used primarily by modules to initialise or register features with the system.&lt;/p&gt;
-
-&lt;h3 id=&#34;registering-an-handler&#34;&gt;Registering an handler&lt;/h3&gt;
-
-&lt;p&gt;Registering a &lt;code&gt;process::init&lt;/code&gt; handler is a special task because the
-registration must occur during static initialisation, a phase where
-the initialisation order is &amp;hellip; fuzzy.&lt;/p&gt;
-
-&lt;p&gt;To help with that the &lt;code&gt;sf::core::lifecycle::Process::Initialiser&lt;/code&gt;
-template can be used to register the &lt;code&gt;process::init&lt;/code&gt; handler.
-In one of the component&amp;rsquo;s source files, add the following code:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interface&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interface&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseLifecycleArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lifecycle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-
-&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyModuleInitialiser&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
- &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
-  &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleArg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;c1&#34;&gt;// Initialisation code here ...&lt;/span&gt;
-  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Initialiser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyModuleInitialiser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_module_initialiser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;div class=&#34;alert alert-danger&#34; role=&#34;alert&#34;&gt;
-  &lt;p&gt;Keep in mind that static order initialisation is non-deterministic.
-As such,
-&lt;strong&gt;it is not possible to know in which order &lt;code&gt;process::init&lt;/code&gt; handlers run&lt;/strong&gt;!&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;process-exit&#34;&gt;&lt;code&gt;process::exit&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Triggered when the SnowFox process is terminated.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lifecycles Reference</title>
-      <link>https://arcticnature.github.io/references/lifecycles/</link>
-      <pubDate>Sun, 03 Apr 2016 10:24:12 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/references/lifecycles/</guid>
-      <description>
-
-&lt;p&gt;Part of the flexibility and extensibility of SnowFox comes from Lifecycles.
-Lifecycles are a way to react to internal system events and decouple
-handing of actions.
-The component system also relies on Lifecycles to dynamically inject features
-and alternative implementations.&lt;/p&gt;
-
-&lt;p&gt;Lifecycles revolve around the &lt;code&gt;sf::core::interface::Lifecycle&lt;/code&gt; class,
-which behaves in a similar manner to Node.js event emitter.&lt;/p&gt;
-
-&lt;p&gt;All events are registered and triggered on the same &lt;code&gt;Lifecycle&lt;/code&gt;
-singleton instance throughout the system.
-Name spaces in the event name are used to avoid conflicts with context.&lt;/p&gt;
-
-&lt;h2 id=&#34;lifecycle-api&#34;&gt;Lifecycle API&lt;/h2&gt;
-
-&lt;p&gt;Interactions with the Lifecycles system can be divided into two:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Event handling: the side that reacts to changes in the system.&lt;/li&gt;
-&lt;li&gt;Event triggering: the side that informs lifecycles of a change.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Checkout the Lifecycle interface in the source code at
-&lt;a href=&#34;https://github.com/ArcticNature/core/blob/master/interface/lifecycle/include/core/interface/lifecycle.h&#34;&gt;https://github.com/ArcticNature/core/blob/master/interface/lifecycle/include/core/interface/lifecycle.h&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;example-acting-at-process-initialisation&#34;&gt;Example: acting at process initialisation&lt;/h3&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//! Example of Lifecycle event handler.&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ExampeInitHandler&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
- &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
-  &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleArg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;c1&#34;&gt;// Some code that needs to run when the process starts.&lt;/span&gt;
-  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
-
-
-&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-  &lt;span class=&#34;c1&#34;&gt;// Register the handler.&lt;/span&gt;
-  &lt;span class=&#34;n&#34;&gt;LifecycleHandlerRef&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExampeInitHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
-  &lt;span class=&#34;n&#34;&gt;Lifecycle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;process::init&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-
-  &lt;span class=&#34;c1&#34;&gt;// Some init logic ...&lt;/span&gt;
-
-  &lt;span class=&#34;c1&#34;&gt;// Trigger the `process::init` event.&lt;/span&gt;
-  &lt;span class=&#34;n&#34;&gt;Lifecycle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trigger&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;process::init&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id=&#34;list-of-official-lifecycles&#34;&gt;List of official Lifecycles&lt;/h2&gt;
-
-&lt;p&gt;Events are nothing more then strings that identify a list of handlers.
-Lifecycles are a sequence of these events triggered by the system.
-There is no formal checking or definition of lifecycles.&lt;/p&gt;
-
-&lt;p&gt;While the system (and components in it) can create their own lifecycles,
-this section of the reference pages describes the lifecycles
-part of the core components of SnowFox.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Daemon/Manager Messages Reference</title>
-      <link>https://arcticnature.github.io/references/protobuf/dm/messages/</link>
-      <pubDate>Fri, 01 Apr 2016 23:28:11 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/references/protobuf/dm/messages/</guid>
-      <description>
-
-&lt;p&gt;Below is the list of messages exchanged between the Daemon and the Manager:&lt;/p&gt;
-
-&lt;h2 id=&#34;message-code&#34;&gt;&lt;code&gt;Message::Code&lt;/code&gt;&lt;/h2&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core.protocol.daemon_manager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-
-&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Code&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-  &lt;span class=&#34;na&#34;&gt;Ack&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-  &lt;span class=&#34;na&#34;&gt;Shutdown&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;div class=&#34;mdtable table-striped&#34;&gt;
-  &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Name&lt;/th&gt;
-&lt;th&gt;Code&lt;/th&gt;
-&lt;th&gt;Meaning&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Ack&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;This message is an acknowledgement of a request&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Shutdown&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;Request the manager process to shutdown&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;/div&gt;
-&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Daemon/Manager Protocol Reference</title>
-      <link>https://arcticnature.github.io/references/protobuf/dm/protocol/</link>
-      <pubDate>Fri, 01 Apr 2016 23:28:11 +0100</pubDate>
-      
-      <guid>https://arcticnature.github.io/references/protobuf/dm/protocol/</guid>
-      <description>
-
-&lt;h2 id=&#34;system-shutdown&#34;&gt;System Shutdown&lt;/h2&gt;
-
-&lt;p&gt;The system shutdown can be initiated from the daemon by:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A user&amp;rsquo;s sending &lt;code&gt;SIGTERM&lt;/code&gt; to the daemon.&lt;/li&gt;
-&lt;li&gt;The manager subprocess terminating.&lt;/li&gt;
-&lt;li&gt;The spawner subprocess terminating.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In any of the above cases:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The daemon sends a &lt;code&gt;Message&lt;/code&gt; with code &lt;code&gt;Message::Code::Shutdown&lt;/code&gt;
-to the manager, if it is not dead.&lt;/li&gt;
-&lt;li&gt;The manager performs the shutdown actions and terminates.&lt;/li&gt;
-&lt;li&gt;The daemon detects that the manager terminated.&lt;/li&gt;
-&lt;li&gt;The daemon sends a &lt;code&gt;Message&lt;/code&gt; with code &lt;code&gt;Message::Code::Shutdown&lt;/code&gt;
-to the spawner, if it is not dead.&lt;/li&gt;
-&lt;li&gt;The spawner performs the shutdown actions and terminates.&lt;/li&gt;
-&lt;li&gt;The daemon terminates.&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

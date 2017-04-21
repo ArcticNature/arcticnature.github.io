@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/references\/lifecycles\/event\/";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/glossary\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,15 +25,15 @@
   </script>
 
   
-  <title>Event Lifecycle | SnowFox</title>
+  <title>Glossary | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.17" />
-  <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../../">
+      <a class="navbar-brand" href="../../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../../quick-start/"> Quick Start </a>
+        <a href="../../quick-start/"> Quick Start </a>
         </li>
         
         
@@ -78,7 +78,7 @@
 
         
         <li class="">
-        <a href="../../../install/"> Install </a>
+        <a href="../../install/"> Install </a>
         </li>
         
         
@@ -87,7 +87,7 @@
 
         
         <li class="">
-        <a href="../../../project-status/"> Project Status </a>
+        <a href="../../project-status/"> Project Status </a>
         </li>
         
         
@@ -113,32 +113,32 @@
             
             
             <li class="">
-              <a href="../../../references/">Full References</a>
+              <a href="../../references/">Full References</a>
             </li>
             
             
             <li class="">
-              <a href="../../../references/cli/">Command Line Reference</a>
+              <a href="../../references/cli/">Command Line Reference</a>
             </li>
             
             
             <li class="">
-              <a href="../../../references/lua/">LUA Interfaces</a>
+              <a href="../../references/lua/">LUA Interfaces</a>
             </li>
             
             
             <li class="">
-              <a href="../../../references/lifecycles/">Lifecycles Reference</a>
+              <a href="../../references/lifecycles/">Lifecycles Reference</a>
             </li>
             
             
             <li class="">
-              <a href="../../../references/advanced/">Advanced Topics</a>
+              <a href="../../references/advanced/">Advanced Topics</a>
             </li>
             
             
-            <li class="">
-              <a href="../../../references/glossary/">Glossary</a>
+            <li class="active">
+              <a href="../../references/glossary/">Glossary</a>
             </li>
             
           </ul>
@@ -161,13 +161,13 @@
           <ul class="dropdown-menu">
             
             <li class="">
-              <a href="../../../failures/">Failure modes</a>
+              <a href="../../failures/">Failure modes</a>
             </li>
             
             
             
             <li class="">
-              <a href="../../../failures/node/">Individual Node Failures</a>
+              <a href="../../failures/node/">Individual Node Failures</a>
             </li>
             
           </ul>
@@ -180,7 +180,7 @@
 
         
         <li class="">
-        <a href="../../../about/"> About </a>
+        <a href="../../about/"> About </a>
         </li>
         
         
@@ -206,7 +206,7 @@
           <div class="page-header">
             <h1>
               
-                Event Lifecycle
+                Glossary
               
               
             </h1>
@@ -216,59 +216,82 @@
 
             
             <div class="col-xs-12 col-md-9">
-              <p>Extend and customise events as they move across SnowFox.
-</p>
+              
 
-<h2 id="drainenqueuearg"><code>DrainEnqueueArg</code></h2>
+<h2 id="a">A</h2>
 
-<p>Passed to <code>event::drain::enqueue</code> events to provide access to:</p>
+<h3 id="agent">Agent</h3>
+
+<p>Processes running on each SnowFox host to provide additional features
+to SnowFox or infrastructure support processes.</p>
+
+<p>Good examples of agents are:</p>
 
 <ul>
-<li><code>void add()</code>: Marks the drain as added to the loop manager.</li>
-<li><code>bool added()</code>: returns <code>false</code> if the drain was already in the loop manager.</li>
-<li><code>std::string drain()</code>: Returns the id of the drain that triggered the event.</li>
+<li><a href="https://sensuapp.org/">Sensu</a> client.</li>
+<li><a href="https://saltstack.com/">Salt Stack</a> minion.</li>
 </ul>
 
+<h2 id="c">C</h2>
 
+<h3 id="component">Component</h3>
 
+<p>SnowFox is designed to be extensible at compile time
+and configurable at runtime.<br />
+This is achieved through components: units that add features to SnowFox.</p>
 
-<h2 id="eventlifecyclearg"><code>EventLifecycleArg</code></h2>
+<p>Components can implement the same interface defined in other components
+and therefore provide a choice of implementation.
+These implementation can rely on external and third-party products which
+are considered part of the component itself.</p>
 
-<p>The <code>EventLifecycleArg</code> is a <code>BaseLifecycleArg</code> that stores
-a reference to an <code>Event</code> instance.
-It is passed to <code>event::*</code> lifecycle events that require an
-<code>Event</code> instance to operate on.</p>
+<h3 id="connector">Connector</h3>
 
-<h2 id="event-identify"><code>event::_identify</code></h2>
+<p>A connector is an interface for SnowFox to manage and monitor services.
+Examples are:</p>
 
-<p>A special step in the lifecycle of an event that is triggered
-just after an event is created but before the <code>event::initialise</code>
-step.</p>
+<ul>
+<li>The <code>local</code> connector: to manage and monitor processes on the host.</li>
+<li>The <code>docker</code> connector: to manage and monitor local docker containers.</li>
+</ul>
 
-<p>This step generates the id (and possibly the correlation id) of an
-<code>Event</code> instance.
-The <code>Event</code> reference to operate on is passed to the handler in an
-<code>EventLifecycleArg</code> instance.</p>
+<h2 id="d">D</h2>
 
-<p>Every component that instantiates an object should use the
-<code>sf::core::lifecycle::EventLifecycle::Init</code> method to ensure the
-event is initialised correctly.</p>
+<h3 id="the-daemon-process">The Daemon process</h3>
 
-<h2 id="event-drain-enqueue"><code>event::drain::enqueue</code></h2>
+<p>SnowFox runs as a daemon process by default.
+The <code>daemon</code> component is what manages the daemonization process and
+manages the Spawner and Manager processes.</p>
 
-<p>Triggered by EventDrains when data is enqueued to be sent.
-Used to automatically add drains that need to be flushed to the
-current <code>LoopManager</code> and to keep track of enqueue operations.</p>
+<h2 id="i">I</h2>
 
-<h2 id="event-initialise"><code>event::initialise</code></h2>
+<h3 id="instance">Instance</h3>
 
-<p>This step is triggered when an <code>Event</code> is initialised and identified.
-The <code>Event</code> reference to operate on is passed to the handler in an
-<code>EventLifecycleArg</code> instance.</p>
+<p>An instance is the unit monitored by SnowFox.
+This can be a process, docker container, or anything that a
+connector can register and interact with.</p>
 
-<p>Every component that instantiates an object should use the
-<code>sf::core::lifecycle::Event::Initialise</code> method to ensure the
-event is initialised correctly.</p>
+<h2 id="m">M</h2>
+
+<h3 id="the-manager-process">The Manager process</h3>
+
+<p>The manager process waits for user requests and system events
+and reacts to them.
+It runs in non-privileged mode and runs the majority of the code.</p>
+
+<p>All privileged actions are dispatched to the spawner process.</p>
+
+<h2 id="s">S</h2>
+
+<h3 id="service">Service</h3>
+
+<p>A service is a definition to start one or more instances.</p>
+
+<h3 id="the-spawner-process">The Spawner process</h3>
+
+<p>The spawner process is part of the SnowFox daemon and is
+responsible for performing all priviledged actions.</p>
+
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
@@ -276,11 +299,32 @@ event is initialised correctly.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#drainenqueuearg"><code>DrainEnqueueArg</code></a></li>
-<li><a href="#eventlifecyclearg"><code>EventLifecycleArg</code></a></li>
-<li><a href="#event-identify"><code>event::_identify</code></a></li>
-<li><a href="#event-drain-enqueue"><code>event::drain::enqueue</code></a></li>
-<li><a href="#event-initialise"><code>event::initialise</code></a></li>
+<li><a href="#a">A</a>
+<ul>
+<li><a href="#agent">Agent</a></li>
+</ul></li>
+<li><a href="#c">C</a>
+<ul>
+<li><a href="#component">Component</a></li>
+<li><a href="#connector">Connector</a></li>
+</ul></li>
+<li><a href="#d">D</a>
+<ul>
+<li><a href="#the-daemon-process">The Daemon process</a></li>
+</ul></li>
+<li><a href="#i">I</a>
+<ul>
+<li><a href="#instance">Instance</a></li>
+</ul></li>
+<li><a href="#m">M</a>
+<ul>
+<li><a href="#the-manager-process">The Manager process</a></li>
+</ul></li>
+<li><a href="#s">S</a>
+<ul>
+<li><a href="#service">Service</a></li>
+<li><a href="#the-spawner-process">The Spawner process</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>

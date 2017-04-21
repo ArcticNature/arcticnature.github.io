@@ -30,7 +30,7 @@
   <title>Lifecycles Reference | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.16" />
+  <meta name="generator" content="Hugo 0.17" />
   <link rel="stylesheet" type="text/css" href="../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
 
@@ -111,6 +111,9 @@
               <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+            
+            
+            
             <li class="">
               <a href="../../references/">Full References</a>
             </li>
@@ -128,6 +131,45 @@
             
             <li class="active">
               <a href="../../references/lifecycles/">Lifecycles Reference</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../references/advanced/">Advanced Topics</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../references/glossary/">Glossary</a>
+            </li>
+            
+          </ul>
+        </li>
+
+        
+        
+        
+        
+
+        
+        
+        <li class="dropdown ">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Failure modes
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            <li class="">
+              <a href="../../failures/">Failure modes</a>
+            </li>
+            
+            
+            
+            <li class="">
+              <a href="../../failures/node/">Individual Node Failures</a>
             </li>
             
           </ul>
@@ -211,13 +253,9 @@ Name spaces in the event name are used to avoid conflicts with context.</p>
     <span class="c1">// Some code that needs to run when the process starts.</span>
   <span class="p">}</span>
 <span class="p">};</span>
-
+<span class="n">LifecycleStaticOn</span><span class="p">(</span><span class="s">&quot;process::init&quot;</span><span class="p">,</span> <span class="n">ExampeInitHandler</span><span class="p">);</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Register the handler.</span>
-  <span class="n">LifecycleHandlerRef</span> <span class="n">handler</span><span class="p">(</span><span class="k">new</span> <span class="n">ExampeInitHandler</span><span class="p">());</span>
-  <span class="n">Lifecycle</span><span class="o">::</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;process::init&quot;</span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
-
   <span class="c1">// Some init logic ...</span>
 
   <span class="c1">// Trigger the `process::init` event.</span>
@@ -238,15 +276,15 @@ part of the core components of SnowFox.</p>
 
 
               
-              <div class="cli-binaries">
+              <div class="remote-toc">
                 <h2 id="a0551a02a524ed27c27781d2fca7bf97">
                   <a href="../../references/lifecycles/process/">
-                    <code>Process Lifecycle</code>
+                    Process Lifecycle
                   </a>
                 </h2>
 
-                <p><p>React to the running process evolution and events.</p>
-</p>
+                <p><p>React to the running process evolution and events.
+</p></p>
                 <nav id="TableOfContents">
 <ul>
 <li>
@@ -261,36 +299,38 @@ part of the core components of SnowFox.</p>
 </nav>
               </div>
               
-              <div class="cli-binaries">
+              <div class="remote-toc">
                 <h2 id="8f53f2c628bc43b6db30a5e661b5da6b">
                   <a href="../../references/lifecycles/event/">
-                    <code>Event Lifecycle</code>
+                    Event Lifecycle
                   </a>
                 </h2>
 
-                <p><p>Extend and customise events as they move across SnowFox.</p>
-</p>
+                <p><p>Extend and customise events as they move across SnowFox.
+</p></p>
                 <nav id="TableOfContents">
 <ul>
 <li>
 <ul>
+<li><a href="#drainenqueuearg"><code>DrainEnqueueArg</code></a></li>
 <li><a href="#eventlifecyclearg"><code>EventLifecycleArg</code></a></li>
 <li><a href="#event-identify"><code>event::_identify</code></a></li>
+<li><a href="#event-drain-enqueue"><code>event::drain::enqueue</code></a></li>
 <li><a href="#event-initialise"><code>event::initialise</code></a></li>
 </ul></li>
 </ul>
 </nav>
               </div>
               
-              <div class="cli-binaries">
+              <div class="remote-toc">
                 <h2 id="b659b046131d4024ab5e2d3675716bf0">
                   <a href="../../references/lifecycles/cli/">
-                    <code>Client Lifecycle</code>
+                    Client Lifecycle
                   </a>
                 </h2>
 
-                <p><p>SnowFox client lifecycle events.</p>
-</p>
+                <p><p>SnowFox client lifecycle events.
+</p></p>
                 <nav id="TableOfContents">
 <ul>
 <li>
@@ -301,15 +341,15 @@ part of the core components of SnowFox.</p>
 </nav>
               </div>
               
-              <div class="cli-binaries">
+              <div class="remote-toc">
                 <h2 id="c9c91c29b41257aea3a3403cc606ad99">
                   <a href="../../references/lifecycles/config/">
-                    <code>Configuration Lifecycles</code>
+                    Configuration Lifecycles
                   </a>
                 </h2>
 
-                <p><p>SnowFox configuration lifecycles for node, cluster.</p>
-</p>
+                <p><p>SnowFox configuration lifecycles for node, cluster.
+</p></p>
                 <nav id="TableOfContents">
 <ul>
 <li>
@@ -342,25 +382,25 @@ part of the core components of SnowFox.</p>
                 
                 <li>
                   <a href="#a0551a02a524ed27c27781d2fca7bf97">
-                    <code>Process Lifecycle</code>
+                    Process Lifecycle
                   </a>
                 </li>
                 
                 <li>
                   <a href="#8f53f2c628bc43b6db30a5e661b5da6b">
-                    <code>Event Lifecycle</code>
+                    Event Lifecycle
                   </a>
                 </li>
                 
                 <li>
                   <a href="#b659b046131d4024ab5e2d3675716bf0">
-                    <code>Client Lifecycle</code>
+                    Client Lifecycle
                   </a>
                 </li>
                 
                 <li>
                   <a href="#c9c91c29b41257aea3a3403cc606ad99">
-                    <code>Configuration Lifecycles</code>
+                    Configuration Lifecycles
                   </a>
                 </li>
                 

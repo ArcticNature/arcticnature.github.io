@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lifecycle on SnowFox</title>
-    <link>https://arcticnature.github.io/references/lifecycle/</link>
-    <description>Recent content in Lifecycle on SnowFox</description>
+    <title>SnowFox</title>
+    <link>https://arcticnature.github.io/references/lifecycle/index.xml</link>
+    <description>Recent content on SnowFox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
-    <lastBuildDate>Sun, 03 Apr 2016 10:34:39 +0100</lastBuildDate>
     <atom:link href="https://arcticnature.github.io/references/lifecycle/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -16,9 +15,8 @@
       <pubDate>Sun, 03 Apr 2016 10:34:39 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lifecycles/process/</guid>
-      <description>
-
-&lt;p&gt;React to the running process evolution and events.&lt;/p&gt;
+      <description>&lt;p&gt;React to the running process evolution and events.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;process-init&#34;&gt;&lt;code&gt;process::init&lt;/code&gt;&lt;/h2&gt;
 
@@ -37,7 +35,6 @@ In one of the component&amp;rsquo;s source files, add the following code:&lt;/p&
 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interface&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interface&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseLifecycleArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lifecycle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 
 &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyModuleInitialiser&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseLifecycleHandler&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
@@ -45,8 +42,7 @@ In one of the component&amp;rsquo;s source files, add the following code:&lt;/p&
     &lt;span class=&#34;c1&#34;&gt;// Initialisation code here ...&lt;/span&gt;
   &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Initialiser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyModuleInitialiser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;my_module_initialiser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;LifecycleStaticOn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;process::init&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyModuleInitialiser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -60,8 +56,7 @@ As such,
 
 &lt;h2 id=&#34;process-exit&#34;&gt;&lt;code&gt;process::exit&lt;/code&gt;&lt;/h2&gt;
 
-&lt;p&gt;Triggered when the SnowFox process is terminated.&lt;/p&gt;
-</description>
+&lt;p&gt;Triggered when the SnowFox process is terminated.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -70,9 +65,18 @@ As such,
       <pubDate>Sun, 03 Apr 2016 10:36:08 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lifecycles/event/</guid>
-      <description>
+      <description>&lt;p&gt;Extend and customise events as they move across SnowFox.
+&lt;/p&gt;
 
-&lt;p&gt;Extend and customise events as they move across SnowFox.&lt;/p&gt;
+&lt;h2 id=&#34;drainenqueuearg&#34;&gt;&lt;code&gt;DrainEnqueueArg&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Passed to &lt;code&gt;event::drain::enqueue&lt;/code&gt; events to provide access to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;void add()&lt;/code&gt;: Marks the drain as added to the loop manager.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bool added()&lt;/code&gt;: returns &lt;code&gt;false&lt;/code&gt; if the drain was already in the loop manager.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;std::string drain()&lt;/code&gt;: Returns the id of the drain that triggered the event.&lt;/li&gt;
+&lt;/ul&gt;
 
 
 
@@ -99,6 +103,12 @@ The &lt;code&gt;Event&lt;/code&gt; reference to operate on is passed to the hand
 &lt;code&gt;sf::core::lifecycle::EventLifecycle::Init&lt;/code&gt; method to ensure the
 event is initialised correctly.&lt;/p&gt;
 
+&lt;h2 id=&#34;event-drain-enqueue&#34;&gt;&lt;code&gt;event::drain::enqueue&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Triggered by EventDrains when data is enqueued to be sent.
+Used to automatically add drains that need to be flushed to the
+current &lt;code&gt;LoopManager&lt;/code&gt; and to keep track of enqueue operations.&lt;/p&gt;
+
 &lt;h2 id=&#34;event-initialise&#34;&gt;&lt;code&gt;event::initialise&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;This step is triggered when an &lt;code&gt;Event&lt;/code&gt; is initialised and identified.
@@ -107,11 +117,7 @@ The &lt;code&gt;Event&lt;/code&gt; reference to operate on is passed to the hand
 
 &lt;p&gt;Every component that instantiates an object should use the
 &lt;code&gt;sf::core::lifecycle::Event::Initialise&lt;/code&gt; method to ensure the
-event is initialised correctly.&lt;/p&gt;
-
-
-
-</description>
+event is initialised correctly.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -120,16 +126,14 @@ event is initialised correctly.&lt;/p&gt;
       <pubDate>Sun, 15 May 2016 12:39:44 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lifecycles/cli/</guid>
-      <description>
-
-&lt;p&gt;SnowFox client lifecycle events.&lt;/p&gt;
+      <description>&lt;p&gt;SnowFox client lifecycle events.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;client-lua-init&#34;&gt;&lt;code&gt;client::lua::init&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;Called when the LUA environment for the client is initialised.
 The environment is available in &lt;code&gt;sf::core::context::Client::lua()&lt;/code&gt;
-for handlers to manipulate.&lt;/p&gt;
-</description>
+for handlers to manipulate.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -138,9 +142,8 @@ for handlers to manipulate.&lt;/p&gt;
       <pubDate>Sun, 15 May 2016 12:39:44 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/lifecycles/config/</guid>
-      <description>
-
-&lt;p&gt;SnowFox configuration lifecycles for node, cluster.&lt;/p&gt;
+      <description>&lt;p&gt;SnowFox configuration lifecycles for node, cluster.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;nodeconfiglifecyclearg&#34;&gt;&lt;code&gt;NodeConfigLifecycleArg&lt;/code&gt;&lt;/h2&gt;
 
@@ -161,8 +164,7 @@ and add them to the configuration loader.&lt;/p&gt;
 
 &lt;p&gt;Initialise the Lua environment for a NodeConfigLoader.
 This handler should be used by components to provide an interface
-to the users to configure the components themselves.&lt;/p&gt;
-</description>
+to the users to configure the components themselves.&lt;/p&gt;</description>
     </item>
     
   </channel>

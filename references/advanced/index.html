@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <script type="text/javascript">
+    var detectBaseUrl = function() {
+      var base = "https:\/\/arcticnature.github.io";
+      var permalink = "https:\/\/arcticnature.github.io\/references\/advanced\/";
+
+      var is_home = false ;
+      if (is_home) {
+        permalink += "index.html";
+      }
+
+      var suffix = permalink.substr(base.length);
+      var url = window.location.href;
+      var detected_base = url.substr(0, url.length - suffix.length);
+      if (detected_base[detected_base.length - 1] !== '/') {
+        detected_base += '/'
+      }
+      document.getElementById("base-href-tag").href = detected_base;
+    };
+
+    
+  </script>
+
+  
+  <title>Advanced Topics | SnowFox</title>
+  
+
+  <meta name="generator" content="Hugo 0.17" />
+  <link rel="stylesheet" type="text/css" href="../../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/pygments-monokai.css" />
+
+  <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap-3.3.6.min.js"></script>
+</head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#full-navigation"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      <a class="navbar-brand" href="../../">
+        SnowFox Hub
+      </a>
+    </div> 
+
+    
+    <div class="collapse navbar-collapse" id="full-navigation">
+      
+
+      
+      <ul class="nav navbar-nav">
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../quick-start/"> Quick Start </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../install/"> Install </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../project-status/"> Project Status </a>
+        </li>
+        
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+
+        
+        
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Full References
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li class="">
+              <a href="../../references/">Full References</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../references/cli/">Command Line Reference</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../references/lua/">LUA Interfaces</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../references/lifecycles/">Lifecycles Reference</a>
+            </li>
+            
+            
+            <li class="active">
+              <a href="../../references/advanced/">Advanced Topics</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../references/glossary/">Glossary</a>
+            </li>
+            
+          </ul>
+        </li>
+
+        
+        
+        
+        
+
+        
+        
+        <li class="dropdown ">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Failure modes
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            <li class="">
+              <a href="../../failures/">Failure modes</a>
+            </li>
+            
+            
+            
+            <li class="">
+              <a href="../../failures/node/">Individual Node Failures</a>
+            </li>
+            
+          </ul>
+        </li>
+
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="../../about/"> About </a>
+        </li>
+        
+        
+        
+        
+
+        
+        <li class="">
+        <a href="https://github.com/ArcticNature/snow-fox"><i class='fa fa-github'></i> GitHub </a>
+        </li>
+        
+        
+      </ul>
+    </div> 
+
+  </div>
+</nav>
+
+  
+    <div class="container-fluid hugo-single-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-offset-2 col-md-8">
+          <div class="page-header">
+            <h1>
+              
+                Advanced Topics
+              
+              
+            </h1>
+          </div> 
+
+          <div class="row">
+
+            
+            <div class="col-xs-12 col-md-9">
+              
+
+<p>These pages discuss the details of how parts of SnowFox work.
+Mostly this refers to how features should work so that their
+implementaion can be defined and focused.</p>
+
+<p>The other use for these pages is details that are useful to
+components authors, advanced users, or adveanced configurations.</p>
+
+<h2 id="e">E</h2>
+
+<h3 id="the-event-system-hahahugoshortcode-1hbhb"><a href="../../references/advanced/events/">The Event System</a></h3>
+
+<p>This page describes the event interface, the event manager,
+and the run loop.</p>
+
+
+
+
+<h2 id="r">R</h2>
+
+
+
+
+<h3 id="representing-status-hahahugoshortcode-4hbhb"><a href="../../references/advanced/status/">Representing status</a></h3>
+
+<p>This page describes how status of system and units alike is
+represented in SnowFox and exposed by the API.</p>
+
+            </div> 
+
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#e">E</a>
+<ul>
+<li><a href="#the-event-system-hahahugoshortcode-1hbhb"><a href="../../references/advanced/events/">The Event System</a></a></li>
+</ul></li>
+<li><a href="#r">R</a>
+<ul>
+<li><a href="#representing-status-hahahugoshortcode-4hbhb"><a href="../../references/advanced/status/">Representing status</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+              
+              <ul class="cli-toc">
+                
+              </ul>
+            </div> 
+            
+
+          </div> 
+        </div> 
+
+      </div> 
+    </div> 
+
+    <div id="footer">
+</div>
+
+  </body>
+</html>

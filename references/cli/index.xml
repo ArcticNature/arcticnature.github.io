@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cli on SnowFox</title>
-    <link>https://arcticnature.github.io/references/cli/</link>
-    <description>Recent content in Cli on SnowFox</description>
+    <title>SnowFox</title>
+    <link>https://arcticnature.github.io/references/cli/index.xml</link>
+    <description>Recent content on SnowFox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
-    <lastBuildDate>Mon, 28 Mar 2016 11:12:06 +0100</lastBuildDate>
     <atom:link href="https://arcticnature.github.io/references/cli/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -16,10 +15,9 @@
       <pubDate>Mon, 28 Mar 2016 11:12:06 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/cli/daemon/</guid>
-      <description>
-
-&lt;p&gt;The SnowFox daemon binary.
-Responsible for orchestrating the execution of the manager and the spawner.&lt;/p&gt;
+      <description>&lt;p&gt;The SnowFox daemon binary.
+Responsible for orchestrating the execution of the manager and the spawner.
+&lt;/p&gt;
 
 &lt;h2 id=&#34;daemon-options&#34;&gt;Daemon options&lt;/h2&gt;
 
@@ -378,8 +376,7 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
 &lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
-&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
-</description>
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -388,11 +385,10 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
       <pubDate>Mon, 28 Mar 2016 20:25:30 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/cli/manager/</guid>
-      <description>
-
-&lt;p&gt;The SnowFox manager binary.
+      <description>&lt;p&gt;The SnowFox manager binary.
 Logic unit of SnowFox, deals with user requests and system events.&lt;br /&gt;
-&lt;strong&gt;&lt;code&gt;snow-fox-manager&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;&lt;code&gt;snow-fox-manager&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;
+&lt;/p&gt;
 
 &lt;h2 id=&#34;cluster-options&#34;&gt;Cluster options&lt;/h2&gt;
 
@@ -540,8 +536,7 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
 &lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
-&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
-</description>
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -550,11 +545,10 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
       <pubDate>Mon, 28 Mar 2016 23:47:42 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/cli/spanwer/</guid>
-      <description>
-
-&lt;p&gt;The SnowFox manager binary.
+      <description>&lt;p&gt;The SnowFox manager binary.
 Priviledged unit of SnowFox, deals with operations that require root.&lt;br /&gt;
-&lt;strong&gt;&lt;code&gt;snow-fox-spawner&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;&lt;code&gt;snow-fox-spawner&lt;/code&gt; should not be called directly, let the daemon do it!&lt;/strong&gt;
+&lt;/p&gt;
 
 &lt;h2 id=&#34;inter-process-communication&#34;&gt;Inter-Process communication&lt;/h2&gt;
 
@@ -612,8 +606,7 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
 
 &lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
-&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
-</description>
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -622,10 +615,9 @@ The path to the UNIX socket can be specified with this option.&lt;/p&gt;
       <pubDate>Mon, 11 Apr 2016 22:39:59 +0100</pubDate>
       
       <guid>https://arcticnature.github.io/references/cli/client/</guid>
-      <description>
-
-&lt;p&gt;The official command line client.
-Used to interact with the SnowFox server.&lt;/p&gt;
+      <description>&lt;p&gt;The official command line client.
+Used to interact with the SnowFox server.
+&lt;/p&gt;
 
 
 
@@ -640,8 +632,7 @@ Used to interact with the SnowFox server.&lt;/p&gt;
 
 &lt;h3 id=&#34;version-show-version-and-exit&#34;&gt;&lt;code&gt;--Version&lt;/code&gt;: show version and exit&lt;/h3&gt;
 
-&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;
-</description>
+&lt;p&gt;Print the version of the binary and exits.&lt;/p&gt;</description>
     </item>
     
   </channel>

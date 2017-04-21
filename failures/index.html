@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/references\/protobuf\/public\/protocol\/";
+      var permalink = "https:\/\/arcticnature.github.io\/failures\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,15 +25,15 @@
   </script>
 
   
-  <title>Public Protocol Reference | SnowFox</title>
+  <title>Failure modes | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.17" />
-  <link rel="stylesheet" type="text/css" href="../../../../css/core.css" />
-  <link rel="stylesheet" type="text/css" href="../../../../css/pygments-monokai.css" />
+  <link rel="stylesheet" type="text/css" href="../css/core.css" />
+  <link rel="stylesheet" type="text/css" href="../css/pygments-monokai.css" />
 
-  <script type="text/javascript" src="../../../../js/jquery-2.2.2.min.js"></script>
-  <script type="text/javascript" src="../../../../js/bootstrap-3.3.6.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap-3.3.6.min.js"></script>
 </head>
 
   <body data-spy="scroll" data-target="#toc">
@@ -52,7 +52,7 @@
       </button>
 
       
-      <a class="navbar-brand" href="../../../../">
+      <a class="navbar-brand" href="../">
         SnowFox Hub
       </a>
     </div> 
@@ -69,7 +69,7 @@
 
         
         <li class="">
-        <a href="../../../../quick-start/"> Quick Start </a>
+        <a href="../quick-start/"> Quick Start </a>
         </li>
         
         
@@ -78,7 +78,7 @@
 
         
         <li class="">
-        <a href="../../../../install/"> Install </a>
+        <a href="../install/"> Install </a>
         </li>
         
         
@@ -87,7 +87,7 @@
 
         
         <li class="">
-        <a href="../../../../project-status/"> Project Status </a>
+        <a href="../project-status/"> Project Status </a>
         </li>
         
         
@@ -101,7 +101,7 @@
 
         
         
-        <li class="dropdown active">
+        <li class="dropdown ">
           <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true" aria-expanded="false">
@@ -113,32 +113,32 @@
             
             
             <li class="">
-              <a href="../../../../references/">Full References</a>
+              <a href="../references/">Full References</a>
             </li>
             
             
             <li class="">
-              <a href="../../../../references/cli/">Command Line Reference</a>
+              <a href="../references/cli/">Command Line Reference</a>
             </li>
             
             
             <li class="">
-              <a href="../../../../references/lua/">LUA Interfaces</a>
+              <a href="../references/lua/">LUA Interfaces</a>
             </li>
             
             
             <li class="">
-              <a href="../../../../references/lifecycles/">Lifecycles Reference</a>
+              <a href="../references/lifecycles/">Lifecycles Reference</a>
             </li>
             
             
             <li class="">
-              <a href="../../../../references/advanced/">Advanced Topics</a>
+              <a href="../references/advanced/">Advanced Topics</a>
             </li>
             
             
             <li class="">
-              <a href="../../../../references/glossary/">Glossary</a>
+              <a href="../references/glossary/">Glossary</a>
             </li>
             
           </ul>
@@ -151,7 +151,7 @@
 
         
         
-        <li class="dropdown ">
+        <li class="dropdown active">
           <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true" aria-expanded="false">
@@ -160,14 +160,14 @@
           </a>
           <ul class="dropdown-menu">
             
-            <li class="">
-              <a href="../../../../failures/">Failure modes</a>
+            <li class="active">
+              <a href="../failures/">Failure modes</a>
             </li>
             
             
             
             <li class="">
-              <a href="../../../../failures/node/">Individual Node Failures</a>
+              <a href="../failures/node/">Individual Node Failures</a>
             </li>
             
           </ul>
@@ -180,7 +180,7 @@
 
         
         <li class="">
-        <a href="../../../../about/"> About </a>
+        <a href="../about/"> About </a>
         </li>
         
         
@@ -206,7 +206,7 @@
           <div class="page-header">
             <h1>
               
-                Public Protocol Reference
+                Failure modes
               
               
             </h1>
@@ -216,52 +216,46 @@
 
             
             <div class="col-xs-12 col-md-9">
-              
+              <p>SnowFox is a complex system that interacts with other
+more or less complex systems.</p>
 
-<h2 id="client-connection">Client connection</h2>
+<p>This means that there are several possible ways for individual
+components, systems, and the overall infrastructure will fail.
+Some of these failures are going to be common (process restart,
+server reboot, &hellip;) some of them less frequent (network partitions).</p>
 
-<p>These events are exchanged when a client connects to the daemon.
-The sequence is initiated by the client.</p>
+<p>All of them must be understood to be dealt with and often users
+must understand what the failure scenarios are and how the software
+deals with them to avoid surprises when they happen.</p>
 
-<ul>
-<li>The client sends a
-<a href="../../../../references/protobuf/messages/#message"><code>Message</code></a>
-with <code>Code::Introduce</code> to the daemon.</li>
-<li>The daemon responds with a
-<a href="../../../../references/protobuf/public/messages/#clientintroduce"><code>ClientIntroduce</code></a>
-response.</li>
-<li>The client should use the returned ID to build <code>correlation_id</code>s for its messages.</li>
-</ul>
 
-<h2 id="node-information">Node information</h2>
 
-<p>These events are exchanged when node information is requested.
-The sequence is initiated by the client.</p>
 
-<ul>
-<li>The user sends a
-<a href="../../../../references/protobuf/public/messages/#nodeinforequest"><code>NodeInfoRequest</code></a>
-message to the Manager.</li>
-<li>The Manager sends a
-<a href="../../../../references/protobuf/public/messages/#nodeinforesponse"><code>NodeInfoResponse</code></a>
-message back.</li>
-</ul>
+<div class="pageset-block">
+  <h2 id="failures-27112ec1dcd678166d5adceaac1f6391">
+    <a href="../failures/node/">Individual Node Failures</a>
+  </h2>
+  <p>This section relates to failures limited to the host SnowFox runs on.
+It covers how the node can recover from these failures while the system
+as a whole may need to proceed further and independently to recover from
+a lost node.</p>
+</div>
+
+
 
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
-              <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#client-connection">Client connection</a></li>
-<li><a href="#node-information">Node information</a></li>
-</ul></li>
-</ul>
-</nav>
+              
 
               
               <ul class="cli-toc">
+                
+                <li>
+                  <a href="#failures-27112ec1dcd678166d5adceaac1f6391">
+                    Individual Node Failures
+                  </a>
+                </li>
                 
               </ul>
             </div> 

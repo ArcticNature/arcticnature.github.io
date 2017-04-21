@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/project-status\/";
+      var permalink = "https:\/\/arcticnature.github.io\/techlog\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,7 +25,7 @@
   </script>
 
   
-  <title>Project Status | SnowFox</title>
+  <title>Technical log | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.17" />
@@ -86,7 +86,7 @@
         
 
         
-        <li class="active">
+        <li class="">
         <a href="../project-status/"> Project Status </a>
         </li>
         
@@ -206,7 +206,7 @@
           <div class="page-header">
             <h1>
               
-                Project Status
+                Technical log
               
               
             </h1>
@@ -215,169 +215,93 @@
           <div class="row">
 
             
-            <div class="col-xs-12">
+            <div class="col-xs-12 col-md-9">
               
 
-<div class="alert alert-warning" role="alert">
-  <p><strong>Early development warning!!!</strong>
-  Be aware that SnowFox is in its early development stages.</p>
+<p>I have started this project for fun and personal interest.
+This is why I have tried to implement features the &ldquo;best&rdquo; possible
+way without compromising on stability or software design.</p>
 
-<p><strong>Do not use in production environments</strong>.</p>
+<p>That did not work out &hellip;
+The complexity is still high, several things could have been done
+better, and the system is not able to do almost anything compared
+to the endless list of ideas I have in mind.</p>
 
-</div>
+<p>To change this I have acepted that sometime it is best to compromise
+by implementing something knowing that it will need to change at some
+point but without uet knowing how that will have to look like.</p>
 
+<p>This page is therefore here to keep track of what needs to be
+improved, re-worked or re-done and what the limits/problems
+at the moment that needs to be addressed.</p>
 
-<h2 id="version-number">Version number</h2>
+<h2 id="events">Events</h2>
 
-<p>The version number follows the rules of <a href="http://semver.org/">Semantic Versioning</a>
-with one difference: for versions below <code>1.0.0</code> the meaning is shifted by one and
-there is no <code>PATCH</code>.</p>
-
-<p>This is to clarify the, very useful, loose constraints on versions below <code>1.0.0</code>.
-For these versions, when new features are added quickly and compatibility
-breaks often, the <code>MAJOR.MINOR.PATCH</code> are as follows:</p>
-
-<ul>
-<li><code>MAJOR</code>: it is always <code>0</code>.</li>
-<li><code>MINOR</code>: represents a backward incompatible change.</li>
-<li><code>PATCH</code>: represents a backward compatible change (feature or bug fix).</li>
-</ul>
-
-<h3 id="the-public-api">The public API</h3>
-
-<p>At the basis of semantic versioning there is a public API.
-The version number changes based on changes to that.
-For the purpose of versioning, the public API of SnowFox is composed of:</p>
+<p>The events need to be reworked because the following areas will soon
+hit several limits:</p>
 
 <ul>
-<li>The <a href="../references/cli/">command line</a> options.</li>
-<li>The configuration format.</li>
-<li>The <a href="../references/protobuf/public/protocol/">public protocol buffer</a> API.</li>
-<li>The plugin API.</li>
-<li>The lifecycles steps.</li>
+<li>Event id generation: messy format and assignment.</li>
+<li>Promise links: need to link events to promises and
+  resolve/reject when events are handled.</li>
+<li>Need some RPC framework to link events across multiple
+processes/nodes.</li>
+<li>Better tracing and visibility (introduce OpenTracing).</li>
 </ul>
 
-<h2 id="road-map">Road map</h2>
+<p>Replace home-grown system with libevent instead?</p>
 
-<div class="mdtable table-striped">
-  <table>
-<thead>
-<tr>
-<th>Milestone estimate</th>
-<th>Feature</th>
-<th>Status</th>
-</tr>
-</thead>
+<h2 id="configuration">Configuration</h2>
 
-<tbody>
-<tr>
-<td>0.1.0</td>
-<td>Events refactoring</td>
-<td>done</td>
-</tr>
+<p>The configuration system is currently synchronous.
+That means that configuration of the spawner cannot be linked
+to the configuration and advanced options (like cheking if a
+restricted port can be opened) are hard/impossible to implement.</p>
 
-<tr>
-<td>0.1.1</td>
-<td>Metadata storage</td>
-<td>in progress</td>
-</tr>
+<p>The other problem with the current system is &ldquo;inheritance&rdquo; of
+resources: if a TCP socket is open and a reconfig operation
+does not change the details (bind address or port) the current
+socket should be reused.</p>
 
-<tr>
-<td>0.1.2</td>
-<td>Service registry</td>
-<td>pending</td>
-</tr>
+<p>The first problem can be solved with promises and making the
+verify and apply stages to become promeses.</p>
 
-<tr>
-<td>0.1.3</td>
-<td>Service load/list</td>
-<td>pending</td>
-</tr>
+<h2 id="module-initialization">Module Initialization</h2>
 
-<tr>
-<td>0.1.4</td>
-<td>Service start/stop/status</td>
-<td>pending</td>
-</tr>
+<p>Currently requires to force inclusion of all symbols.
+Need to find a better way to deal with that.</p>
 
-<tr>
-<td>0.1.5</td>
-<td>Metrics collection</td>
-<td>pending</td>
-</tr>
+<ul>
+<li><a href="http://lxr.free-electrons.com/source/include/linux/init.h#L162">http://lxr.free-electrons.com/source/include/linux/init.h#L162</a></li>
+<li><a href="http://lxr.free-electrons.com/source/include/linux/init.h#L108">http://lxr.free-electrons.com/source/include/linux/init.h#L108</a></li>
+<li><a href="https://www.linux.com/learn/kernel-newbie-corner-kernel-symbols-whats-available-your-module-what-isnt">https://www.linux.com/learn/kernel-newbie-corner-kernel-symbols-whats-available-your-module-what-isnt</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc-3.2/gcc/Variable-Attributes.html">https://gcc.gnu.org/onlinedocs/gcc-3.2/gcc/Variable-Attributes.html</a></li>
+<li><a href="http://stackoverflow.com/questions/3104923/static-initialization">http://stackoverflow.com/questions/3104923/static-initialization</a></li>
+</ul>
 
-<tr>
-<td>?????</td>
-<td>TCP connection support</td>
-<td>pending</td>
-</tr>
-
-<tr>
-<td>?????</td>
-<td>Client connects over tcp</td>
-<td>pending</td>
-</tr>
-
-<tr>
-<td>?????</td>
-<td>Cluster support</td>
-<td>pending</td>
-</tr>
-
-<tr>
-<td>?????</td>
-<td><code>snow-fox-bootstrap</code></td>
-<td>pending</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-
-<h2 id="next-release">Next release</h2>
-
-<p>The topic for the next release is: <b>basic service commands</b>.</p>
-
-<p>This release cycle will be complete when service start, list,
-stop, and status are implemented.</p>
-
-<p>This will approximately be version <code>0.1.5</code>.</p>
-
-<h2 id="change-log">Change log</h2>
-
-<p>Change logs &hellip;</p>
-
-<p>Boring for both authors and readers.
-Except for that one time you need it!</p>
-
-<p>The <a href="../changelog/">change log</a> for SnowFox is an
-itemised list of things that changed and the version it changed in.</p>
-
-<div class="alert alert-warning" role="alert">
-  <p>While the change log is as accurate as possible, it is
-<strong>not guaranteed to be complete</strong>.<br />
-If you need such guarantee you may have to scavenge the git logs.</p>
-
-</div>
-
-
-<h2 id="technical-debt">Technical debt</h2>
-
-<p>A hated name for a useful concept: there are some things already that
-need to change!</p>
-
-<p>At first I tried to identify what needs to be changed and how to make it
-better then the result needed to be made better again &hellip;</p>
-
-<p>Well it is decided now: progress must be made and where the problems
-become clear and concrete they can be reasoned about and fixed.</p>
-
-<p>The <a href="../techlog/">tech log</a> lists the areas that
-need work and why they need it.</p>
+<p>Could use hooks to make init call nicer (can use labda instead of classes)
+but I still need to figure out how to &ldquo;force&rdquo; inclusion of the symbol
+if no header or source file are directly referenced.</p>
 
             </div> 
 
+            <div class="hidden-xs hidden-sm col-md-3">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#events">Events</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#module-initialization">Module Initialization</a></li>
+</ul></li>
+</ul>
+</nav>
+
+              
+              <ul class="cli-toc">
+                
+              </ul>
+            </div> 
             
 
           </div> 

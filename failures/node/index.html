@@ -5,7 +5,7 @@
   <script type="text/javascript">
     var detectBaseUrl = function() {
       var base = "https:\/\/arcticnature.github.io";
-      var permalink = "https:\/\/arcticnature.github.io\/references\/lua\/";
+      var permalink = "https:\/\/arcticnature.github.io\/failures\/node\/";
 
       var is_home = false ;
       if (is_home) {
@@ -25,7 +25,7 @@
   </script>
 
   
-  <title>LUA Interfaces | SnowFox</title>
+  <title>Individual Node Failures | SnowFox</title>
   
 
   <meta name="generator" content="Hugo 0.17" />
@@ -101,7 +101,7 @@
 
         
         
-        <li class="dropdown active">
+        <li class="dropdown ">
           <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true" aria-expanded="false">
@@ -122,7 +122,7 @@
             </li>
             
             
-            <li class="active">
+            <li class="">
               <a href="../../references/lua/">LUA Interfaces</a>
             </li>
             
@@ -151,7 +151,7 @@
 
         
         
-        <li class="dropdown ">
+        <li class="dropdown active">
           <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true" aria-expanded="false">
@@ -166,7 +166,7 @@
             
             
             
-            <li class="">
+            <li class="active">
               <a href="../../failures/node/">Individual Node Failures</a>
             </li>
             
@@ -206,7 +206,7 @@
           <div class="page-header">
             <h1>
               
-                LUA Interfaces
+                Individual Node Failures
               
               
             </h1>
@@ -216,19 +216,166 @@
 
             
             <div class="col-xs-12 col-md-9">
-              <p>LUA is used different contexts across SnowFox:</p>
+              <p>This section relates to failures limited to the host SnowFox runs on.
+It covers how the node can recover from these failures while the system
+as a whole may need to proceed further and independently to recover from
+a lost node.
+</p>
+
+<h2 id="snowfox-s-process-death">SnowFox&rsquo;s process death</h2>
+
+<h4>
+  Component
+  <small>
+  <span class="label label-primary">Daemon</span>,
+  <span class="label label-primary">Manager</span>, or
+  <span class="label label-primary">Spawner</span>
+  process.
+</small>
+</h4>
+
+
+<h4>
+  Root cause
+  <small>
+A SnowFox process is dead or terminated
+(may it be bug, kernel, or human request).
+</small>
+</h4>
+
+
+<h4>
+  Side effects
+  <small></small>
+</h4>
+
 
 <ul>
-<li>The <a href="../../references/lua/client/">LUA client API</a> is
-what the user calls to run commands in the <code>snow-fox-client</code>.</li>
-<li>The <a href="../../references/lua/node-config/">Node configuration</a>
-is the LUA interface to a SnowFox node&rsquo;s configuration.</li>
+<li>Clients connected to the node will be disconnected.</li>
+<li>Cluster loses access to the node.</li>
+<li>Node monitoring and management through SnowFox is unavailable.</li>
+<li>Pending requests will time out.</li>
+<li>The cluster may react assuming the entire host failed.</li>
 </ul>
 
+<h4>
+  Mitigation
+  <small></small>
+</h4>
+
+
+<ul>
+<li>Processes started by SnowFox are not tied to the manager.<br />
+As a result they will not be impacted by the failure.</li>
+<li>Once the node comes back online it will resume monitoring
+the processes and update its internal status.</li>
+</ul>
+
+<h2 id="internal-errors">Internal errors</h2>
+
+<h4>
+  Component
+  <small>
+  <span class="label label-primary">Any</span>
+</small>
+</h4>
+
+
+<h4>
+  Root cause
+  <small></small>
+</h4>
+
+
+<ul>
+<li>Bugs in the code.</li>
+<li>Unexpected behaviour from other components.</li>
+<li>User error.</li>
+<li>Others &hellip;</li>
+</ul>
+
+<h4>
+  Side effects
+  <small></small>
+</h4>
+
+
+<ul>
+<li>Features may not work as expected.</li>
+<li>Most errors are ignored if not explicitly handled to prevent node failures.</li>
+<li>Processes may not be started or terminated.</li>
+<li>Requests may never return (neither successfully nor unsuccessfully).</li>
+</ul>
+
+<h4>
+  Mitigation
+  <small></small>
+</h4>
+
+
+<ul>
+<li>Timeouts should be used to protected against missed events from components.</li>
+<li>Retries and timers should be used to provide <strong>eventual consistency</strong>.</li>
+</ul>
+
+<h2 id="local-service-failure">Local service failure</h2>
+
+<h4>
+  Component
+  <small>
+  <a href="../../references/glossary/#agent">
+    <span class="label label-primary">Agents</span>
+  </a>
+</small>
+</h4>
+
+
+<h4>
+  Root cause
+  <small></small>
+</h4>
+
+
+<ul>
+<li>Bug in the agent.</li>
+<li>Unexpected response from the agent.</li>
+<li>User or kernel termination of the agent.</li>
+</ul>
+
+<h4>
+  Side effects
+  <small></small>
+</h4>
+
+
+<ul>
+<li>Features may become unavailable.</li>
+<li>Requests may timeout.</li>
+</ul>
+
+<h4>
+  Mitigation
+  <small></small>
+</h4>
+
+
+<ul>
+<li>Timeouts should be used to protected against missed events from components.</li>
+<li>Retries and timers should be used to provide <strong>eventual consistency</strong>.</li>
+</ul>
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
-              
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#snowfox-s-process-death">SnowFox&rsquo;s process death</a></li>
+<li><a href="#internal-errors">Internal errors</a></li>
+<li><a href="#local-service-failure">Local service failure</a></li>
+</ul></li>
+</ul>
+</nav>
 
               
               <ul class="cli-toc">

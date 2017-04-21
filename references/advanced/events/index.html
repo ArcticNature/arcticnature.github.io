@@ -28,7 +28,7 @@
   <title>Event based system | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.16" />
+  <meta name="generator" content="Hugo 0.17" />
   <link rel="stylesheet" type="text/css" href="../../../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../../../css/pygments-monokai.css" />
 
@@ -109,7 +109,10 @@
               <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li class="active">
+            
+            
+            
+            <li class="">
               <a href="../../../references/">Full References</a>
             </li>
             
@@ -126,6 +129,45 @@
             
             <li class="">
               <a href="../../../references/lifecycles/">Lifecycles Reference</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../../references/advanced/">Advanced Topics</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../../../references/glossary/">Glossary</a>
+            </li>
+            
+          </ul>
+        </li>
+
+        
+        
+        
+        
+
+        
+        
+        <li class="dropdown ">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Failure modes
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            <li class="">
+              <a href="../../../failures/">Failure modes</a>
+            </li>
+            
+            
+            
+            <li class="">
+              <a href="../../../failures/node/">Individual Node Failures</a>
             </li>
             
           </ul>
@@ -178,12 +220,12 @@
 
 <p>SnowFox is an event based system.
 <code>Event</code>s are created by different <code>EventSource</code>s.<br />
-Each <code>snow-fox-*</code> process configures an <code>EventSourceManager</code> and the
+Each <code>snow-fox-*</code> process configures a <code>LoopManager</code> and the
 relevant <code>EventSource</code>s and enters the event loop.</p>
 
 <p>This page descrives the events interface and semantics:</p>
 
-<h2 id="event-s-interface"><code>Event</code>s interface</h2>
+<h2 id="the-event-s-interface">The <code>Event</code>s interface</h2>
 
 <p>Events:</p>
 
@@ -196,7 +238,188 @@ relevant <code>EventSource</code>s and enters the event loop.</p>
 <p>The <code>Event</code> interface is defined in
 <a href="https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h">https://github.com/ArcticNature/core/blob/master/model/event/include/core/model/event.h</a></p>
 
+<h3 id="events-and-promises">Events and promises</h3>
+
+<p>Events are closer to fire and forget operations:
+something happens and it is handled.</p>
+
+<p>Promises are an easy way to perform part of a task and resume it later in
+the futere when more information is available or operations are complete.</p>
+
+<p>When an event needs to resume work at a later time it can create a promise.
+Promises can be stored in <code>sf::core::context::Static-&gt;promises()</code>, a map from
+string (usually the <code>Event</code>&rsquo;s <code>correlation_id</code>) to a <code>Promise</code> object.</p>
+
+<p>Promises can be resolved or failed at a later stage using the
+<code>PromiseFullfill</code> and <code>PromiseReject</code> events.</p>
+
+<h2 id="the-run-loop">The run loop</h2>
+
+<p>SnowFox is a single-threaded, event oriented process.</p>
+
+<p>This means the process performs tasks that enqueue operations that are
+performed by the operating system or other processes and waits for the
+responses to requestes made to these systems.
+External systems can also send events to SnowFox and trigger reactions
+from it.</p>
+
+<p>The system is based around <code>EventSources</code> and <code>EventDrains</code>.
+Sources are notified by the OS when an event is ready to be received.
+Drains are used by the process to enqueue outgoing requests or responses.
+When the OS determines that the drain is ready to send data SnowFox will
+flush the buffer over the channel untill the buffer is empty.</p>
+
+<p>The majority of errors are logged and ignored to avoid stoppoing the
+entire SnowFox node in the presence of small or even transient errors.
+The eventual consistency nature of SnowFox will retry failed tasks later.</p>
+
+<p>The sequence of events generally goes as follows:
+
+<figure >
+    
+        <img src="../../../references/advanced/loop.svg" alt="Drains hierarchy" />
+    
+    
+</figure>
+</p>
+
+<h2 id="the-loopmanager">The <code>LoopManager</code></h2>
+
+<p>The <code>LoopManager</code> is what SnowFox uses to track all the sources and drains
+that are active.</p>
+
+<p>When a source is ready the <code>LoopManager</code> will stop waiting and call the parse
+method of the source.
+If the method returns an <code>Event</code> the run loop will handle it before
+returning to the <code>LoopManager</code> for more events.</p>
+
+<p>When a drain is ready the <code>LoopManager</code> will stop waiting and call the flush
+method on the drain.
+Once the drain returns it indicates if the buffer is empty or not.
+If the buffer is empty the drain is removed from the manager.
+Drains add themselves back to the manager when the buffer is filled again.</p>
+
+<p>The <code>LoopManager</code> may return a null <code>Event</code> if a source or a drain triggered
+an change that did not lead to the creation of a real <code>Event</code>.
+In this case the run loop simply ignores the null <code>Event</code> and resumes waiting.</p>
+
+<h2 id="scope-of-drains-and-sources">Scope of drains and sources</h2>
+
+<p>Event drains are stored in the static context index by ID.<br />
+Whenever a component registers a new drain it ends up in here,
+regardless of its expected lifetime.</p>
+
+<p>This is so that drains can survive configuration reloads and
+pending operations can be completed.
+This also means that configuration reloads do not teminate
+connections that are still active.</p>
+
+<p>On the other hand not all sources should survive configuration reloads
+but some should, depening on what they are:</p>
+
+<ul>
+<li><p><strong>Listener sources</strong>:
+these sources wait for connections to be established
+and create secondary sources for each connection.
+Should not survive configuration reloads (may be replaced by them).</p></li>
+
+<li><p><strong>Configured sources</strong>:
+are similar to listeners in that the wait for other processes to send
+events but are usually waiting for responses to requests sent by SnowFox
+(i.e: metadata storage, <code>ScheduledSource</code>, &hellip;).
+Should not survice configuration reloads.</p></li>
+
+<li><p><strong>Scoped sources</strong>:
+these sources are linked to specific connections (usually with clients).
+Should survive configuration reloads and clean itself up on close.</p></li>
+
+<li><p><strong>Static sources</strong>:
+Are internal sources like the <code>ManualSource</code> or the
+spawner and daemon sources.
+They are never going to change or be closed.</p></li>
+</ul>
+
+<p>The sources that need to survive configuration reloads are stored
+in the static context while the sources that are replaced by a
+configuration reload are stored in the dynamic context.</p>
+
+<h2 id="core-hierarchies">Core Hierarchies</h2>
+
+<p>The following hierarchies are defined by core components and are
+the building blocks of other classes and components.</p>
+
+<h3 id="drains">Drains</h3>
+
+
+<figure >
+    
+        <img src="../../../references/advanced/drains.svg" alt="Drains hierarchy" />
+    
+    
+</figure>
+
+
+<p>Remeber that these are <strong>not</strong> all possible drains but
+only those provided by core components:</p>
+
+<ul>
+<li><code>EventDrain</code>: The base drain definition.</li>
+<li><code>NullDrain</code>: A special drain that ignores all data.</li>
+<li><code>BoundDrain</code>: A drain bound to a signle <code>EventSourceRef</code>.</li>
+<li><code>ProtoBufDrain</code>: A drain to send protobuf messages.</li>
+<li><code>Daemon*Drain</code>:
+A group of drains to send messages to the daemon
+(from spawner and manager).</li>
+<li><code>Manager*Drain</code>:
+A group of drains to send messages to the manager
+(from spawner and daemon).</li>
+<li><code>Spawner*Drain</code>:
+A group of drains to send messages to the spaner
+(from manager and daemon).</li>
+<li><code>PublicDrain</code>: The drain to send messages to clients.</li>
+</ul>
+
+<h3 id="sources">Sources</h3>
+
+
+<figure >
+    
+        <img src="../../../references/advanced/sources.svg" alt="Sources hierarchy" />
+    
+    
+</figure>
+
+
+<p>Remeber that these are <strong>not</strong> all possible sources but
+only those provided by core components:</p>
+
+<ul>
+<li><code>EventSource</code>: The base source definition.</li>
+<li><code>ManualSource</code>: A source that emits <code>EventRef</code>s added by the system.</li>
+<li><code>ReadlineSource</code>: A source that emits strings read with <code>readline</code>.</li>
+<li><code>SchedulerSource</code>: A source that emits <code>EventRef</code>s on a timer.</li>
+<li><code>SignalSource</code>: A source that emits events based on signals.</li>
+<li><code>BoundSource</code>: A source bound to a signle <code>EventDrainRef</code>.</li>
+<li><code>ProtoBufSource</code>: A source to read protobuf messages.</li>
+<li><code>Daemon*Source</code>:
+A group of sources to read messages from the daemon
+(to spawner and manager).</li>
+<li><code>Manager*Source</code>:
+A group of sources to read messages from the manager
+(to spawner and daemon).</li>
+<li><code>Spawner*Source</code>:
+A group of sources to read messages from the spaner
+(to manager and daemon).</li>
+<li><code>PublicSource</code>: The source to read messages from clients.</li>
+</ul>
+
 <h2 id="sharing-state">Sharing state</h2>
+
+<div class="alert alert-danger" role="alert">
+  <p>This feature is deprecated in favour of <strong>promises</strong> (see above).</p>
+
+</div>
+
 
 <p>Events can be given parameters when they are created by the event source
 that creates them but they cannot otherwise interact with future events.</p>
@@ -234,11 +457,27 @@ Concrete <code>EventContext</code>s are maps from <code>correlation_id</code>s t
 <ul>
 <li>
 <ul>
-<li><a href="#event-s-interface"><code>Event</code>s interface</a></li>
+<li><a href="#the-event-s-interface">The <code>Event</code>s interface</a>
+<ul>
+<li><a href="#events-and-promises">Events and promises</a></li>
+</ul></li>
+<li><a href="#the-run-loop">The run loop</a></li>
+<li><a href="#the-loopmanager">The <code>LoopManager</code></a></li>
+<li><a href="#scope-of-drains-and-sources">Scope of drains and sources</a></li>
+<li><a href="#core-hierarchies">Core Hierarchies</a>
+<ul>
+<li><a href="#drains">Drains</a></li>
+<li><a href="#sources">Sources</a></li>
+</ul></li>
 <li><a href="#sharing-state">Sharing state</a></li>
 </ul></li>
 </ul>
 </nav>
+
+              
+              <ul class="cli-toc">
+                
+              </ul>
             </div> 
             
 

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Failures-rsses on SnowFox</title>
+    <link>https://arcticnature.github.io/failures/index.xml</link>
+    <description>Recent content in Failures-rsses on SnowFox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Copyright (c) 2015, Stefano Pogliani</copyright>
+    <lastBuildDate>Thu, 06 Oct 2016 19:44:49 +0100</lastBuildDate>
+    <atom:link href="https://arcticnature.github.io/failures/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Individual Node Failures</title>
+      <link>https://arcticnature.github.io/failures/node/</link>
+      <pubDate>Thu, 06 Oct 2016 19:44:49 +0100</pubDate>
+      
+      <guid>https://arcticnature.github.io/failures/node/</guid>
+      <description>&lt;p&gt;This section relates to failures limited to the host SnowFox runs on.
+It covers how the node can recover from these failures while the system
+as a whole may need to proceed further and independently to recover from
+a lost node.
+&lt;/p&gt;
+
+&lt;h2 id=&#34;snowfox-s-process-death&#34;&gt;SnowFox&amp;rsquo;s process death&lt;/h2&gt;
+
+&lt;h4&gt;
+  Component
+  &lt;small&gt;
+  &lt;span class=&#34;label label-primary&#34;&gt;Daemon&lt;/span&gt;,
+  &lt;span class=&#34;label label-primary&#34;&gt;Manager&lt;/span&gt;, or
+  &lt;span class=&#34;label label-primary&#34;&gt;Spawner&lt;/span&gt;
+  process.
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Root cause
+  &lt;small&gt;
+A SnowFox process is dead or terminated
+(may it be bug, kernel, or human request).
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Side effects
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Clients connected to the node will be disconnected.&lt;/li&gt;
+&lt;li&gt;Cluster loses access to the node.&lt;/li&gt;
+&lt;li&gt;Node monitoring and management through SnowFox is unavailable.&lt;/li&gt;
+&lt;li&gt;Pending requests will time out.&lt;/li&gt;
+&lt;li&gt;The cluster may react assuming the entire host failed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Mitigation
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Processes started by SnowFox are not tied to the manager.&lt;br /&gt;
+As a result they will not be impacted by the failure.&lt;/li&gt;
+&lt;li&gt;Once the node comes back online it will resume monitoring
+the processes and update its internal status.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;internal-errors&#34;&gt;Internal errors&lt;/h2&gt;
+
+&lt;h4&gt;
+  Component
+  &lt;small&gt;
+  &lt;span class=&#34;label label-primary&#34;&gt;Any&lt;/span&gt;
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Root cause
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Bugs in the code.&lt;/li&gt;
+&lt;li&gt;Unexpected behaviour from other components.&lt;/li&gt;
+&lt;li&gt;User error.&lt;/li&gt;
+&lt;li&gt;Others &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Side effects
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Features may not work as expected.&lt;/li&gt;
+&lt;li&gt;Most errors are ignored if not explicitly handled to prevent node failures.&lt;/li&gt;
+&lt;li&gt;Processes may not be started or terminated.&lt;/li&gt;
+&lt;li&gt;Requests may never return (neither successfully nor unsuccessfully).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Mitigation
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Timeouts should be used to protected against missed events from components.&lt;/li&gt;
+&lt;li&gt;Retries and timers should be used to provide &lt;strong&gt;eventual consistency&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;local-service-failure&#34;&gt;Local service failure&lt;/h2&gt;
+
+&lt;h4&gt;
+  Component
+  &lt;small&gt;
+  &lt;a href=&#34;../references/glossary/#agent&#34;&gt;
+    &lt;span class=&#34;label label-primary&#34;&gt;Agents&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;h4&gt;
+  Root cause
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Bug in the agent.&lt;/li&gt;
+&lt;li&gt;Unexpected response from the agent.&lt;/li&gt;
+&lt;li&gt;User or kernel termination of the agent.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Side effects
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Features may become unavailable.&lt;/li&gt;
+&lt;li&gt;Requests may timeout.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+  Mitigation
+  &lt;small&gt;&lt;/small&gt;
+&lt;/h4&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Timeouts should be used to protected against missed events from components.&lt;/li&gt;
+&lt;li&gt;Retries and timers should be used to provide &lt;strong&gt;eventual consistency&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

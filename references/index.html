@@ -28,7 +28,7 @@
   <title>Full References | SnowFox</title>
   
 
-  <meta name="generator" content="Hugo 0.16" />
+  <meta name="generator" content="Hugo 0.17" />
   <link rel="stylesheet" type="text/css" href="../css/core.css" />
   <link rel="stylesheet" type="text/css" href="../css/pygments-monokai.css" />
 
@@ -109,6 +109,9 @@
               <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+            
+            
+            
             <li class="active">
               <a href="../references/">Full References</a>
             </li>
@@ -126,6 +129,45 @@
             
             <li class="">
               <a href="../references/lifecycles/">Lifecycles Reference</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/advanced/">Advanced Topics</a>
+            </li>
+            
+            
+            <li class="">
+              <a href="../references/glossary/">Glossary</a>
+            </li>
+            
+          </ul>
+        </li>
+
+        
+        
+        
+        
+
+        
+        
+        <li class="dropdown ">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+              Failure modes
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            <li class="">
+              <a href="../failures/">Failure modes</a>
+            </li>
+            
+            
+            
+            <li class="">
+              <a href="../failures/node/">Individual Node Failures</a>
             </li>
             
           </ul>
@@ -179,23 +221,6 @@
 <p>The full reference pages are for those who want to know all the details.
 SnowFox has a few different interfaces, each with its own section here.</p>
 
-<h2 id="command-line-references">Command line references</h2>
-
-<p>The <a href="../references/cli/">Command Line Reference</a> section
-is dedicated to the command line interfaces for the various binaries
-that form SnowFox.</p>
-
-<h2 id="lua-interfaces">LUA interfaces</h2>
-
-<p>LUA is used different contexts across SnowFox:</p>
-
-<ul>
-<li>The <a href="../references/lua/client/">LUA client API</a> is
-what the user calls to run commands in the <code>snow-fox-client</code>.</li>
-<li>The <a href="../references/lua/node-config/">Node configuration</a>
-is the LUA interface to a SnowFox node&rsquo;s configuration.</li>
-</ul>
-
 <h2 id="protocol-buffers">Protocol Buffers</h2>
 
 <p>Protocol Buffers <a href="../references/protobuf/messages/">messages</a>
@@ -225,28 +250,6 @@ are exchanged according to the
 <a href="../references/protobuf/public/protocol/">public protocol</a>.</li>
 </ul>
 
-<h2 id="lifecycles">Lifecycles</h2>
-
-<p>Lifecycles are used to provide flexibility to SnowFox.
-A lifecycle is a well defined sequence of events, with optional parameters,
-which are triggered by parts of the system as it evolves.</p>
-
-<p>An example is the <code>process</code> lifecycle, which is a sequence of events
-that follows the lifetime of the SnowFox process.</p>
-
-<p>Checkout the
-<a href="../references/lifecycles/">details and full list</a>
-of lifecycles to learn more about them.</p>
-
-<h2 id="advanced-topics">Advanced topics</h2>
-
-<ul>
-<li><a href="../references/advanced/status/">Representing status</a> of system and units alike.</li>
-<li><a href="../references/advanced/events/">Event based system</a>: event interface and the run loop.
-
-</li>
-</ul>
-
             </div> 
 
             <div class="hidden-xs hidden-sm col-md-3">
@@ -254,14 +257,15 @@ of lifecycles to learn more about them.</p>
 <ul>
 <li>
 <ul>
-<li><a href="#command-line-references">Command line references</a></li>
-<li><a href="#lua-interfaces">LUA interfaces</a></li>
 <li><a href="#protocol-buffers">Protocol Buffers</a></li>
-<li><a href="#lifecycles">Lifecycles</a></li>
-<li><a href="#advanced-topics">Advanced topics</a></li>
 </ul></li>
 </ul>
 </nav>
+
+              
+              <ul class="cli-toc">
+                
+              </ul>
             </div> 
             
 
