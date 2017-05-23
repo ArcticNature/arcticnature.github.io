@@ -221,34 +221,73 @@
 
 
 
+<h2 id="0-1-1">0.1.1</h2>
+
+<p><em>Topic</em>: Metadata storage.</p>
+
+<h3 id="new-features">New Features</h3>
+
+<ul>
+<li>Abstract MetaData store interface.</li>
+<li>Cluster metadata store and configuration.</li>
+<li>JSON FileSystem metadata store.</li>
+<li>Local node metadata store and configuration.</li>
+<li>Node config lua extention hooks.</li>
+<li><code>ProxyLogger</code> to use as python&rsquo;s <code>getLogger</code>.</li>
+</ul>
+
+<h3 id="improvements">Improvements</h3>
+
+<ul>
+<li>Create <code>core.testing.hooks</code> for hook test utils.</li>
+<li>Create <code>core.testing.metadata</code> for metadata test utils.</li>
+<li>Create <code>core.testing.promise</code> for test utils.</li>
+<li>Start converting <code>Context::logger</code> and <code>Logger::fallback</code> to <code>ProxyLogger</code>.</li>
+<li>Start dev tools with a docker based builder.</li>
+</ul>
+
 <h2 id="0-1-0">0.1.0</h2>
 
 <p><em>Topic</em>: Events refactoring.</p>
 
+<h3 id="new-features-1">New Features</h3>
+
 <ul>
 <li>Add failure modes documentation.</li>
 <li>Add glossary page to documentation.</li>
-<li>All writes use flush instead of FDs.</li>
-<li><code>Context</code> static methods to uppercase (lowercase for instance version).</li>
 <li>Create a <code>PromiseKeeper</code> and add to static context.</li>
-<li>Exceptions inherit from <code>std::runtime_error</code>.</li>
 <li>Handle global promise failures by re-thworing them in the run loop.</li>
-<li>Implement <code>Buffer</code>s for drains buffering system.</li>
 <li>Introduce hooks with functors and static types.</li>
 <li>Introduce promeses.</li>
+<li>SheduledSource to tick promise keeper.</li>
+<li>Use lifecycles to auto-add drains with data.</li>
+</ul>
+
+<h3 id="improvements-1">Improvements</h3>
+
+<ul>
+<li>Exceptions inherit from <code>std::runtime_error</code>.</li>
 <li>Make Drain and Source FD accessible to LoopManagers only.</li>
-<li>Move FD check to new <code>core.utility.net</code>.</li>
 <li>Quick access to full reference pages.</li>
+</ul>
+
+<h3 id="breaking-changes">Breaking changes</h3>
+
+<ul>
+<li>All writes use flush instead of FDs.</li>
+<li><code>Context</code> static methods to uppercase (lowercase for instance version).</li>
+<li>Implement <code>Buffer</code>s for drains buffering system.</li>
+<li>Move FD check to new <code>core.utility.net</code>.</li>
 <li>Refactor <code>Event</code> error handling with <code>std::exception_ptr</code>.</li>
 <li>Refactor <code>EventDrain</code> to support buffering and async flushes.</li>
 <li>Refactor <code>EventSource</code> to improve interface.</li>
 <li>Refactor <code>EventSourceManager</code> to <code>LoopManager</code>.</li>
 <li>Refactor <code>MessageIO::send</code> to use drains instead of fds.</li>
-<li>SheduledSource to tick promise keeper.</li>
-<li>Use lifecycles to auto-add drains with data.</li>
 </ul>
 
 <h2 id="0-0-4">0.0.4</h2>
+
+<p><em>Topic</em>: Start system configuration.</p>
 
 <ul>
 <li>Create/Migrate ScheduledSources during reconfig.</li>
@@ -265,6 +304,8 @@
 
 <h2 id="0-0-3">0.0.3</h2>
 
+<p><em>Topic</em>: First client-server interaction.</p>
+
 <ul>
 <li>Client introduction.</li>
 <li>Event contexts.</li>
@@ -277,6 +318,8 @@
 </ul>
 
 <h2 id="0-0-2">0.0.2</h2>
+
+<p><em>Topic</em>: Start command line client.</p>
 
 <ul>
 <li>Command line client started.</li>
@@ -315,7 +358,17 @@
 <ul>
 <li>
 <ul>
-<li><a href="#0-1-0">0.1.0</a></li>
+<li><a href="#0-1-1">0.1.1</a>
+<ul>
+<li><a href="#new-features">New Features</a></li>
+<li><a href="#improvements">Improvements</a></li>
+</ul></li>
+<li><a href="#0-1-0">0.1.0</a>
+<ul>
+<li><a href="#new-features-1">New Features</a></li>
+<li><a href="#improvements-1">Improvements</a></li>
+<li><a href="#breaking-changes">Breaking changes</a></li>
+</ul></li>
 <li><a href="#0-0-4">0.0.4</a></li>
 <li><a href="#0-0-3">0.0.3</a></li>
 <li><a href="#0-0-2">0.0.2</a></li>

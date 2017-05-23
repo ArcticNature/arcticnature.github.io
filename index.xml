@@ -21,34 +21,73 @@
 
 
 
+&lt;h2 id=&#34;0-1-1&#34;&gt;0.1.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Topic&lt;/em&gt;: Metadata storage.&lt;/p&gt;
+
+&lt;h3 id=&#34;new-features&#34;&gt;New Features&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Abstract MetaData store interface.&lt;/li&gt;
+&lt;li&gt;Cluster metadata store and configuration.&lt;/li&gt;
+&lt;li&gt;JSON FileSystem metadata store.&lt;/li&gt;
+&lt;li&gt;Local node metadata store and configuration.&lt;/li&gt;
+&lt;li&gt;Node config lua extention hooks.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ProxyLogger&lt;/code&gt; to use as python&amp;rsquo;s &lt;code&gt;getLogger&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;improvements&#34;&gt;Improvements&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create &lt;code&gt;core.testing.hooks&lt;/code&gt; for hook test utils.&lt;/li&gt;
+&lt;li&gt;Create &lt;code&gt;core.testing.metadata&lt;/code&gt; for metadata test utils.&lt;/li&gt;
+&lt;li&gt;Create &lt;code&gt;core.testing.promise&lt;/code&gt; for test utils.&lt;/li&gt;
+&lt;li&gt;Start converting &lt;code&gt;Context::logger&lt;/code&gt; and &lt;code&gt;Logger::fallback&lt;/code&gt; to &lt;code&gt;ProxyLogger&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Start dev tools with a docker based builder.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;0-1-0&#34;&gt;0.1.0&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;Topic&lt;/em&gt;: Events refactoring.&lt;/p&gt;
 
+&lt;h3 id=&#34;new-features-1&#34;&gt;New Features&lt;/h3&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Add failure modes documentation.&lt;/li&gt;
 &lt;li&gt;Add glossary page to documentation.&lt;/li&gt;
-&lt;li&gt;All writes use flush instead of FDs.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Context&lt;/code&gt; static methods to uppercase (lowercase for instance version).&lt;/li&gt;
 &lt;li&gt;Create a &lt;code&gt;PromiseKeeper&lt;/code&gt; and add to static context.&lt;/li&gt;
-&lt;li&gt;Exceptions inherit from &lt;code&gt;std::runtime_error&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Handle global promise failures by re-thworing them in the run loop.&lt;/li&gt;
-&lt;li&gt;Implement &lt;code&gt;Buffer&lt;/code&gt;s for drains buffering system.&lt;/li&gt;
 &lt;li&gt;Introduce hooks with functors and static types.&lt;/li&gt;
 &lt;li&gt;Introduce promeses.&lt;/li&gt;
+&lt;li&gt;SheduledSource to tick promise keeper.&lt;/li&gt;
+&lt;li&gt;Use lifecycles to auto-add drains with data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;improvements-1&#34;&gt;Improvements&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Exceptions inherit from &lt;code&gt;std::runtime_error&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Make Drain and Source FD accessible to LoopManagers only.&lt;/li&gt;
-&lt;li&gt;Move FD check to new &lt;code&gt;core.utility.net&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Quick access to full reference pages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;breaking-changes&#34;&gt;Breaking changes&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All writes use flush instead of FDs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Context&lt;/code&gt; static methods to uppercase (lowercase for instance version).&lt;/li&gt;
+&lt;li&gt;Implement &lt;code&gt;Buffer&lt;/code&gt;s for drains buffering system.&lt;/li&gt;
+&lt;li&gt;Move FD check to new &lt;code&gt;core.utility.net&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Refactor &lt;code&gt;Event&lt;/code&gt; error handling with &lt;code&gt;std::exception_ptr&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Refactor &lt;code&gt;EventDrain&lt;/code&gt; to support buffering and async flushes.&lt;/li&gt;
 &lt;li&gt;Refactor &lt;code&gt;EventSource&lt;/code&gt; to improve interface.&lt;/li&gt;
 &lt;li&gt;Refactor &lt;code&gt;EventSourceManager&lt;/code&gt; to &lt;code&gt;LoopManager&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Refactor &lt;code&gt;MessageIO::send&lt;/code&gt; to use drains instead of fds.&lt;/li&gt;
-&lt;li&gt;SheduledSource to tick promise keeper.&lt;/li&gt;
-&lt;li&gt;Use lifecycles to auto-add drains with data.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;0-0-4&#34;&gt;0.0.4&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Topic&lt;/em&gt;: Start system configuration.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Create/Migrate ScheduledSources during reconfig.&lt;/li&gt;
@@ -65,6 +104,8 @@
 
 &lt;h2 id=&#34;0-0-3&#34;&gt;0.0.3&lt;/h2&gt;
 
+&lt;p&gt;&lt;em&gt;Topic&lt;/em&gt;: First client-server interaction.&lt;/p&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Client introduction.&lt;/li&gt;
 &lt;li&gt;Event contexts.&lt;/li&gt;
@@ -77,6 +118,8 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;0-0-2&#34;&gt;0.0.2&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Topic&lt;/em&gt;: Start command line client.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Command line client started.&lt;/li&gt;
@@ -135,21 +178,15 @@ point but without uet knowing how that will have to look like.&lt;/p&gt;
 improved, re-worked or re-done and what the limits/problems
 at the moment that needs to be addressed.&lt;/p&gt;
 
-&lt;h2 id=&#34;events&#34;&gt;Events&lt;/h2&gt;
+&lt;h2 id=&#34;components-tree&#34;&gt;Components tree&lt;/h2&gt;
 
-&lt;p&gt;The events need to be reworked because the following areas will soon
-hit several limits:&lt;/p&gt;
+&lt;p&gt;The component tree under the &lt;code&gt;core&lt;/code&gt; repo can do with a quick
+review and reorganisation:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Event id generation: messy format and assignment.&lt;/li&gt;
-&lt;li&gt;Promise links: need to link events to promises and
-  resolve/reject when events are handled.&lt;/li&gt;
-&lt;li&gt;Need some RPC framework to link events across multiple
-processes/nodes.&lt;/li&gt;
-&lt;li&gt;Better tracing and visibility (introduce OpenTracing).&lt;/li&gt;
+&lt;li&gt;Why both models and interfaces? Isn&amp;rsquo;t one enough?&lt;/li&gt;
+&lt;li&gt;The event tree is a bit confusing I guess.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;Replace home-grown system with libevent instead?&lt;/p&gt;
 
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 
@@ -165,6 +202,43 @@ socket should be reused.&lt;/p&gt;
 
 &lt;p&gt;The first problem can be solved with promises and making the
 verify and apply stages to become promeses.&lt;/p&gt;
+
+&lt;h2 id=&#34;context&#34;&gt;Context&lt;/h2&gt;
+
+&lt;p&gt;There are more context classes than intented and they are more
+static than they should be.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Only to contexts should exist: static and dynamic.&lt;/li&gt;
+&lt;li&gt;Contexts should have a single &lt;code&gt;Instance&lt;/code&gt; method.&lt;/li&gt;
+&lt;li&gt;All attributes and methods are per-instance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now it is possible to keep track of the context without using the static
+&lt;code&gt;Instance&lt;/code&gt; method which is essential when:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Creating a new context while configuration is processed (already done).&lt;/li&gt;
+&lt;li&gt;Guarantee that an async operation will operate on the same context
+(note that most async operations SHOULD NOT do this and be able to cope
+with changes to the global context).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;events&#34;&gt;Events&lt;/h2&gt;
+
+&lt;p&gt;The events need to be reworked because the following areas will soon
+hit several limits:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Event id generation: messy format and assignment.&lt;/li&gt;
+&lt;li&gt;Promise links: need to link events to promises and
+  resolve/reject when events are handled.&lt;/li&gt;
+&lt;li&gt;Need some RPC framework to link events across multiple
+processes/nodes.&lt;/li&gt;
+&lt;li&gt;Better tracing and visibility (introduce OpenTracing).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Replace home-grown system with libevent instead?&lt;/p&gt;
 
 &lt;h2 id=&#34;module-initialization&#34;&gt;Module Initialization&lt;/h2&gt;
 
@@ -182,6 +256,51 @@ Need to find a better way to deal with that.&lt;/p&gt;
 &lt;p&gt;Could use hooks to make init call nicer (can use labda instead of classes)
 but I still need to figure out how to &amp;ldquo;force&amp;rdquo; inclusion of the symbol
 if no header or source file are directly referenced.&lt;/p&gt;
+
+&lt;h2 id=&#34;posix-interface&#34;&gt;Posix Interface&lt;/h2&gt;
+
+&lt;p&gt;The posix interface aims at improving securty and testing.
+By not using posix calls directly but through an interface it is possible to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Test calls to the interface.&lt;/li&gt;
+&lt;li&gt;Perform error checking through exception.&lt;/li&gt;
+&lt;li&gt;Decorate calls (with logging/monitoring).&lt;/li&gt;
+&lt;li&gt;Reduce securty attack vectors by restricting function usage.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is more or less in the code but it is messy:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A properly abstract interface is needed.&lt;/li&gt;
+&lt;li&gt;Components should be grouped under &lt;code&gt;posix.core&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The active interface is located in one place and throws
+if access before setting.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;remote-process-communication&#34;&gt;Remote process communication&lt;/h2&gt;
+
+&lt;p&gt;As the system evolves and more external services are added
+a real RPC system is needed.
+Specifically the following problems need to be addressed:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Should be promise based.&lt;/li&gt;
+&lt;li&gt;Should hide client/server communication.&lt;/li&gt;
+&lt;li&gt;Transport layer needs to cope with reconnects and/or connection pooling.&lt;/li&gt;
+&lt;li&gt;Should provide ping/pong support (if transport layer does not).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Refs and ideas:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Look at &lt;code&gt;libevent&lt;/code&gt; first!&lt;/li&gt;
+&lt;li&gt;Based on connection pools that connect on request?&lt;/li&gt;
+&lt;li&gt;Like &lt;a href=&#34;https://github.com/active911/connection-pool&#34;&gt;https://github.com/active911/connection-pool&lt;/a&gt; ?&lt;/li&gt;
+&lt;li&gt;Use callbacks to write/route requests/responses?&lt;/li&gt;
+&lt;li&gt;If using &lt;code&gt;libevent&lt;/code&gt;, &lt;code&gt;Connection&lt;/code&gt;s should have a read/write function that
+is wrapped by common code currently in the loop (try-catch, logs, &amp;hellip;)&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
